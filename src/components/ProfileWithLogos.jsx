@@ -1401,8 +1401,9 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .footer-bottom {
-            flex-direction: column;
-            gap: 16px;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
           }
         }
 
