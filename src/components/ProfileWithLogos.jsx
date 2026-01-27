@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Mail, Linkedin, Palette, ArrowUpRight, MapPin, Wind, Sun, Clock, Dribbble, BookOpen } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 // Auto-scrolling Logos Carousel Component
 const LogosCarousel = ({ heading = "Trusted by these companies", logos = [] }) => {
@@ -632,10 +633,14 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
       {/* Footer */}
       <footer className="site-footer">
         <div className="footer-signature">
-          <img
+          <motion.img
             src="/images/sign2.png"
             alt="Signature"
             className="footer-signature-img"
+            initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+            whileInView={{ opacity: 0.9, y: 0, filter: 'blur(0px)', scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           />
 
         </div>
@@ -1449,18 +1454,10 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         }
 
           /* Signature Styles */
-          }
-          
-          @keyframes signReveal {
-            0% { opacity: 0; transform: translateY(20px) scale(0.95); filter: blur(5px); }
-            100% { opacity: 0.9; transform: translateY(0) scale(1); filter: blur(0px); }
-          }
-
           .footer-signature-img {
              width: 240px;
              height: auto;
              margin-bottom: 12px;
-             animation: signReveal 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           }
 
         /* Contact Section Styles */

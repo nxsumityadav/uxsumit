@@ -39,26 +39,7 @@ const defaultData = {
         ]
     },
     workProjects: [
-        {
-            id: 1,
-            slug: "k7Q9w2e4r5t",
-            title: "How I helped Bolo AI raise $8M in the Seed Round",
-            image: "https://framerusercontent.com/images/kbQs2PrfTeYETEoke9znkZrF1d4.png?width=1440&height=880",
-            readTime: "2 m",
-            wordCount: 286,
-            date: "1 MAY 2025",
-            published: true,
-            content: {
-                intro: [
-                    "As a popular saying goes, you don't realise the passing of time when you're enjoying what you do.",
-                    "I have seen the Bolo AI products grow from a vague idea to a fully functional tool."
-                ],
-                projectsTitle: "Case Studies I contributed to:",
-                projects: [
-                    { name: "Bolo AI Answers", description: "unifying data silos", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop" }
-                ]
-            }
-        },
+
         {
             id: 2,
             slug: "m8N2x9pL4vR",
