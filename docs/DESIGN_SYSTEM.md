@@ -110,3 +110,16 @@ Consistent rounding is applied to UI elements to create a friendly yet professio
 - **Signature Reveal**: Custom keyframe animation (`signReveal`) with `2s cubic-bezier(0.16, 1, 0.3, 1)`.
 - **Logos Carousel**: Continuous linear scrolling using `requestAnimationFrame`.
 
+---
+
+## 7. Mobile & Responsiveness
+
+### Breakpoints
+- **Mobile**: `max-width: 640px`
+
+### Behaviors
+- **Project Cards**: 
+  - Layout: Stacked -> Row (Title and Meta aligned horizontally).
+  - Truncation: Project titles truncate with ellipsis (...) if they exceed the available width, ensuring the read time/meta data remains visible and aligned to the right.
+- **Tabs**: Horizontally scrollable container with left alignment.
+- **Footer**: Stacked elements become row-aligned (Location | Weather) with `space-between`.
