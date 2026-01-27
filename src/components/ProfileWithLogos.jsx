@@ -419,10 +419,11 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             {workProjects.map((project) => (
-              <div
+              <motion.div
                 key={project.id}
                 className="project-card"
                 onClick={() => onNavigate('work', project.slug)}
+                whileHover={{ y: -8, scale: 1.02, zIndex: 50, transition: { duration: 0.3 } }}
               >
                 <div className="project-thumbnail">
                   <img
@@ -438,7 +439,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                     <span>{project.readTime}</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         )}
@@ -1002,7 +1003,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         }
 
         .project-card:hover {
-          transform: translateY(-4px);
+          /* transform handled by framer-motion */
         }
 
         .project-thumbnail {
