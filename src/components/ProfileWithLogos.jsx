@@ -61,16 +61,28 @@ const LogosCarousel = ({ heading = "Trusted by these companies", logos = [] }) =
 };
 
 // Main Profile Component
-export default function ProfileWithLogos({ data }) {
+export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, onNavigate }) {
   if (!data) return null;
   const { workProjects = [], experiences = [], shots = [], hobby = {}, profile = {}, trustedCompanies = {}, socialLinks = {}, currentlyPlaying = {} } = data;
   const personalPhotos = hobby?.photos || [];
   const logos = trustedCompanies?.logos || [];
 
   const [activeTab, setActiveTab] = useState('work');
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [showPhotoGallery, setShowPhotoGallery] = useState(false);
-  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [selectedProject, setSelectedProject] = useState(() => {
+    if (initialSlug) {
+      return workProjects.find(p => p.slug === initialSlug) || null;
+    }
+    return null;
+  });
+
+  useEffect(() => {
+    if (initialSlug) {
+      const project = workProjects.find(p => p.slug === initialSlug);
+      if (project) setSelectedProject(project);
+    } else {
+      setSelectedProject(null);
+    }
+  }, [initialSlug, workProjects]);
 
   const tabs = [
     { id: 'work', label: 'Case Studies' },
@@ -91,7 +103,7 @@ export default function ProfileWithLogos({ data }) {
     return (
       <div className="page-container">
         <div className="project-detail">
-          <button className="back-button" onClick={() => setSelectedProject(null)}>
+          <button className="back-button" onClick={() => onNavigate('portfolio')}>
             <ArrowUpRight style={{ transform: 'rotate(-135deg)' }} />
             BACK
           </button>
@@ -320,249 +332,7 @@ export default function ProfileWithLogos({ data }) {
     );
   }
 
-  // Photo Gallery View
-  if (showPhotoGallery) {
-    const nextPhoto = () => {
-      setCurrentPhotoIndex((prev) => (prev + 1) % personalPhotos.length);
-    };
 
-    const prevPhoto = () => {
-      setCurrentPhotoIndex((prev) => (prev - 1 + personalPhotos.length) % personalPhotos.length);
-    };
-
-    return (
-      <div className="gallery-container">
-        <div className="gallery-header">
-          <button className="back-button" onClick={() => setShowPhotoGallery(false)}>
-            <ArrowUpRight style={{ transform: 'rotate(-135deg)' }} />
-            BACK
-          </button>
-          <div className="gallery-counter">
-            {currentPhotoIndex + 1} / {personalPhotos.length}
-          </div>
-        </div>
-
-        <div className="carousel-wrapper">
-          <button className="carousel-btn prev" onClick={prevPhoto}>
-            <ArrowUpRight style={{ transform: 'rotate(-135deg)' }} />
-          </button>
-
-          <div className="carousel-main">
-            <div className="carousel-image-container">
-              <img
-                src={personalPhotos[currentPhotoIndex].image}
-                alt={personalPhotos[currentPhotoIndex].title}
-                className="carousel-image"
-              />
-            </div>
-            <p className="carousel-title">{personalPhotos[currentPhotoIndex].title}</p>
-          </div>
-
-          <button className="carousel-btn next" onClick={nextPhoto}>
-            <ArrowUpRight style={{ transform: 'rotate(45deg)' }} />
-          </button>
-        </div>
-
-        <div className="thumbnail-strip">
-          {personalPhotos.map((photo, index) => (
-            <button
-              key={photo.id}
-              className={`thumbnail ${index === currentPhotoIndex ? 'active' : ''}`}
-              onClick={() => setCurrentPhotoIndex(index)}
-            >
-              <img src={photo.image} alt={photo.title} />
-            </button>
-          ))}
-        </div>
-
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
-
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-
-          .gallery-container {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #0a0a0a;
-            min-height: 100vh;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-          }
-
-          .gallery-header {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
-
-          .back-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: none;
-            border: none;
-            color: #6b7280;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            padding: 0;
-            transition: color 0.2s ease;
-          }
-
-          .back-button:hover {
-            color: #ffffff;
-          }
-
-          .back-button svg {
-            width: 18px;
-            height: 18px;
-          }
-
-          .gallery-counter {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 14px;
-            color: #6b7280;
-          }
-
-          .carousel-wrapper {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-          }
-
-          .carousel-btn {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-          }
-
-          .carousel-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-          }
-
-          .carousel-btn svg {
-            width: 24px;
-            height: 24px;
-          }
-
-          .carousel-main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 24px;
-          }
-
-          .carousel-image-container {
-            max-width: 600px;
-            max-height: 70vh;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #1a1a1a;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-          }
-
-          .carousel-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-          }
-
-          .carousel-title {
-            font-size: 18px;
-            color: #ffffff;
-            font-weight: 500;
-          }
-
-          .thumbnail-strip {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
-            padding: 20px;
-            overflow-x: auto;
-          }
-
-          .thumbnail {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            padding: 0;
-            background: none;
-            opacity: 0.5;
-            flex-shrink: 0;
-          }
-
-          .thumbnail:hover {
-            opacity: 0.8;
-          }
-
-          .thumbnail.active {
-            border-color: #ffffff;
-            opacity: 1;
-          }
-
-          .thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-
-          @media (max-width: 768px) {
-            .carousel-wrapper {
-              gap: 16px;
-            }
-
-            .carousel-btn {
-              width: 44px;
-              height: 44px;
-            }
-
-            .carousel-btn svg {
-              width: 20px;
-              height: 20px;
-            }
-
-            .carousel-image-container {
-              max-width: 100%;
-              max-height: 50vh;
-            }
-
-            .thumbnail {
-              width: 60px;
-              height: 60px;
-            }
-          }
-        `}</style>
-      </div>
-    );
-  }
 
   return (
     <div className="page-container">
@@ -637,7 +407,11 @@ export default function ProfileWithLogos({ data }) {
         {activeTab === 'work' && (
           <div className="projects-grid">
             {workProjects.map((project) => (
-              <div key={project.id} className="project-card" onClick={() => setSelectedProject(project)}>
+              <div
+                key={project.id}
+                className="project-card"
+                onClick={() => onNavigate('work', project.slug)}
+              >
                 <div className="project-thumbnail">
                   <img
                     src={project.image}
@@ -691,30 +465,39 @@ export default function ProfileWithLogos({ data }) {
           <div className="shots-grid">
             {shots.map((shot) => {
               const isVideo = shot.image?.toLowerCase().endsWith('.mp4');
+              // Extract a short title or keyword for the tooltip/address bar
+              const shortTitle = shot.title.split(' ')[0].toLowerCase();
+
               return (
                 <div key={shot.id} className="shot-card">
-                  <div className="shot-thumbnail">
-                    {isVideo ? (
-                      <video
-                        src={shot.image}
-                        className="thumbnail-image"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                      />
-                    ) : (
-                      <img
-                        src={shot.image}
-                        alt={shot.title}
-                        className="thumbnail-image"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
+                  <div className="shot-wrapper">
+                    <div className="shot-media">
+                      {isVideo ? (
+                        <video
+                          src={shot.image}
+                          className="media-item"
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          preload="metadata"
+                        />
+                      ) : (
+                        <img
+                          src={shot.image}
+                          alt={shot.title}
+                          className="media-item"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                    </div>
+
+                    {/* Floating Tooltip (Visible on Hover) */}
+                    <div className="hover-tooltip">
+                      Motion design for {shortTitle}
+                    </div>
                   </div>
-                  <p className="shot-title">{shot.title}</p>
                 </div>
               );
             })}
@@ -760,7 +543,7 @@ export default function ProfileWithLogos({ data }) {
         </div>
 
         <div className="photo-footer">
-          <button className="see-all-link" onClick={() => setShowPhotoGallery(true)}>
+          <button className="see-all-link" onClick={onSeeAllPhotos}>
             See all
             <ArrowUpRight size={24} />
           </button>
@@ -853,7 +636,6 @@ export default function ProfileWithLogos({ data }) {
             src="/images/sign.png"
             alt="Signature"
             className="footer-signature-img"
-            style={{ width: '120px', height: 'auto', marginBottom: '8px' }}
           />
           <p className="footer-name">{profile?.name}</p>
         </div>
@@ -1107,8 +889,19 @@ export default function ProfileWithLogos({ data }) {
 
         .tabs-container {
           display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          margin: 40px 0;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          padding: 8px 4px; /* Add padding for focus rings/shadows */
+          scrollbar-width: none; /* Firefox */
+        }
+        
+        .tabs-container::-webkit-scrollbar {
+          display: none; /* Chrome, Safari */
         }
 
         .tab-chip {
@@ -1219,7 +1012,12 @@ export default function ProfileWithLogos({ data }) {
         }
 
         .shot-card {
+          position: relative;
+          border-radius: 16px;
+          overflow: hidden;
           cursor: pointer;
+          background: #0a0a0a;
+          aspect-ratio: 16/10;
           transition: transform 0.3s ease;
         }
 
@@ -1227,23 +1025,53 @@ export default function ProfileWithLogos({ data }) {
           transform: translateY(-4px);
         }
 
-        .shot-thumbnail {
+        .shot-wrapper {
+          position: relative;
           width: 100%;
-          border-radius: 12px;
-          overflow: hidden;
-          margin-bottom: 12px;
-          aspect-ratio: 16/10;
+          height: 100%;
         }
 
-        .shot-thumbnail img {
+        .shot-media {
+          width: 100%;
+          height: 100%;
+          transition: transform 0.4s ease;
+        }
+        
+        /* Optional: slight push down on hover to simulate content being below browser bar,
+           or just keep it as is if overlay is preferred. */
+        .shot-card:hover .shot-media {
+          /* transform: translateY(10px); */ 
+        }
+
+        .media-item {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          display: block;
         }
 
-        .shot-title {
-          font-size: 16px;
-          color: #ffffff;
+        /* Tooltip Styles */
+        .hover-tooltip {
+          position: absolute;
+          bottom: 16px;
+          left: 16px;
+          background: white;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-size: 12px;
+          font-weight: 500;
+          color: #1a1a1a;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          transform: translateY(20px) scale(0.95);
+          opacity: 0;
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          z-index: 20;
+          pointer-events: none;
+        }
+
+        .shot-card:hover .hover-tooltip {
+          transform: translateY(0) scale(1);
+          opacity: 1;
         }
 
         /* About Content */
@@ -1586,7 +1414,16 @@ export default function ProfileWithLogos({ data }) {
           }
 
           .tabs-container {
-            gap: 6px;
+            justify-content: flex-start;
+            padding-left: 20px;
+            padding-right: 20px; 
+            margin-left: -20px;
+            width: calc(100% + 40px);
+          }
+          
+          .tab-chip {
+            white-space: nowrap;
+            flex-shrink: 0;
           }
 
           .tab-chip {
@@ -1594,6 +1431,16 @@ export default function ProfileWithLogos({ data }) {
             font-size: 13px;
           }
         }
+
+          /* Signature Styles */
+         .footer-signature-img {
+            width: 240px;
+            height: auto;
+            margin-bottom: 12px;
+            filter: invert(1) contrast(1.2) brightness(1.2);
+            mix-blend-mode: screen;
+            opacity: 0.9;
+         }
 
         /* Contact Section Styles */
         .contact-section {

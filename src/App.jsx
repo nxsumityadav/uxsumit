@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ProfileWithLogos from './components/ProfileWithLogos';
-import AdminPanel from './components/AdminPanel';
-
-const STORAGE_KEY = 'portfolio_admin_data';
+import CapturePage from './components/CapturePage';
 
 const defaultData = {
     version: "2.2",
     profile: {
         name: "Sumit Kumar",
         title: "Product Designer",
-        bio: "Product Designer at Spreetail and building Taiyari AI. Currently at Vibe crafting digital experiences.",
+        bio: "currently designing at Spreetail and building Taiyari AI. Currently at Vibe crafting digital experiences.",
         avatar: "/images/sumit.png",
         isOnline: true,
         company: { name: "Spreetail", color: "#3b82f6", logo: "/images/Logo/spreetail.avif" },
@@ -43,6 +41,7 @@ const defaultData = {
     workProjects: [
         {
             id: 1,
+            slug: "k7Q9w2e4r5t",
             title: "How I helped Bolo AI raise $8M in the Seed Round",
             image: "https://framerusercontent.com/images/kbQs2PrfTeYETEoke9znkZrF1d4.png?width=1440&height=880",
             readTime: "2 m",
@@ -62,6 +61,7 @@ const defaultData = {
         },
         {
             id: 2,
+            slug: "m8N2x9pL4vR",
             title: "Building SaaSMetrics From Scratch in 3 Months (0 to 1)",
             image: "/images/Projects/saasmetrics-hero.png",
             readTime: "4 m",
@@ -83,6 +83,7 @@ const defaultData = {
         },
         {
             id: 3,
+            slug: "j5W3t6y8u9i",
             title: "Referral Stack: Cut Onboarding Time by 66%",
             image: "/images/Projects/referral-hero.png",
             readTime: "6 m",
@@ -104,6 +105,7 @@ const defaultData = {
         },
         {
             id: 4,
+            slug: "p1O0k9m8n7b",
             title: "Jiraaf: Increasing Daily Active Users by 18%",
             image: "/images/Projects/jiraaf-hero.png",
             readTime: "4 m",
@@ -212,25 +214,18 @@ const defaultData = {
 };
 
 const App = () => {
+    const [data, setData] = useState(defaultData);
     const [view, setView] = useState(() => {
         const path = window.location.pathname;
-        if (path === '/admin') return 'admin';
+        if (path === '/capture') return 'capture';
+        if (path.startsWith('/work/')) return 'work';
         return 'portfolio';
     });
-    const [data, setData] = useState(() => {
-        try {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (!stored) return defaultData;
-            const parsed = JSON.parse(stored);
-            // Auto-reset check: if version doesn't match, force reset to defaults
-            if (parsed.version !== defaultData.version) {
-                localStorage.removeItem(STORAGE_KEY);
-                return defaultData;
-            }
-            return parsed;
-        } catch {
-            return defaultData;
-        }
+
+    const [activeSlug, setActiveSlug] = useState(() => {
+        const path = window.location.pathname;
+        if (path.startsWith('/work/')) return path.split('/')[2];
+        return null;
     });
 
     // Live weather fetching
@@ -260,74 +255,49 @@ const App = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // Handle initial routing and back/forward buttons
     useEffect(() => {
-        const handleLocationChange = () => {
+        const handlePopState = () => {
             const path = window.location.pathname;
-            if (path === '/admin') {
-                setView('admin');
+            if (path === '/capture') {
+                setView('capture');
+                setActiveSlug(null);
+            } else if (path.startsWith('/work/')) {
+                setView('work');
+                setActiveSlug(path.split('/')[2]);
             } else {
                 setView('portfolio');
+                setActiveSlug(null);
             }
         };
-
-        window.addEventListener('popstate', handleLocationChange);
-        return () => window.removeEventListener('popstate', handleLocationChange);
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
     }, []);
 
-    // Listen for storage changes from other tabs/components
-    useEffect(() => {
-        const handleUpdate = (e) => {
-            setData(e.detail);
-        };
-        window.addEventListener('portfolioDataUpdate', handleUpdate);
-        return () => window.removeEventListener('portfolioDataUpdate', handleUpdate);
-    }, []);
+    const navigateTo = (newView, slug = null) => {
+        let path = '/';
+        if (newView === 'capture') path = '/capture';
+        if (newView === 'work' && slug) path = `/work/${slug}`;
+
+        window.history.pushState({}, '', path);
+        setView(newView);
+        setActiveSlug(slug);
+    };
 
     return (
         <div className="app-root">
-            {view === 'portfolio' ? (
-                <ProfileWithLogos data={data} />
+            {view === 'work' || view === 'portfolio' ? (
+                <ProfileWithLogos
+                    data={data}
+                    onSeeAllPhotos={() => navigateTo('capture')}
+                    initialSlug={activeSlug}
+                    onNavigate={(v, s) => navigateTo(v, s)}
+                />
             ) : (
-                <AdminPanel data={data} setData={setData} />
+                <CapturePage
+                    photos={data.hobby?.photos || []}
+                    onBack={() => navigateTo('portfolio')}
+                />
             )}
-
-            <style jsx>{`
-        .view-switcher {
-          position: fixed;
-          top: 24px;
-          right: 24px;
-          z-index: 10000;
-          display: flex;
-          background: rgba(26, 26, 26, 0.8);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 12px;
-          padding: 4px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-
-        .view-switcher button {
-          padding: 8px 16px;
-          border: none;
-          background: transparent;
-          color: #888;
-          font-size: 13px;
-          font-weight: 500;
-          border-radius: 8px;
-          transition: all 0.2s ease;
-        }
-
-        .view-switcher button.active {
-          background: #2563eb;
-          color: #ffffff;
-        }
-
-        .view-switcher button:hover:not(.active) {
-          color: #ffffff;
-          background: rgba(255, 255, 255, 0.05);
-        }
-      `}</style>
         </div>
     );
 };
