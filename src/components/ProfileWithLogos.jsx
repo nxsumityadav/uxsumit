@@ -406,7 +406,12 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
         {/* Work Tab Content */}
         {activeTab === 'work' && (
-          <div className="projects-grid">
+          <motion.div
+            className="projects-grid"
+            initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             {workProjects.map((project) => (
               <div
                 key={project.id}
@@ -429,12 +434,17 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {/* Experiences Tab Content */}
         {activeTab === 'experiences' && (
-          <div className="experiences-timeline">
+          <motion.div
+            className="experiences-timeline"
+            initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             {experiences.map((exp) => (
               <div key={exp.id} className="experience-row">
                 <div className="experience-period">
@@ -458,12 +468,17 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {/* Shots Tab Content */}
         {activeTab === 'shots' && (
-          <div className="shots-grid">
+          <motion.div
+            className="shots-grid"
+            initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             {shots.map((shot) => {
               const isVideo = shot.image?.toLowerCase().endsWith('.mp4');
               // Extract a short title or keyword for the tooltip/address bar
@@ -502,12 +517,17 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                 </div>
               );
             })}
-          </div>
+          </motion.div>
         )}
 
         {/* About Tab Content */}
         {activeTab === 'about' && (
-          <div className="about-content">
+          <motion.div
+            className="about-content"
+            initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="about-image">
               <img
                 src={profile?.avatar}
@@ -520,7 +540,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                 <p key={index} dangerouslySetInnerHTML={{ __html: para }} />
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
       </section>
 
@@ -805,7 +825,6 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           color: #9ca3af;
           margin-bottom: 40px;
           letter-spacing: 0.05em;
-          text-transform: uppercase;
         }
 
         .carousel-container {
