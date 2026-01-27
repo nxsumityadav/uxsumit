@@ -633,7 +633,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
       <footer className="site-footer">
         <div className="footer-signature">
           <img
-            src="/images/sign.png"
+            src="/images/sign2.png"
             alt="Signature"
             className="footer-signature-img"
           />
