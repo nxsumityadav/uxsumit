@@ -388,7 +388,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
       {/* Work Section */}
       <section className="work-section">
         <div className="tabs-header">
-          <div className="tabs-container" style={{ marginBottom: '40px' }}>
+          <div className="tabs-container" style={{ marginBottom: '20px' }}>
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -1373,7 +1373,11 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .logos-section {
-             margin: 48px auto 48px;
+             margin: 32px auto 24px;
+          }
+
+          .work-section {
+            margin-top: 0;
           }
           
           .logos-heading {
