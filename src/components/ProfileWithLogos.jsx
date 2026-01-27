@@ -388,7 +388,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
       {/* Work Section */}
       <section className="work-section">
         <div className="tabs-header">
-          <div className="tabs-container">
+          <div className="tabs-container" style={{ marginBottom: '40px' }}>
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -815,7 +815,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .logos-section {
           width: 100%;
           max-width: 900px;
-          margin: 80px auto 40px;
+          margin: 64px auto 64px;
           text-align: center;
           padding: 0 20px;
         }
@@ -824,7 +824,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           font-size: 20px;
           font-weight: 500;
           color: #9ca3af;
-          margin-bottom: 40px;
+          margin-bottom: 24px;
           letter-spacing: 0.05em;
         }
 
@@ -1373,15 +1373,16 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .logos-section {
-             margin: 24px auto 0px;
+             margin: 48px auto 48px;
           }
           
           .logos-heading {
-             margin-bottom: 20px;
+             margin-bottom: 16px;
           }
 
+          /* Mobile specific override for tabs container if needed, essentially resetting or scaling down */
           .tabs-container {
-             margin: 16px 0 24px;
+             margin: 0 0 32px 0 !important;
           }
 
           .experience-title {
