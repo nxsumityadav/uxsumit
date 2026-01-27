@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Mail, Linkedin, Palette, ArrowUpRight, MapPin, Wind, Sun, Clock, Dribbble, BookOpen } from 'lucide-react';
+import { Mail, Linkedin, Palette, ArrowUpRight, MapPin, Wind, Sun, Clock, Dribbble, BookOpen, Monitor, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Auto-scrolling Logos Carousel Component
@@ -62,7 +62,7 @@ const LogosCarousel = ({ heading = "Trusted by these companies", logos = [] }) =
 };
 
 // Main Profile Component
-export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, onNavigate }) {
+export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, onNavigate, theme = 'system', setTheme }) {
   if (!data) return null;
   const { workProjects = [], experiences = [], shots = [], hobby = {}, profile = {}, trustedCompanies = {}, socialLinks = {}, currentlyPlaying = {} } = data;
   const personalPhotos = hobby?.photos || [];
@@ -158,6 +158,44 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
 
+          :root {
+            --bg-color: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --text-tertiary: #6b7280;
+            --card-bg: #0a0a0a;
+            --border-color: #4b5563;
+            --chip-bg: transparent;
+            --chip-border: #4b5563;
+            --chip-active-bg: #ffffff;
+            --chip-active-text: #1a1a1a;
+            --project-note-border: #4b5563;
+            --tooltip-bg: #ffffff;
+            --tooltip-text: #1a1a1a;
+            --music-player-bg: #252525;
+            --toggle-bg: #262626;
+            --toggle-border: #404040;
+          }
+
+          [data-theme="light"] {
+            --bg-color: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --text-tertiary: #6b7280;
+            --card-bg: #f9fafb;
+            --border-color: #e5e7eb;
+            --chip-bg: #f3f4f6;
+            --chip-border: #e5e7eb;
+            --chip-active-bg: #111827;
+            --chip-active-text: #ffffff;
+            --project-note-border: #d1d5db;
+            --tooltip-bg: #111827;
+            --tooltip-text: #ffffff;
+            --music-player-bg: #f3f4f6;
+            --toggle-bg: #f3f4f6;
+            --toggle-border: #e5e7eb;
+          }
+
           * {
             margin: 0;
             padding: 0;
@@ -166,7 +204,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
           .page-container {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #1a1a1a;
+            background-color: var(--bg-color);
             min-height: 100vh;
             padding: 40px 20px 80px;
           }
@@ -182,7 +220,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             gap: 8px;
             background: none;
             border: none;
-            color: #6b7280;
+            color: var(--text-tertiary);
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
             letter-spacing: 0.05em;
@@ -193,7 +231,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .back-button:hover {
-            color: #ffffff;
+            color: var(--text-primary);
           }
 
           .back-button svg {
@@ -211,7 +249,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           .project-date {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
-            color: #6b7280;
+            color: var(--text-tertiary);
             letter-spacing: 0.05em;
           }
 
@@ -228,7 +266,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             gap: 6px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
-            color: #6b7280;
+            color: var(--text-tertiary);
           }
 
           .word-count svg,
@@ -240,7 +278,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           .project-detail-title {
             font-size: 48px;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-primary);
             line-height: 1.15;
             margin-bottom: 48px;
             letter-spacing: -0.02em;
@@ -252,7 +290,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
           .project-paragraph {
             font-size: 20px;
-            color: #9ca3af;
+            color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 24px;
           }
@@ -260,17 +298,17 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           .project-section-title {
             font-size: 18px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-primary);
             margin-top: 48px;
             margin-bottom: 24px;
           }
 
           .project-note {
-            border-left: 3px solid #4b5563;
+            border-left: 3px solid var(--border-color);
             padding-left: 20px;
             margin-bottom: 48px;
             font-size: 18px;
-            color: #9ca3af;
+            color: var(--text-secondary);
             line-height: 1.6;
           }
 
@@ -279,7 +317,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .project-note strong {
-            color: #ffffff;
+            color: var(--text-primary);
             font-weight: 600;
           }
 
@@ -290,7 +328,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           .project-item-title {
             font-size: 20px;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-primary);
             margin-bottom: 24px;
           }
 
@@ -671,6 +709,31 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             <MapPin size={18} />
             <span>{profile?.location?.toUpperCase()}</span>
           </div>
+
+          <div className="theme-toggle">
+            <button
+              className={`theme-btn ${theme === 'system' ? 'active' : ''}`}
+              onClick={() => setTheme && setTheme('system')}
+              title="System Theme"
+            >
+              <Monitor size={14} />
+            </button>
+            <button
+              className={`theme-btn ${theme === 'light' ? 'active' : ''}`}
+              onClick={() => setTheme && setTheme('light')}
+              title="Light Mode"
+            >
+              <Sun size={14} />
+            </button>
+            <button
+              className={`theme-btn ${theme === 'dark' ? 'active' : ''}`}
+              onClick={() => setTheme && setTheme('dark')}
+              title="Dark Mode"
+            >
+              <Moon size={14} />
+            </button>
+          </div>
+
           <div className="footer-weather">
             <Sun size={18} />
             <span>{profile?.weather}</span>
@@ -724,13 +787,13 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           height: 20px;
           background-color: #22c55e;
           border-radius: 50%;
-          border: 3px solid #1a1a1a;
+          border: 3px solid var(--bg-color);
         }
 
         .name {
           font-size: 24px;
           font-weight: 600;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 4px;
           letter-spacing: -0.02em;
         }
@@ -739,20 +802,20 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           font-family: 'IBM Plex Mono', monospace;
           font-size: 16px;
           font-weight: 400;
-          color: #9ca3af;
+          color: var(--text-secondary);
           margin-bottom: 24px;
         }
 
         .bio {
           font-size: 18px;
           font-weight: 400;
-          color: #9ca3af;
+          color: var(--text-secondary);
           line-height: 1.6;
           margin-bottom: 32px;
         }
 
         .bio .company {
-          color: #ffffff;
+          color: var(--text-primary);
           font-weight: 500;
         }
 
@@ -792,23 +855,24 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         }
 
         .btn-primary {
-          background-color: #ffffff;
-          color: #1a1a1a;
+          background-color: var(--text-primary);
+          color: var(--bg-color);
           border: none;
         }
 
         .btn-primary:hover {
-          background-color: #f3f4f6;
+          opacity: 0.9;
         }
 
         .btn-secondary {
           background-color: transparent;
-          color: #ffffff;
-          border: 1.5px solid #4b5563;
+          border: 1.5px solid var(--chip-border);
+          color: var(--text-primary);
+          background: var(--chip-bg);
         }
 
         .btn-secondary:hover {
-          border-color: #6b7280;
+          border-color: var(--text-tertiary);
         }
 
         /* Logos Section Styles */
@@ -823,7 +887,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .logos-heading {
           font-size: 20px;
           font-weight: 500;
-          color: #9ca3af;
+          color: var(--text-secondary);
           margin-bottom: 40px;
           letter-spacing: 0.05em;
         }
@@ -879,12 +943,12 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
         .fade-left {
           left: 0;
-          background: linear-gradient(to right, #1a1a1a, transparent);
+          background: linear-gradient(to right, var(--bg-color), transparent);
         }
 
         .fade-right {
           right: 0;
-          background: linear-gradient(to left, #1a1a1a, transparent);
+          background: linear-gradient(to left, var(--bg-color), transparent);
         }
 
         @media (max-width: 640px) {
@@ -938,25 +1002,25 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           transition: all 0.2s ease;
           font-family: inherit;
           background-color: transparent;
-          color: #6b7280;
-          border: 1.5px solid #333;
+          color: var(--text-tertiary);
+          border: 1.5px solid var(--chip-border);
         }
 
         .tab-chip:hover {
-          border-color: #4b5563;
-          color: #9ca3af;
+          border-color: var(--text-secondary);
+          color: var(--text-secondary);
         }
 
         .tab-chip.active {
-          background-color: #ffffff;
-          color: #1a1a1a;
-          border-color: #ffffff;
+          background-color: var(--chip-active-bg);
+          color: var(--chip-active-text);
+          border-color: var(--chip-active-bg);
         }
 
         .work-label {
           font-size: 14px;
           font-weight: 500;
-          color: #6b7280;
+          color: var(--text-tertiary);
           letter-spacing: 0.05em;
           margin-bottom: 16px;
         }
@@ -964,7 +1028,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .work-description {
           font-size: 28px;
           font-weight: 400;
-          color: #6b7280;
+          color: var(--text-tertiary);
           line-height: 1.4;
           margin-bottom: 48px;
         }
@@ -1007,12 +1071,12 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .project-title {
           font-size: 18px;
           font-weight: 400;
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .exp-company {
           font-size: 14px;
-          color: #6b7280;
+          color: var(--text-tertiary);
           margin-top: 4px;
         }
 
@@ -1020,7 +1084,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           display: flex;
           align-items: center;
           gap: 6px;
-          color: #6b7280;
+          color: var(--text-tertiary);
           font-size: 14px;
         }
 
@@ -1041,7 +1105,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           border-radius: 16px;
           overflow: hidden;
           cursor: pointer;
-          background: #0a0a0a;
+          background: var(--card-bg);
           aspect-ratio: 16/10;
           transition: transform 0.3s ease;
         }
@@ -1080,12 +1144,12 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           position: absolute;
           bottom: 16px;
           left: 16px;
-          background: white;
+          background: var(--tooltip-bg);
           padding: 8px 16px;
           border-radius: 8px;
           font-size: 12px;
           font-weight: 500;
-          color: #1a1a1a;
+          color: var(--tooltip-text);
           box-shadow: 0 4px 20px rgba(0,0,0,0.3);
           transform: translateY(20px) scale(0.95);
           opacity: 0;
@@ -1142,7 +1206,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
         .about-text p {
           font-size: 16px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           line-height: 1.7;
         }
 
@@ -1162,7 +1226,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .experience-period {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-tertiary);
           letter-spacing: 0.02em;
           padding-top: 4px;
         }
@@ -1176,7 +1240,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .experience-title {
           font-size: 22px;
           font-weight: 500;
-          color: #ffffff;
+          color: var(--text-primary);
           display: flex;
           align-items: center;
           flex-wrap: wrap;
@@ -1200,7 +1264,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
         .experience-description {
           font-size: 18px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           line-height: 1.6;
         }
 
@@ -1214,7 +1278,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .section-label {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-tertiary);
           letter-spacing: 0.1em;
           margin-bottom: 16px;
         }
@@ -1222,14 +1286,14 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .hobby-description {
           font-size: 28px;
           font-weight: 400;
-          color: #9ca3af;
+          color: var(--text-secondary);
           line-height: 1.4;
           margin-bottom: 48px;
         }
 
         .hobby-description em {
           font-style: italic;
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .photo-stack {
@@ -1250,6 +1314,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           background: white;
           padding: 8px;
           box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+          transform: rotate(-3deg);
           transition: transform 0.3s ease;
         }
 
@@ -1296,7 +1361,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           gap: 8px;
           font-size: 16px;
           font-family: inherit;
-          color: #9ca3af;
+          color: var(--text-secondary);
           background: none;
           border: none;
           cursor: pointer;
@@ -1305,7 +1370,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         }
 
         .see-all-link:hover {
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .see-all-icon {
@@ -1316,7 +1381,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .camera-info {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 14px;
-          color: #6b7280;
+          color: var(--text-tertiary);
         }
 
         /* Footer Styles */
@@ -1342,7 +1407,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
         .footer-name {
           font-size: 18px;
-          color: #9ca3af;
+          color: var(--text-secondary);
         }
 
         .footer-bottom {
@@ -1356,9 +1421,42 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           display: flex;
           align-items: center;
           gap: 8px;
-          color: #6b7280;
+          color: var(--text-tertiary);
           font-size: 13px;
           letter-spacing: 0.05em;
+        }
+
+        .theme-toggle {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          background: var(--toggle-bg);
+          padding: 4px;
+          border-radius: 9999px;
+          border: 1px solid var(--toggle-border);
+        }
+
+        .theme-btn {
+          background: transparent;
+          border: none;
+          color: var(--text-tertiary);
+          padding: 6px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+
+        .theme-btn:hover {
+          color: var(--text-primary);
+        }
+
+        .theme-btn.active {
+          background: var(--bg-color);
+          color: var(--text-primary);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .footer-icon {
@@ -1494,7 +1592,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           align-items: center;
           gap: 16px;
           padding: 16px 20px;
-          background-color: #252525;
+          background-color: var(--music-player-bg);
           border-radius: 12px;
           margin-bottom: 48px;
         }
@@ -1520,24 +1618,24 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .music-title {
           font-size: 16px;
           font-weight: 500;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 4px;
-        }
+
 
         .music-artist {
           font-size: 14px;
-          color: #6b7280;
+          color: var(--text-tertiary);
         }
 
         .music-link {
           font-size: 14px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           text-decoration: none;
           transition: color 0.2s ease;
         }
 
         .music-link:hover {
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .contact-links {
@@ -1569,12 +1667,12 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .contact-icon {
           width: 24px;
           height: 24px;
-          color: #6b7280;
+          color: var(--text-tertiary);
         }
 
         .contact-left span {
           font-size: 18px;
-          color: #6b7280;
+          color: var(--text-tertiary);
         }
 
         .contact-right {
@@ -1585,13 +1683,13 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
         .contact-right span {
           font-size: 18px;
-          color: #9ca3af;
+          color: var(--text-secondary);
         }
 
         .arrow-icon {
           width: 24px;
           height: 24px;
-          color: #6b7280;
+          color: var(--text-tertiary);
         }
 
         @media (max-width: 640px) {

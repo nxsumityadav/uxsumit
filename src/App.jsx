@@ -264,6 +264,33 @@ const App = () => {
         setActiveSlug(slug);
     };
 
+    const [theme, setTheme] = useState(() => {
+        const saved = localStorage.getItem('theme');
+        return saved || 'system';
+    });
+
+    useEffect(() => {
+        const root = window.document.documentElement;
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const activeTheme = theme === 'system' ? systemTheme : theme;
+
+        root.setAttribute('data-theme', activeTheme);
+        localStorage.setItem('theme', theme);
+
+        if (theme === 'system') {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const handleChange = (e) => {
+                root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            };
+            mediaQuery.addEventListener('change', handleChange);
+            return () => mediaQuery.removeEventListener('change', handleChange);
+        }
+    }, [theme]);
+
+    const handleThemeChange = (newTheme) => {
+        setTheme(newTheme);
+    };
+
     return (
         <div className="app-root">
             {view === 'work' || view === 'portfolio' ? (
@@ -272,6 +299,8 @@ const App = () => {
                     onSeeAllPhotos={() => navigateTo('capture')}
                     initialSlug={activeSlug}
                     onNavigate={(v, s) => navigateTo(v, s)}
+                    theme={theme}
+                    setTheme={handleThemeChange}
                 />
             ) : (
                 <CapturePage
