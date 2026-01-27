@@ -637,7 +637,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             alt="Signature"
             className="footer-signature-img"
           />
-          <p className="footer-name">{profile?.name}</p>
+
         </div>
 
         <div className="footer-bottom">
@@ -889,7 +889,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
         .tabs-container {
           display: flex;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: center;
           gap: 12px;
           margin: 40px 0;
@@ -1347,6 +1347,18 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             gap: 12px;
           }
 
+          .logos-section {
+             margin: 40px auto 20px;
+          }
+          
+          .logos-heading {
+             margin-bottom: 20px;
+          }
+
+          .tabs-container {
+             margin: 20px 0;
+          }
+
           .experience-title {
             font-size: 18px;
           }
@@ -1437,14 +1449,19 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         }
 
           /* Signature Styles */
-         .footer-signature-img {
-            width: 240px;
-            height: auto;
-            margin-bottom: 12px;
-            filter: invert(1) contrast(1.2) brightness(1.2);
-            mix-blend-mode: screen;
-            opacity: 0.9;
-         }
+          }
+          
+          @keyframes signReveal {
+            0% { opacity: 0; transform: translateY(20px) scale(0.95); filter: blur(5px); }
+            100% { opacity: 0.9; transform: translateY(0) scale(1); filter: blur(0px); }
+          }
+
+          .footer-signature-img {
+             width: 240px;
+             height: auto;
+             margin-bottom: 12px;
+             animation: signReveal 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          }
 
         /* Contact Section Styles */
         .contact-section {
