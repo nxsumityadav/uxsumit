@@ -144,7 +144,7 @@ const defaultData = {
         { id: "s3", title: "Inview App", image: "/images/shots/inviw.mp4", published: true },
         { id: "s4", title: "Light Beam", image: "/images/shots/light_beam.mp4", published: true },
         { id: "s5", title: "SEO Strategy", image: "/images/shots/seo.gif", published: true },
-        { id: "s6", title: "MacBook Air Concept", image: "/images/shots/MacBook Air - 4.png", published: true },
+        { id: "s6", title: "MacBook Air Concept", image: "/images/shots/macbook_air.png", published: true },
         { id: "s7", title: "Adaapt Dashboard", image: "/images/shots/adaapt.png", published: true },
         { id: "s8", title: "Digital Agency", image: "/images/shots/digencial.png", published: true },
         { id: "s9", title: "FitnessX App", image: "/images/shots/fitnessx.png", published: true },
@@ -154,7 +154,7 @@ const defaultData = {
         { id: "s13", title: "Portfolio 2024", image: "/images/shots/portfolio.png", published: true },
         { id: "s14", title: "Saas Platform", image: "/images/shots/saas-2.webp", published: true },
         { id: "s15", title: "Security App", image: "/images/shots/secure.avif", published: true },
-        { id: "s16", title: "Poster Design", image: "/images/shots/Poster.png", published: true },
+        { id: "s16", title: "Poster Design", image: "/images/shots/poster.png", published: true },
         { id: "s17", title: "Hustler X Icons", image: "/images/shots/hustler_x_icons.png", published: true },
         { id: "s18", title: "HustlerX Platform", image: "/images/shots/hustlerx.png", published: true },
         { id: "s19", title: "HustlerX Logo", image: "/images/shots/logo_hustlerx.png", published: true },
@@ -162,8 +162,8 @@ const defaultData = {
         { id: "s21", title: "Pricing Plans", image: "/images/shots/plans.png", published: true },
         { id: "s22", title: "Supreme Concept", image: "/images/shots/supreme.jpg", published: true },
         { id: "s23", title: "Trell Agency", image: "/images/shots/trell.png", published: true },
-        { id: "s24", title: "Kiyaray App", image: "/images/shots/kiyaray .webp", published: true },
-        { id: "s25", title: "Microscope View", image: "/images/shots/microscop[e.jpg", published: true }
+        { id: "s24", title: "Kiyaray App", image: "/images/shots/kiyaray.webp", published: true },
+        { id: "s25", title: "Microscope View", image: "/images/shots/microscope.jpg", published: true }
     ],
     about: {
         paragraphs: [
