@@ -1429,24 +1429,27 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .theme-toggle {
           display: flex;
           align-items: center;
-          gap: 4px;
+          gap: 2px;
           background: var(--toggle-bg);
-          padding: 4px;
+          padding: 3px;
           border-radius: 9999px;
           border: 1px solid var(--toggle-border);
+          position: relative;
         }
 
         .theme-btn {
           background: transparent;
           border: none;
           color: var(--text-tertiary);
-          padding: 6px;
-          border-radius: 50%;
+          padding: 8px 12px;
+          border-radius: 9999px;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: all 0.2s ease;
+          position: relative;
+          z-index: 2;
         }
 
         .theme-btn:hover {
@@ -1456,7 +1459,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .theme-btn.active {
           background: var(--bg-color);
           color: var(--text-primary);
-          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
 
         .footer-icon {
@@ -1530,15 +1533,24 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             font-size: 20px;
           }
 
-          .project-title {
-            font-size: 16px;
-          }
-
           .project-info {
             flex-direction: row;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
+          }
+          
+          .project-title {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 65%;
+          }
+          
+          .project-meta {
+            flex-shrink: 0;
+            white-space: nowrap;
           }
 
           .shots-grid {
