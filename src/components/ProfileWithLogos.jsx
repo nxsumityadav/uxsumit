@@ -815,7 +815,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .logos-section {
           width: 100%;
           max-width: 900px;
-          margin: 64px auto 64px;
+          margin: 64px auto 32px;
           text-align: center;
           padding: 0 20px;
         }
@@ -905,7 +905,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .work-section {
           width: 100%;
           max-width: 900px;
-          margin-top: 100px;
+          margin-top: 0;
         }
 
         .tabs-header {
