@@ -1,0 +1,273 @@
+import React, { useState, useEffect } from 'react';
+import ProfileWithLogos from './components/ProfileWithLogos';
+import AdminPanel from './components/AdminPanel';
+
+const STORAGE_KEY = 'portfolio_admin_data';
+
+const defaultData = {
+    version: "1.3",
+    profile: {
+        name: "Sumit Kumar",
+        title: "Product Designer",
+        bio: "Product Designer at Spreetail and building Taiyari AI. Currently at Vibe crafting digital experiences.",
+        avatar: "/images/sumit.png",
+        isOnline: true,
+        company: { name: "Spreetail", color: "#3b82f6", logo: "/images/Logo/spreetail.avif" },
+        location: "Bangalore, India",
+        weather: "34°C"
+    },
+    socialLinks: {
+        email: "wrk.sumit@gmail.com",
+        linkedin: "/in/nxsumityadav",
+        behance: "sumitkumar196",
+        dribbble: "nxsumityadav",
+        medium: "@nxsumityadav",
+        resume: "https://drive.google.com/file/d/1VJH37IC6r5k3ZDZ7C2qbw-Ck4HdWb1WF/view?usp=sharing",
+        cal: "https://cal.com/nxsumityadav/15?overlayCalendar=true"
+    },
+    trustedCompanies: {
+        heading: "Helping these brands grow 🤝",
+        logos: [
+            { id: "logo-1", name: "Adaapt", image: "/images/Logo/adaapt.avif" },
+            { id: "logo-2", name: "Beckn", image: "/images/Logo/beckn-athon.avif" },
+            { id: "logo-3", name: "Google", image: "/images/Logo/google.avif" },
+            { id: "logo-4", name: "Kolo", image: "/images/Logo/koloapp.avif" },
+            { id: "logo-5", name: "Microsoft", image: "/images/Logo/microsoft.png" },
+            { id: "logo-6", name: "NUS", image: "/images/Logo/nus.png" },
+            { id: "logo-7", name: "Outbox", image: "/images/Logo/outbox.avif" },
+            { id: "logo-8", name: "Reachinbox", image: "/images/Logo/reachinbox.avif" },
+            { id: "logo-9", name: "Spreetail", image: "/images/Logo/spreetail.avif" },
+            { id: "logo-10", name: "Instead", image: "/images/Logo/instead.jpeg" }
+        ]
+    },
+    workProjects: [
+        {
+            id: 1,
+            title: "How I helped Bolo AI raise $8M in the Seed Round",
+            image: "https://framerusercontent.com/images/kbQs2PrfTeYETEoke9znkZrF1d4.png?width=1440&height=880",
+            readTime: "2 m",
+            wordCount: 286,
+            date: "1 MAY 2025",
+            published: true,
+            content: {
+                intro: [
+                    "As a popular saying goes, you don't realise the passing of time when you're enjoying what you do.",
+                    "I have seen the Bolo AI products grow from a vague idea to a fully functional tool."
+                ],
+                projectsTitle: "Case Studies I contributed to:",
+                projects: [
+                    { name: "Bolo AI Answers", description: "unifying data silos", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop" }
+                ]
+            }
+        }
+    ],
+    experiences: [
+        {
+            id: 1,
+            company: "Spreetail",
+            companyColor: "#3b82f6",
+            logo: "/images/Logo/spreetail.avif",
+            role: "Product Designer",
+            period: "OCT 2024 — PRESENT",
+            description: "Led design initiatives for multi-channel commerce platforms.",
+            published: true
+        },
+        {
+            id: 2,
+            company: "Adaapt",
+            companyColor: "#10b981",
+            logo: "/images/Logo/adaapt.avif",
+            role: "Product designer",
+            period: "JUN 2023 — OCT 2024",
+            description: "Designed end-to-end product experiences for internal tools.",
+            published: true
+        },
+        {
+            id: 3,
+            company: "Koloapp",
+            companyColor: "#f59e0b",
+            logo: "/images/Logo/koloapp.avif",
+            role: "Product Designer Intern",
+            period: "JAN 2022 — APR 2022",
+            description: "Assisted in UI/UX research and design for mobile platforms.",
+            published: true
+        }
+    ],
+    shots: [
+        { id: "s1", title: "Charts Design", image: "/images/shots/charts.mp4", published: true },
+        { id: "s2", title: "Mountain App", image: "/images/shots/mountain.mp4", published: true },
+        { id: "s3", title: "Inview App", image: "/images/shots/inviw.mp4", published: true },
+        { id: "s4", title: "Light Beam", image: "/images/shots/light_beam.mp4", published: true },
+        { id: "s5", title: "SEO Strategy", image: "/images/shots/seo.gif", published: true },
+        { id: "s6", title: "MacBook Air Concept", image: "/images/shots/MacBook Air - 4.png", published: true },
+        { id: "s7", title: "Adaapt Dashboard", image: "/images/shots/adaapt.png", published: true },
+        { id: "s8", title: "Digital Agency", image: "/images/shots/digencial.png", published: true },
+        { id: "s9", title: "FitnessX App", image: "/images/shots/fitnessx.png", published: true },
+        { id: "s10", title: "Ghumantu Travel", image: "/images/shots/ghumantu.png", published: true },
+        { id: "s11", title: "Growzilla Brand", image: "/images/shots/growzilla.png", published: true },
+        { id: "s12", title: "Nike Concept", image: "/images/shots/nike.png", published: true },
+        { id: "s13", title: "Portfolio 2024", image: "/images/shots/portfolio.png", published: true },
+        { id: "s14", title: "Saas Platform", image: "/images/shots/saas-2.webp", published: true },
+        { id: "s15", title: "Security App", image: "/images/shots/secure.avif", published: true },
+        { id: "s16", title: "Poster Design", image: "/images/shots/Poster.png", published: true },
+        { id: "s17", title: "Hustler X Icons", image: "/images/shots/hustler_x_icons.png", published: true },
+        { id: "s18", title: "HustlerX Platform", image: "/images/shots/hustlerx.png", published: true },
+        { id: "s19", title: "HustlerX Logo", image: "/images/shots/logo_hustlerx.png", published: true },
+        { id: "s20", title: "Ludo Game Design", image: "/images/shots/ludo.png", published: true },
+        { id: "s21", title: "Pricing Plans", image: "/images/shots/plans.png", published: true },
+        { id: "s22", title: "Supreme Concept", image: "/images/shots/supreme.jpg", published: true },
+        { id: "s23", title: "Trell Agency", image: "/images/shots/trell.png", published: true },
+        { id: "s24", title: "Kiyaray App", image: "/images/shots/kiyaray .webp", published: true },
+        { id: "s25", title: "Microscope View", image: "/images/shots/microscop[e.jpg", published: true }
+    ],
+    about: {
+        paragraphs: [
+            "Hey, I’m Sumit a Product designer obsessed with crafting digital experiences that actually matter. My journey kicked off in the world of visual art, but I quickly got hooked on building products that solve real problems.",
+            "Right now, you’ll find me at Vibe, blending code and design to help businesses build products their users love. I’ve done everything from designing end-to-end products to taking my own ideas through the YC application grind.",
+            "When I’m not deep in design, I’m experimenting with my own B2B SaaS projects (some live, some resting in my ever-growing side project graveyard 🥀). Always building, always learning.",
+            "Check out my latest project: <a href='https://taiyaryai.com' target='_blank' rel='noopener noreferrer' style='color: #ffffff; text-decoration: underline;'>Taiyari AI</a>"
+        ]
+    },
+    hobby: {
+        label: "WHEN I AM NOT WORKING",
+        description: "I love taking photos, playing cricket and badminton, binging Modern Family, and generously feeding the algorithm my data for \"better\" ads.",
+        photos: [
+            { id: "h1", image: "/images/Capture/cyber.jpg", rotation: -6, title: "Cyber" },
+            { id: "h2", image: "/images/Capture/delhi_bus_stop.jpg", rotation: 4, title: "Delhi Bus Stop" },
+            { id: "h3", image: "/images/Capture/delhi_metro.jpg", rotation: -3, title: "Delhi Metro" },
+            { id: "h4", image: "/images/Capture/india_gate.jpg", rotation: 5, title: "India Gate" },
+            { id: "h5", image: "/images/Capture/night.jpg", rotation: -2, title: "Night Walk" },
+            { id: "h6", image: "/images/Capture/nitj.jpg", rotation: 3, title: "NITJ Days" }
+        ],
+        cameraInfo: "Shot with my Pixel 6a"
+    },
+    currentlyPlaying: {
+        title: "Clown on the 22nd Dance Floor",
+        artist: "Peter Cat Recording Co.",
+        artwork: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=200&fit=crop",
+        link: "https://music.youtube.com/playlist?list=RDCLAK5uy_lbXtmLX1HAR8xjLUzI0NPfwMbj2qqMXKY&playnext=1&si=kYv_qLlaPBPTlzIT"
+    }
+};
+
+const App = () => {
+    const [view, setView] = useState(() => {
+        const path = window.location.pathname;
+        if (path === '/admin') return 'admin';
+        return 'portfolio';
+    });
+    const [data, setData] = useState(() => {
+        try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (!stored) return defaultData;
+            const parsed = JSON.parse(stored);
+            // Auto-reset check: if version doesn't match, force reset to defaults
+            if (parsed.version !== defaultData.version) {
+                localStorage.removeItem(STORAGE_KEY);
+                return defaultData;
+            }
+            return parsed;
+        } catch {
+            return defaultData;
+        }
+    });
+
+    // Live weather fetching
+    useEffect(() => {
+        const fetchWeather = async () => {
+            try {
+                // Bangalore coordinates: 12.9716, 77.5946
+                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=12.9716&longitude=77.5946&current_weather=true');
+                const weatherData = await res.json();
+                if (weatherData?.current_weather?.temperature !== undefined) {
+                    const temp = Math.round(weatherData.current_weather.temperature);
+                    setData(prev => ({
+                        ...prev,
+                        profile: {
+                            ...prev.profile,
+                            weather: `${temp}°C`
+                        }
+                    }));
+                }
+            } catch (err) {
+                console.error("Failed to fetch weather:", err);
+            }
+        };
+
+        fetchWeather();
+        const interval = setInterval(fetchWeather, 15 * 60 * 1000);
+        return () => clearInterval(interval);
+    }, []);
+
+    // Handle initial routing and back/forward buttons
+    useEffect(() => {
+        const handleLocationChange = () => {
+            const path = window.location.pathname;
+            if (path === '/admin') {
+                setView('admin');
+            } else {
+                setView('portfolio');
+            }
+        };
+
+        window.addEventListener('popstate', handleLocationChange);
+        return () => window.removeEventListener('popstate', handleLocationChange);
+    }, []);
+
+    // Listen for storage changes from other tabs/components
+    useEffect(() => {
+        const handleUpdate = (e) => {
+            setData(e.detail);
+        };
+        window.addEventListener('portfolioDataUpdate', handleUpdate);
+        return () => window.removeEventListener('portfolioDataUpdate', handleUpdate);
+    }, []);
+
+    return (
+        <div className="app-root">
+            {view === 'portfolio' ? (
+                <ProfileWithLogos data={data} />
+            ) : (
+                <AdminPanel data={data} setData={setData} />
+            )}
+
+            <style jsx>{`
+        .view-switcher {
+          position: fixed;
+          top: 24px;
+          right: 24px;
+          z-index: 10000;
+          display: flex;
+          background: rgba(26, 26, 26, 0.8);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 4px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .view-switcher button {
+          padding: 8px 16px;
+          border: none;
+          background: transparent;
+          color: #888;
+          font-size: 13px;
+          font-weight: 500;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+        }
+
+        .view-switcher button.active {
+          background: #2563eb;
+          color: #ffffff;
+        }
+
+        .view-switcher button:hover:not(.active) {
+          color: #ffffff;
+          background: rgba(255, 255, 255, 0.05);
+        }
+      `}</style>
+        </div>
+    );
+};
+
+export default App;
