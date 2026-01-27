@@ -961,6 +961,8 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           background-color: transparent;
           color: #6b7280;
           border: 1.5px solid #333;
+          white-space: nowrap;
+          flex-shrink: 0;
         }
 
         .tab-chip:hover {
@@ -1405,9 +1407,19 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
              margin-bottom: 16px;
           }
 
-          /* Mobile specific override for tabs container if needed, essentially resetting or scaling down */
+          /* Mobile specific override for tabs container */
           .tabs-container {
-             margin: 0 0 32px 0 !important;
+             margin: 0 0 24px 0 !important;
+             justify-content: flex-start;
+             overflow-x: auto;
+             flex-wrap: nowrap;
+             padding-left: 0;
+             padding-right: 20px; /* Right padding for scroll bounce */
+             scrollbar-width: none; /* Firefox */
+             -ms-overflow-style: none; /* IE/Edge */
+          }
+          .tabs-container::-webkit-scrollbar {
+             display: none;
           }
 
           .experience-title {
