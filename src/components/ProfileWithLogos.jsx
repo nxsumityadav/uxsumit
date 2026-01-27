@@ -28,7 +28,7 @@ const LogosCarousel = ({ heading = "Trusted by these companies", logos = [] }) =
     animationId = requestAnimationFrame(scroll);
 
     return () => cancelAnimationFrame(animationId);
-  }, [isHovered]);
+  }, [isHovered, logos]);
 
   // Duplicate logos for seamless loop
   const duplicatedLogos = [...logos, ...logos];
@@ -67,14 +67,14 @@ export default function ProfileWithLogos({ data }) {
   const personalPhotos = hobby?.photos || [];
   const logos = trustedCompanies?.logos || [];
 
-  const [activeTab, setActiveTab] = useState('shots');
+  const [activeTab, setActiveTab] = useState('work');
   const [selectedProject, setSelectedProject] = useState(null);
   const [showPhotoGallery, setShowPhotoGallery] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
   const tabs = [
-    { id: 'shots', label: 'Shots' },
     { id: 'work', label: 'Case Studies' },
+    { id: 'shots', label: 'Shots' },
     { id: 'experiences', label: 'Experiences' },
     { id: 'about', label: 'About' }
   ];
@@ -813,7 +813,7 @@ export default function ProfileWithLogos({ data }) {
 
           <a href={`https://behance.net/${socialLinks?.behance?.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="contact-row">
             <div className="contact-left">
-              <Palette className="contact-icon" strokeWidth={1.5} />
+              <i className="fa-brands fa-behance contact-icon" style={{ fontSize: '20px', width: '24px', textAlign: 'center' }}></i>
               <span>Behance</span>
             </div>
             <div className="contact-right">
@@ -835,7 +835,7 @@ export default function ProfileWithLogos({ data }) {
 
           <a href={`https://medium.com/${socialLinks?.medium}`} target="_blank" rel="noopener noreferrer" className="contact-row">
             <div className="contact-left">
-              <BookOpen className="contact-icon" strokeWidth={1.5} />
+              <i className="fa-brands fa-medium contact-icon" style={{ fontSize: '20px', width: '24px', textAlign: 'center' }}></i>
               <span>Medium</span>
             </div>
             <div className="contact-right">
@@ -849,16 +849,12 @@ export default function ProfileWithLogos({ data }) {
       {/* Footer */}
       <footer className="site-footer">
         <div className="footer-signature">
-          <svg className="signature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M60 100 Q50 60, 70 30 Q85 10, 90 40 L90 90 M90 50 Q100 30, 120 35 Q140 40, 130 60 Q120 80, 140 70 Q155 62, 165 70 Q175 78, 185 70"
-              stroke="white"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-            />
-          </svg>
+          <img
+            src="/images/sign.png"
+            alt="Signature"
+            className="footer-signature-img"
+            style={{ width: '120px', height: 'auto', marginBottom: '8px' }}
+          />
           <p className="footer-name">{profile?.name}</p>
         </div>
 
@@ -1011,16 +1007,18 @@ export default function ProfileWithLogos({ data }) {
         .logos-section {
           width: 100%;
           max-width: 900px;
-          margin-top: 80px;
+          margin: 80px auto 40px;
           text-align: center;
+          padding: 0 20px;
         }
 
         .logos-heading {
-          font-size: 28px;
-          font-weight: 600;
-          color: #ffffff;
+          font-size: 20px;
+          font-weight: 500;
+          color: #9ca3af;
           margin-bottom: 40px;
-          letter-spacing: -0.02em;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
         }
 
         .carousel-container {
@@ -1050,15 +1048,16 @@ export default function ProfileWithLogos({ data }) {
         }
 
         .logo-image {
-          height: 28px;
+          height: 40px;
           width: auto;
-          opacity: 0.7;
-          filter: brightness(0) invert(1);
-          transition: opacity 0.3s ease;
+          border-radius: 4px;
+          opacity: 1;
+          filter: none;
+          transition: transform 0.3s ease;
         }
 
         .logo-image:hover {
-          opacity: 1;
+          transform: scale(1.1);
         }
 
         .fade-left,

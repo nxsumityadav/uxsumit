@@ -5,7 +5,7 @@ import AdminPanel from './components/AdminPanel';
 const STORAGE_KEY = 'portfolio_admin_data';
 
 const defaultData = {
-    version: "1.3",
+    version: "2.2",
     profile: {
         name: "Sumit Kumar",
         title: "Product Designer",
@@ -57,6 +57,68 @@ const defaultData = {
                 projectsTitle: "Case Studies I contributed to:",
                 projects: [
                     { name: "Bolo AI Answers", description: "unifying data silos", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop" }
+                ]
+            }
+        },
+        {
+            id: 2,
+            title: "Building SaaSMetrics From Scratch in 3 Months (0 to 1)",
+            image: "/images/Projects/saasmetrics-hero.png",
+            readTime: "4 m",
+            wordCount: 450,
+            date: "1 JAN 2025",
+            published: true,
+            content: {
+                intro: [
+                    "As the product designer at SaaSMetrics, I led the design of a revolutionary SaaS analytics platform from concept to MVP launch.",
+                    "This case study details our journey of transforming complex financial data into actionable insights through intuitive design."
+                ],
+                projectsTitle: "Case Studies I contributed to:",
+                projects: [
+                    { name: "SaaSMetrics Dashboard", description: "unifying data silos", image: "/images/Projects/saasmetrics-1.png" },
+                    { name: "Financial Insights", description: "intuitive data visualization", image: "/images/Projects/saasmetrics-2.png" },
+                    { name: "Customer Analytics", description: "tracking growth metrics", image: "/images/Projects/saasmetrics-3.png" }
+                ]
+            }
+        },
+        {
+            id: 3,
+            title: "Referral Stack: Cut Onboarding Time by 66%",
+            image: "/images/Projects/referral-hero.png",
+            readTime: "6 m",
+            wordCount: 850,
+            date: "1 JAN 2025",
+            published: true,
+            content: {
+                intro: [
+                    "Referral Stack is a SaaS platform helping startups and creators manage affiliate programs effortlessly.",
+                    "We designed and shipped the product in one month, reducing onboarding time from 30 minutes to under 10."
+                ],
+                projectsTitle: "Key Features & Results:",
+                projects: [
+                    { name: "Instant Onboarding", description: "setup in <10 mins", image: "/images/Projects/referral-hero.png" },
+                    { name: "Automated Payouts", description: "paypal & stripe", image: "/images/Projects/referral-hero.png" },
+                    { name: "Real-time Analytics", description: "fraud detection", image: "/images/Projects/referral-hero.png" }
+                ]
+            }
+        },
+        {
+            id: 4,
+            title: "Jiraaf: Increasing Daily Active Users by 18%",
+            image: "/images/Projects/jiraaf-hero.png",
+            readTime: "4 m",
+            wordCount: 600,
+            date: "1 JAN 2023",
+            published: true,
+            content: {
+                intro: [
+                    "Digitizing the cafeteria experience for Kamal Bhai’s Kitchen to reduce wait times and boost engagement.",
+                    "We achieved an 18% increase in DAU and a 50% reduction in queue wait times."
+                ],
+                projectsTitle: "Impact Highlights:",
+                projects: [
+                    { name: "Queue Management", description: "50% faster checkout", image: "/images/Projects/jiraaf-hero.png" },
+                    { name: "Gamification", description: "boosted engagement", image: "/images/Projects/jiraaf-hero.png" }
                 ]
             }
         }
@@ -142,10 +204,10 @@ const defaultData = {
         cameraInfo: "Shot with my Pixel 6a"
     },
     currentlyPlaying: {
-        title: "Clown on the 22nd Dance Floor",
-        artist: "Peter Cat Recording Co.",
-        artwork: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=200&fit=crop",
-        link: "https://music.youtube.com/playlist?list=RDCLAK5uy_lbXtmLX1HAR8xjLUzI0NPfwMbj2qqMXKY&playnext=1&si=kYv_qLlaPBPTlzIT"
+        title: "90s Night: Hindi",
+        artist: "Melodious songs from 90s to soothe your heart and soul",
+        artwork: "https://lh3.googleusercontent.com/tTY3keD6v1y_IThrZ369FkHilmEPDZE1tS6175yO1rhDkruQ5muwvAPlCafkkjarCo_T-DM1aSq1LA=w544-h544-l90-rj",
+        link: "https://music.youtube.com/playlist?list=RDCLAK5uy_lbXtmLX1HAR8xjLUzI0NPfwMbj2qqMXKY&playnext=1&si=XqBlpOn5jXYAgEpR"
     }
 };
 

@@ -176,8 +176,8 @@ This portfolio system consists of two main parts:
 #### 3. Tab Navigation
 ```jsx
 <TabNavigation>
+  <Tab id="work" />        /* Case Studies - Now First */
   <Tab id="shots" />       /* Design shots & video grid */
-  <Tab id="work" />        /* Case Studies */
   <Tab id="experiences" /> /* Timeline experiences */
   <Tab id="about" />       /* About section */
 </TabNavigation>
