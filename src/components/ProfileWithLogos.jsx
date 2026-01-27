@@ -1353,7 +1353,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .logos-section {
-             margin: 40px auto 20px;
+             margin: 24px auto 0px;
           }
           
           .logos-heading {
@@ -1361,7 +1361,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .tabs-container {
-             margin: 20px 0;
+             margin: 16px 0 24px;
           }
 
           .experience-title {
