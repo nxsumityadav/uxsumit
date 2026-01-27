@@ -1375,6 +1375,10 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             margin-right: -60px;
           }
 
+          .stacked-photo:nth-child(n+4) {
+            display: none;
+          }
+
           .camera-info {
             font-size: 12px;
           }
