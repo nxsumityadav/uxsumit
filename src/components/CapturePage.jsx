@@ -23,9 +23,10 @@ const CapturePage = ({ photos, onBack }) => {
         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
         {photos.map((photo, index) => (
-          <div
+          <motion.div
             key={photo.id}
             className={`bento-item ${index % 5 === 0 ? 'large' : index % 3 === 0 ? 'tall' : 'standard'}`}
+            whileHover={{ y: -8, scale: 1.02, zIndex: 50, transition: { duration: 0.3 } }}
           >
             <div className="photo-wrapper">
               <img src={photo.image} alt={photo.title} loading="lazy" />
@@ -33,7 +34,7 @@ const CapturePage = ({ photos, onBack }) => {
                 <span className="photo-label">{photo.title}</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </motion.div>
 
