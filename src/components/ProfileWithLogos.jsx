@@ -103,7 +103,12 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
   if (selectedProject) {
     return (
       <div className="page-container">
-        <div className="project-detail">
+        <motion.div
+          className="project-detail"
+          initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+        >
           <button className="back-button" onClick={() => onNavigate('portfolio')}>
             <ArrowUpRight style={{ transform: 'rotate(-135deg)' }} />
             BACK
@@ -153,7 +158,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
               </>
             )}
           </div>
-        </div>
+        </motion.div>
 
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
@@ -552,25 +557,32 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           {hobby?.description}
         </p>
 
-        <div className="photo-stack">
-          {personalPhotos.map((photo) => (
-            <div
-              key={photo.id}
-              className="stacked-photo"
-              style={{ transform: `rotate(${photo.rotation}deg)` }}
-            >
-              <img src={photo.image} alt="Personal photo" />
-            </div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="photo-stack">
+            {personalPhotos.map((photo) => (
+              <div
+                key={photo.id}
+                className="stacked-photo"
+                style={{ transform: `rotate(${photo.rotation}deg)` }}
+              >
+                <img src={photo.image} alt="Personal photo" />
+              </div>
+            ))}
+          </div>
 
-        <div className="photo-footer">
-          <button className="see-all-link" onClick={onSeeAllPhotos}>
-            See all
-            <ArrowUpRight size={24} />
-          </button>
-          <p className="camera-info">{hobby?.cameraInfo}</p>
-        </div>
+          <div className="photo-footer">
+            <button className="see-all-link" onClick={onSeeAllPhotos}>
+              See all
+              <ArrowUpRight size={24} />
+            </button>
+            <p className="camera-info">{hobby?.cameraInfo}</p>
+          </div>
+        </motion.div>
       </section>
 
       {/* Music Player & Contact Section */}
@@ -593,7 +605,13 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         </div>
 
         {/* Contact Links */}
-        <div className="contact-links">
+        <motion.div
+          className="contact-links"
+          initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+        >
           <a href={`mailto:${socialLinks?.email}`} className="contact-row">
             <div className="contact-left">
               <Mail className="contact-icon" strokeWidth={1.5} />
@@ -648,7 +666,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
               <ArrowUpRight className="arrow-icon" strokeWidth={2} />
             </div>
           </a>
-        </div>
+        </motion.div>
       </section>
 
       {/* Footer */}

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { MousePointer2, ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const CapturePage = ({ photos, onBack }) => {
   useEffect(() => {
@@ -15,7 +16,12 @@ const CapturePage = ({ photos, onBack }) => {
         </button>
       </div>
 
-      <div className="bento-grid">
+      <motion.div
+        className="bento-grid"
+        initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+      >
         {photos.map((photo, index) => (
           <div
             key={photo.id}
@@ -29,7 +35,7 @@ const CapturePage = ({ photos, onBack }) => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       <style>{`
         .capture-container {
