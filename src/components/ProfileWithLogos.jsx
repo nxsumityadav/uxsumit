@@ -569,7 +569,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                 key={photo.id}
                 className="stacked-photo"
                 initial={{ rotate: photo.rotation }}
-                whileHover={{ rotate: 0, scale: 1.05, zIndex: 10 }}
+                whileHover={{ rotate: 0, scale: 1.1, zIndex: 100 }}
                 transition={{ duration: 0.4, ease: "backOut" }}
               >
                 <img src={photo.image} alt="Personal photo" />
