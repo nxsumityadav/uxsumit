@@ -315,8 +315,9 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             }
 
             .project-header {
-              flex-direction: column;
-              align-items: flex-start;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
               gap: 12px;
             }
 
@@ -1436,9 +1437,10 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .project-info {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
           }
 
           .shots-grid {
