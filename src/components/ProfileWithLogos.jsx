@@ -517,7 +517,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
 
                     {/* Floating Tooltip (Visible on Hover) */}
                     <div className="hover-tooltip">
-                      Motion design for {shortTitle}
+                      {isVideo ? `Motion design for ${shot.title}` : shot.title}
                     </div>
                   </div>
                 </div>
@@ -565,13 +565,15 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         >
           <div className="photo-stack">
             {personalPhotos.map((photo) => (
-              <div
+              <motion.div
                 key={photo.id}
                 className="stacked-photo"
-                style={{ transform: `rotate(${photo.rotation}deg)` }}
+                initial={{ rotate: photo.rotation }}
+                whileHover={{ rotate: 0, scale: 1.05, zIndex: 10 }}
+                transition={{ duration: 0.4, ease: "backOut" }}
               >
                 <img src={photo.image} alt="Personal photo" />
-              </div>
+              </motion.div>
             ))}
           </div>
 
