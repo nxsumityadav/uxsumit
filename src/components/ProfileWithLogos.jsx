@@ -1408,15 +1408,13 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           /* Mobile specific override for tabs container */
-          /* Mobile specific override for tabs container */
           .tabs-container {
-             margin: 0 0 24px -20px !important;
-             width: calc(100% + 40px) !important;
+             margin: 0 0 24px 0 !important;
              justify-content: flex-start;
              overflow-x: auto;
              flex-wrap: nowrap;
-             padding-left: 20px !important;
-             padding-right: 20px !important;
+             padding-left: 0;
+             padding-right: 20px; /* Right padding for scroll bounce */
              scrollbar-width: none; /* Firefox */
              -ms-overflow-style: none; /* IE/Edge */
           }
