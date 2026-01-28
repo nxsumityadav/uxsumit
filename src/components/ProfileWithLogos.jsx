@@ -1413,10 +1413,10 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
              justify-content: flex-start;
              overflow-x: auto;
              flex-wrap: nowrap;
-             padding-left: 0;
-             padding-right: 20px; /* Right padding for scroll bounce */
+             padding: 0;
              scrollbar-width: none; /* Firefox */
              -ms-overflow-style: none; /* IE/Edge */
+             width: 100%;
           }
           .tabs-container::-webkit-scrollbar {
              display: none;
@@ -1508,14 +1508,6 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           .about-photo {
             width: 100%;
             height: auto;
-          }
-
-          .tabs-container {
-            justify-content: flex-start;
-            padding-left: 20px;
-            padding-right: 20px; 
-            margin-left: -20px;
-            width: calc(100% + 40px);
           }
           
           .tab-chip {
