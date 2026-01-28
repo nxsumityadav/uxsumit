@@ -33,30 +33,113 @@ const ProjectDetail = ({ project, onBack }) => {
         <h1 className="project-detail-title">{project.title}</h1>
 
         <div className="project-content">
-          {project.content?.intro?.map((paragraph, index) => (
-            <p key={index} className="project-paragraph">{paragraph}</p>
-          ))}
+          {/* New Rich Content Rendering */}
+          {project.content?.sections ? (
+            <div className="rich-content">
+              {project.content.sections.map((section, index) => {
+                switch (section.type) {
+                  case 'heading':
+                    return (
+                      <h3 key={index} className="section-heading">
+                        {section.content}
+                      </h3>
+                    );
 
-          {project.content?.projectsTitle && (
-            <h2 className="project-section-title">{project.content.projectsTitle}</h2>
-          )}
+                  case 'subheading':
+                    return (
+                      <h4 key={index} className="section-subheading">
+                        {section.content}
+                      </h4>
+                    );
 
-          {project.content?.projects?.length > 0 && (
+                  case 'text':
+                    return (
+                      <div key={index} className="section-text">
+                        {Array.isArray(section.content) ? (
+                          section.content.map((p, pIndex) => (
+                            <p key={pIndex} className="project-paragraph">{p}</p>
+                          ))
+                        ) : (
+                          <p className="project-paragraph">{section.content}</p>
+                        )}
+                      </div>
+                    );
+
+                  case 'list':
+                    return (
+                      <ul key={index} className="section-list">
+                        {section.items.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    );
+
+                  case 'table':
+                    return (
+                      <div key={index} className="table-container">
+                        <table className="section-table">
+                          <thead>
+                            <tr>
+                              {section.headers.map((header, hIndex) => (
+                                <th key={hIndex}>{header}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {section.rows.map((row, rIndex) => (
+                              <tr key={rIndex}>
+                                {row.map((cell, cIndex) => (
+                                  <td key={cIndex}>{cell}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+
+                  case 'image':
+                    return (
+                      <div key={index} className="section-image">
+                        <img src={section.src} alt={section.alt || ''} />
+                        {section.caption && <p className="image-caption">{section.caption}</p>}
+                      </div>
+                    );
+
+                  default:
+                    return null;
+                }
+              })}
+            </div>
+          ) : (
+            // Legacy Rendering for Backward Compatibility
             <>
-              <blockquote className="project-note">
-                <em>Attaching a single screenshot for context,</em> <strong>Email me,</strong> <em>or</em> <strong>schedule a call</strong> <em>for a detailed walkthrough.</em>
-              </blockquote>
-
-              {project.content.projects.map((proj, index) => (
-                <div key={index} className="project-item">
-                  <h3 className="project-item-title">
-                    {proj.name} {proj.description && `(${proj.description})`}
-                  </h3>
-                  <div className="project-item-image">
-                    <img src={proj.image} alt={proj.name} />
-                  </div>
-                </div>
+              {project.content?.intro?.map((paragraph, index) => (
+                <p key={index} className="project-paragraph">{paragraph}</p>
               ))}
+
+              {project.content?.projectsTitle && (
+                <h2 className="project-section-title">{project.content.projectsTitle}</h2>
+              )}
+
+              {project.content?.projects?.length > 0 && (
+                <>
+                  <blockquote className="project-note">
+                    <em>Attaching a single screenshot for context,</em> <strong>Email me,</strong> <em>or</em> <strong>schedule a call</strong> <em>for a detailed walkthrough.</em>
+                  </blockquote>
+
+                  {project.content.projects.map((proj, index) => (
+                    <div key={index} className="project-item">
+                      <h3 className="project-item-title">
+                        {proj.name} {proj.description && `(${proj.description})`}
+                      </h3>
+                      <div className="project-item-image">
+                        <img src={proj.image} alt={proj.name} />
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
             </>
           )}
         </div>
@@ -202,6 +285,97 @@ const ProjectDetail = ({ project, onBack }) => {
           width: 100%;
           height: auto;
           display: block;
+        }
+
+        /* Rich Content Styles */
+        .section-heading {
+          font-size: 32px;
+          font-weight: 600;
+          color: #ffffff;
+          margin-top: 64px;
+          margin-bottom: 32px;
+          letter-spacing: -0.01em;
+        }
+
+        .section-subheading {
+          font-size: 24px;
+          font-weight: 500;
+          color: #ffffff;
+          margin-top: 48px;
+          margin-bottom: 24px;
+          letter-spacing: -0.01em;
+        }
+
+        .section-text {
+          margin-bottom: 24px;
+        }
+
+        .section-list {
+          list-style-type: disc;
+          padding-left: 24px;
+          margin-bottom: 32px;
+          color: #9ca3af;
+          font-size: 18px;
+          line-height: 1.7;
+        }
+
+        .section-list li {
+          margin-bottom: 12px;
+          padding-left: 8px;
+        }
+
+        .table-container {
+          width: 100%;
+          overflow-x: auto;
+          margin: 48px 0;
+          border-radius: 12px;
+          border: 1px solid #333;
+        }
+
+        .section-table {
+          width: 100%;
+          border-collapse: collapse;
+          color: #9ca3af;
+          font-size: 16px;
+          min-width: 600px;
+        }
+
+        .section-table th,
+        .section-table td {
+          padding: 16px;
+          text-align: left;
+          border-bottom: 1px solid #333;
+        }
+
+        .section-table th {
+          background-color: #1a1a1a;
+          color: #ffffff;
+          font-weight: 600;
+          font-size: 14px;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .section-table tr:last-child td {
+          border-bottom: none;
+        }
+
+        .section-image {
+          margin: 48px 0;
+        }
+
+        .section-image img {
+          width: 100%;
+          border-radius: 12px;
+          display: block;
+        }
+
+        .image-caption {
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 13px;
+          color: #6b7280;
+          margin-top: 12px;
+          text-align: center;
         }
 
         @media (max-width: 640px) {
