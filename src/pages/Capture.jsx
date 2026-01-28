@@ -1,52 +1,44 @@
 import React, { useEffect } from 'react';
-import { MousePointer2, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const CapturePage = ({ photos, onBack }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const Capture = ({ photos, onBack }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
-  return (
-    <div className="capture-container">
-      <div className="capture-header">
-        <button className="back-button-details" onClick={onBack}>
-          <ArrowUpRight size={20} style={{ transform: 'rotate(-135deg)' }} />
-          BACK
-        </button>
-      </div>
-
-      <motion.div
-        className="bento-grid"
-        initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {photos.map((photo, index) => (
-          <motion.div
-            key={photo.id}
-            className={`bento-item ${index % 5 === 0 ? 'large' : index % 3 === 0 ? 'tall' : 'standard'}`}
-            whileHover={{ y: -8, scale: 1.02, zIndex: 50, transition: { duration: 0.3 } }}
-          >
-            <div className="photo-wrapper">
-              <img src={photo.image} alt={photo.title} loading="lazy" />
-              <div className="photo-overlay">
-                <span className="photo-label">{photo.title}</span>
-              </div>
+    return (
+        <div className="page-container">
+            <div className="capture-header">
+                <button className="back-button-details" onClick={onBack}>
+                    <ArrowUpRight size={20} style={{ transform: 'rotate(-135deg)' }} />
+                    BACK
+                </button>
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
 
-      <style>{`
-        .capture-container {
-          min-height: 100vh;
-          background: #0a0a0a;
-          color: #ffffff;
-          padding: 60px 20px;
-          font-family: 'Inter', sans-serif;
-        }
+            <motion.div
+                className="bento-grid"
+                initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+                {photos.map((photo, index) => (
+                    <motion.div
+                        key={photo.id}
+                        className={`bento-item ${index % 5 === 0 ? 'large' : index % 3 === 0 ? 'tall' : 'standard'}`}
+                        whileHover={{ y: -8, scale: 1.02, zIndex: 50, transition: { duration: 0.3 } }}
+                    >
+                        <div className="photo-wrapper">
+                            <img src={photo.image} alt={photo.title} loading="lazy" />
+                            <div className="photo-overlay">
+                                <span className="photo-label">{photo.title}</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </motion.div>
 
+            <style>{`
         .capture-header {
           max-width: 1200px;
           margin: 0 auto 60px;
@@ -74,19 +66,6 @@ const CapturePage = ({ photos, onBack }) => {
 
         .back-button-details:hover {
           color: #ffffff;
-        }
-
-        .capture-title {
-          font-size: 48px;
-          font-weight: 700;
-          margin-bottom: 8px;
-          letter-spacing: -0.02em;
-        }
-
-        .capture-subtitle {
-          color: #6b7280;
-          font-size: 18px;
-          font-family: 'IBM Plex Mono', monospace;
         }
 
         .bento-grid {
@@ -176,10 +155,6 @@ const CapturePage = ({ photos, onBack }) => {
             grid-row: span 1;
           }
 
-          .capture-title {
-            font-size: 32px;
-          }
-
           .back-btn {
             position: relative;
             margin-bottom: 24px;
@@ -187,8 +162,8 @@ const CapturePage = ({ photos, onBack }) => {
           }
         }
       `}</style>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default CapturePage;
+export default Capture;
