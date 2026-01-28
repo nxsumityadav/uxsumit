@@ -379,8 +379,20 @@ const ProjectDetail = ({ project, onBack }) => {
         }
 
         @media (max-width: 640px) {
+          .page-container {
+            overflow-x: hidden;
+          }
+
+          .project-detail {
+            padding: 0 16px;
+            width: 100%;
+            box-sizing: border-box;
+          }
+
           .project-detail-title {
             font-size: 32px;
+            margin-bottom: 32px;
+            word-wrap: break-word;
           }
 
           .project-paragraph {
@@ -389,17 +401,67 @@ const ProjectDetail = ({ project, onBack }) => {
 
           .project-header {
             flex-direction: row;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+          }
+
+          .section-heading {
+            font-size: 24px;
+            margin-top: 48px;
+            margin-bottom: 24px;
+            word-wrap: break-word;
+          }
+
+          .section-subheading {
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            word-wrap: break-word;
+          }
+
+          .section-list {
+            padding-left: 20px;
+            font-size: 16px;
+          }
+
+          .table-container {
+            margin: 32px -16px;
+            width: calc(100% + 32px);
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+          }
+          
+          .section-table {
+            min-width: 600px;
+            font-size: 14px;
+          }
+
+          .section-table th,
+          .section-table td {
+            padding: 12px;
           }
 
           .project-note {
             font-size: 16px;
+            padding-left: 16px;
+            margin-bottom: 32px;
           }
 
           .project-item-title {
             font-size: 18px;
+            margin-bottom: 16px;
+          }
+          
+          .project-item {
+            margin-bottom: 32px;
+          }
+
+          .section-image {
+            margin: 32px 0;
           }
         }
       `}</style>

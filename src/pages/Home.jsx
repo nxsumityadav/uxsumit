@@ -49,7 +49,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
   const descriptions = {
     work: "Curated case studies reconstructed as visual stories. Full walk-throughs available on request.",
-    experiences: "A journey through my professional life—crafting user-centered products, complex platforms, and the occasional pivot.",
+    experiences: "A journey through my professional life crafting user-centered products, complex platforms, and the occasional pivot.",
     shots: "Design artifacts, visual experiments, and rapid explorations from my creative lab.",
     about: "A deep dive into my background, my journey into design, and the principles that guide my work."
   };
