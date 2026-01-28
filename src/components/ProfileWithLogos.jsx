@@ -1439,6 +1439,12 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
             overflow-x: auto;
             justify-content: flex-start;
             padding: 0 20px;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+          }
+
+          .photo-stack::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
           }
 
           .stacked-photo {
