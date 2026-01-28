@@ -15,13 +15,15 @@ The color palette is primarily monochromatic, using shades of gray and black/whi
 | **Gray 400** | `#9ca3af` | Secondary text, Descriptions |
 | **Gray 500** | `#6b7280` | Tertiary text, Dates, Metadata |
 | **Border** | `#4b5563` | Borders, Separators |
+| **Success** | `#22c55e` | Online Status Indicator |
 
 ### Brand Colors (Examples)
 | Name | Hex Code | Usage |
 |------|----------|-------|
-| **Spreetail Blue** | `#3b82f6` | Comapny Icon Background |
-| **Adaapt Green** | `#10b981` | Comapny Icon Background |
-| **Kolo Amber** | `#f59e0b` | Comapny Icon Background |
+| **Spreetail Blue** | `#3b82f6` | Company Icon Background |
+| **Adaapt Green** | `#10b981` | Company Icon Background |
+| **Kolo Amber** | `#f59e0b` | Company Icon Background |
+| **Taiyary Pink** | `#FF385C` | Company Icon Fill |
 
 ---
 
@@ -39,7 +41,8 @@ Two primary font families are used to create a distinct visual hierarchy.
 | Role | Size | Weight | Line Height |
 |------|------|--------|-------------|
 | **Display Heading** | `48px` | 700 (Bold) | `1.15` |
-| **Section Heading** | `20px` | 600 (SemiBold) | - |
+| **Section Heading** | `32px` | 600 (SemiBold) | - |
+| **Subheading** | `24px` | 500 (Medium) | - |
 | **Body Large** | `20px` | 400 (Regular) | `1.7` |
 | **Body Medium** | `16px` | 400 (Regular) | `auto` |
 | **Body Small** | `13px` | 400 (Regular) | `auto` |
@@ -67,10 +70,11 @@ The system uses a consistent spacing scale to ensure breathing room and visual r
 
 Consistent rounding is applied to UI elements to create a friendly yet professional feel.
 
-- **Cards (Projects/Shots)**: `16px`
+- **Cards (Projects/Shots)**: `16px` - `20px`
 - **Buttons / Pills**: `9999px` (Full rounding)
 - **Icons / Logos**: `4px` (Slight rounding) or `Circular`
-- **About Photo**: `16px`
+- **Avatar**: `16px`
+- **Tables**: `12px`
 
 ---
 
@@ -78,37 +82,41 @@ Consistent rounding is applied to UI elements to create a friendly yet professio
 
 ### Buttons & Chips
 - **Tab Chip**:
-  - Border: `1.5px solid #4b5563`
+  - Border: `none`
+  - Background: `rgba(255, 255, 255, 0.05)`
   - Active State: Background `#ffffff`, Text `#1a1a1a`
-  - Inactive State: Transparent Background, Text `#ffffff`
-  - Hover: Border color lighter `#6b7280`
+  - Hover: Background lighter `rgba(255, 255, 255, 0.1)`
 
 ### Cards
 - **Project Card**:
   - Layout: Thumbnail Image + Title/Meta below
-  - Hover Effect: Scale `1.02`
+  - Hover Effect: Thumbnail Scale `1.02`
 - **Shot Card**:
-  - Aspect Ratio: `16/10`
-  - Background: `#0a0a0a`
-  - Hover Effect: Translate Y `-4px`, Tooltip Reveal
+  - Aspect Ratio: `4/3`
+  - Background: `#262626`
+  - Hover Effect: Image Scale `1.05`, Rotate `2deg`, Tooltip Reveal
 
-### Experience Item
-- **Layout**: Time Period (Left) + Content (Right) [Grid on Desktop]
-- **Company Icon**: `24px x 24px` circle/rounded square with brand color background.
+### Rich Content Blocks (Case Studies)
+- **Note Block**:
+  - Style: Left border `3px solid #4b5563`, Padding Left `20px`
+  - Text: Italicized, Gray 400
+- **Data Table**:
+  - Headers: Uppercase, Mono, Dark Background (`#1a1a1a`)
+  - Borders: `#333` dividers
 
 ### Navigation
 - **Back Button**:
   - Font: Mono
-  - Icon: Arrow Up Right (Rotated)
+  - Icon: Arrow Up Right (Rotated -135deg)
   - Hover: Color shift to White
 
 ---
 
 ## 6. Motion & Animation
 
-- **Transitions**: `0.2s - 0.3s ease` for hover states.
-- **Signature Reveal**: Custom keyframe animation (`signReveal`) with `2s cubic-bezier(0.16, 1, 0.3, 1)`.
-- **Logos Carousel**: Continuous linear scrolling using `requestAnimationFrame`.
+- **Transitions**: `0.2s - 0.4s ease` for hover states.
+- **Page Transitions**: `framer-motion` variants using `opacity`, `y` position, and `blur` filters.
+- **Logos Carousel**: Continuous linear scrolling using CSS `@keyframes` or `requestAnimationFrame`.
 
 ---
 
@@ -120,6 +128,6 @@ Consistent rounding is applied to UI elements to create a friendly yet professio
 ### Behaviors
 - **Project Cards**: 
   - Layout: Stacked -> Row (Title and Meta aligned horizontally).
-  - Truncation: Project titles truncate with ellipsis (...) if they exceed the available width, ensuring the read time/meta data remains visible and aligned to the right.
 - **Tabs**: Horizontally scrollable container with left alignment.
+- **Tables**: Horizontally scrollable container with fixed min-width to prevent squishing.
 - **Footer**: Stacked elements become row-aligned (Location | Weather) with `space-between`.

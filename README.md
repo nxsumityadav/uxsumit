@@ -1,35 +1,100 @@
-# Sumit Kumar | Product Designer Portfolio
-**Live URL:** [uxsumit.com](https://uxsumit.com)
+# Sumit Kumar - Product Design Portfolio
 
-A premium, high-performance portfolio system built with React and Vite. Features a custom CMS (Admin Panel) for real-time content management and a video-first showcase of design projects.
+Evidence-based product design portfolio built with **React**, **Vite**, and **Framer Motion**. A high-performance, responsive, and visually engaging personal website designed to showcase case studies, design shots, and professional experience.
 
-## 🚀 Live Features
-- **Video-First Shots Gallery**: Supports .mp4 and .gif with native lazy loading for instant speed.
-- **Dynamic Case Studies**: Deep dives into product design processes.
-- **Professional Experience**: Branded timeline with official company logos.
-- **Custom CMS**: Password-protected Admin Panel for managing every section of the site without touching code.
-- **Real-time Stats**: Track reading time, word counts, and item status.
-- **Premium Aesthetics**: Dark mode as default, with fluid animations and a "photo stack" photography section.
-- **SEO Optimized**: Fully configured meta tags and social preview cards.
+![Portfolio Preview](/public/images/Shots/portfolio.png)
 
-## 🛠 Tech Stack
-- **Frontend**: React.js
-- **Tooling**: Vite (Lightning fast builds)
-- **Styling**: Vanilla CSS (Tailored for maximum flexibility)
-- **Icons**: Lucide React
-- **Persistence**: localStorage with automatic version-based data sync
+## 🚀 Key Features
+
+- **Data-Driven Content**: All content (projects, bio, experience) is managed via a single structured data file (`portfolioData.js`), making updates effortless.
+- **Rich Case Studies**: Support for complex case study layouts including headers, text blocks, images, lists, tables, and special notes.
+- **Performance First**: Built on Vite for lightning-fast HMR and optimized production builds.
+- **Smooth Animations**: Integrated `framer-motion` for page transitions, hover effects, and micro-interactions.
+- **Responsive Design**: Mobile-first approach ensuring a perfect experience across all devices.
+- **Clean Architecture**: Modular component structure for easy maintainability and scalability.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [React](https://reactjs.org/) (v18)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: Modern CSS3 (Variables, Flexbox/Grid)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/) & FontAwesome
+- **Routing**: Internal state-based routing for seamless transitions.
+
+## 🏃‍♂️ Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/nxsumityadav/uxsumit.git
+   cd uxsumit
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+### Building for Production
+
+To create a production-ready build:
+
+```bash
+npm run build
+```
+
+The output will be in the `dist` directory.
 
 ## 📂 Project Structure
-- `/src/components/ProfileWithLogos.jsx`: Main portfolio component.
-- `/src/components/AdminPanel.jsx`: CMS for content updates.
-- `/src/App.jsx`: State management and default data structure (v1.3).
-- `/images/`: Local repository for high-quality assets and logos.
 
-## 🛠 Setup & Development
-1. Clone the repository.
-2. Install dependencies: `npm install`
-3. Start development server: `npm run dev`
-4. Access Admin Panel at: `localhost:3000/admin` (Password: `hello`)
+```
+uxsumit/
+├── public/                 # Static assets (images, icons)
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── case-studies/   # Case study rendering logic
+│   │   ├── common/         # Shared components (Carousel, etc.)
+│   │   ├── layout/         # Header, Footer, Layouts
+│   │   └── sections/       # Home page sections (Work, About, etc.)
+│   ├── data/               # Content Data Source
+│   │   ├── case-studies/   # Individual case study data files
+│   │   └── portfolioData.js # Main data entry point
+│   ├── pages/              # Page components (Home, etc.)
+│   ├── App.jsx             # Main App component
+│   ├── main.jsx            # Entry point
+│   └── index.css           # Global styles & specific component styles
+└── index.html              # HTML entry point
+```
+
+## 🎨 Customization
+
+### Updating Content
+Navigate to `src/data/portfolioData.js`. This file contains the "source of truth" for:
+- Profile Information
+- Experience Timeline
+- Shots Gallery
+- Hobby Section
+
+### Adding a Case Study
+1. Create a new file in `src/data/case-studies/`.
+2. Import it into `src/data/portfolioData.js`.
+3. Add it to the `workProjects` array.
+
+For detailed documentation, please refer to [DOCUMENTATION.md](./DOCUMENTATION.md).
 
 ## 📄 License
-Designed and Built by Sumit Kumar.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

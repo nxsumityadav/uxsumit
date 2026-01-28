@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Sun, Mail, Linkedin, ArrowUpRight, Dribbble } from 'lucide-react';
+import { MapPin, Sun, Moon, Monitor, Mail, Linkedin, ArrowUpRight, Dribbble } from 'lucide-react';
+import { useTheme } from '../../context/ThemeContext';
 
 const Footer = ({ profile, socialLinks, hobby, currentlyPlaying, onSeeAllPhotos, signatureImage = "/images/sign2.png" }) => {
+    const { theme, setTheme, resolvedTheme } = useTheme();
     const personalPhotos = hobby?.photos || [];
 
     return (
@@ -125,7 +127,7 @@ const Footer = ({ profile, socialLinks, hobby, currentlyPlaying, onSeeAllPhotos,
             {/* Signature & Name Section */}
             <div className="footer-signature-wrap">
                 <motion.img
-                    src={signatureImage}
+                    src={resolvedTheme === 'light' ? '/images/sign light.png' : '/images/sign2.png'}
                     alt="Signature"
                     className="footer-signature-img-large"
                     initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}
@@ -135,12 +137,37 @@ const Footer = ({ profile, socialLinks, hobby, currentlyPlaying, onSeeAllPhotos,
                 />
             </div>
 
-            {/* Bottom Meta Bar */}
-            <div className="footer-bottom-bar">
+            {/* Theme Toggle & Bottom Meta Bar */}
+            <div className="footer-bottom-bar" style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                 <div className="footer-meta-info">
                     <MapPin size={16} />
                     <span>{profile?.location?.toUpperCase()}</span>
                 </div>
+
+                <div className="footer-theme-toggle">
+                    <button
+                        onClick={() => setTheme('light')}
+                        className={`theme-btn ${theme === 'light' ? 'active' : ''}`}
+                        title="Light Mode"
+                    >
+                        <Sun size={16} strokeWidth={theme === 'light' ? 2.5 : 1.5} />
+                    </button>
+                    <button
+                        onClick={() => setTheme('dark')}
+                        className={`theme-btn ${theme === 'dark' ? 'active' : ''}`}
+                        title="Dark Mode"
+                    >
+                        <Moon size={16} strokeWidth={theme === 'dark' ? 2.5 : 1.5} />
+                    </button>
+                    <button
+                        onClick={() => setTheme('system')}
+                        className={`theme-btn ${theme === 'system' ? 'active' : ''}`}
+                        title="System Mode"
+                    >
+                        <Monitor size={16} strokeWidth={theme === 'system' ? 2.5 : 1.5} />
+                    </button>
+                </div>
+
                 <div className="footer-meta-info">
                     <Sun size={16} />
                     <span>{profile?.weather}</span>

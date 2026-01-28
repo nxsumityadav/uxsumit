@@ -56,7 +56,7 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                             height: '12px',
                             backgroundColor: '#22c55e',
                             borderRadius: '50%',
-                            border: '2px solid #1a1a1a',
+                            border: '2px solid var(--bg-primary)',
                             boxSizing: 'content-box'
                         }}
                     ></div>
@@ -75,7 +75,7 @@ const ProfileHeader = ({ profile, socialLinks }) => {
             <motion.p
                 className="title"
                 variants={item}
-                style={{ color: '#6b7280', fontSize: '18px', marginBottom: '32px' }}
+                style={{ color: 'var(--text-muted)', fontSize: '18px', marginBottom: '32px' }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
                 {profile?.title}
@@ -97,7 +97,7 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                                     {profile?.company?.logo ? (
                                         <img src={profile.company.logo} alt={profile.company.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     ) : (
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '12px', height: '12px', color: 'white' }}>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '12px', height: '12px', color: 'var(--text-primary)' }}>
                                             <circle cx="12" cy="12" r="10" />
                                             <path d="M8 12h8" />
                                             <path d="M12 8v8" />

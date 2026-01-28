@@ -9,7 +9,7 @@ const ProjectDetail = ({ project, onBack }) => {
     const parts = text.split(/(\*\*.*?\*\*)/g);
     return parts.map((part, index) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={index} style={{ color: '#ffffff', fontWeight: 600 }}>{part.slice(2, -2)}</strong>;
+        return <strong key={index} style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{part.slice(2, -2)}</strong>;
       }
       return part;
     });
@@ -183,7 +183,7 @@ const ProjectDetail = ({ project, onBack }) => {
           gap: 8px;
           background: none;
           border: none;
-          color: #6b7280;
+          color: var(--text-muted);
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
           letter-spacing: 0.05em;
@@ -194,7 +194,7 @@ const ProjectDetail = ({ project, onBack }) => {
         }
 
         .back-button:hover {
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .back-button svg {
@@ -212,7 +212,7 @@ const ProjectDetail = ({ project, onBack }) => {
         .project-date {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-muted);
           letter-spacing: 0.05em;
         }
 
@@ -229,7 +229,7 @@ const ProjectDetail = ({ project, onBack }) => {
           gap: 6px;
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-muted);
         }
 
         .word-count svg,
@@ -241,7 +241,7 @@ const ProjectDetail = ({ project, onBack }) => {
         .project-detail-title {
           font-size: 48px;
           font-weight: 700;
-          color: #ffffff;
+          color: var(--text-primary);
           line-height: 1.15;
           margin-bottom: 48px;
           letter-spacing: -0.02em;
@@ -253,7 +253,7 @@ const ProjectDetail = ({ project, onBack }) => {
 
         .project-paragraph {
           font-size: 20px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           line-height: 1.7;
           margin-bottom: 24px;
         }
@@ -261,17 +261,17 @@ const ProjectDetail = ({ project, onBack }) => {
         .project-section-title {
           font-size: 18px;
           font-weight: 600;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-top: 48px;
           margin-bottom: 24px;
         }
 
         .project-note {
-          border-left: 3px solid #4b5563;
+          border-left: 3px solid var(--border-hover);
           padding-left: 20px;
           margin-bottom: 48px;
           font-size: 18px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           line-height: 1.6;
         }
 
@@ -280,7 +280,7 @@ const ProjectDetail = ({ project, onBack }) => {
         }
 
         .project-note strong {
-          color: #ffffff;
+          color: var(--text-primary);
           font-weight: 600;
         }
 
@@ -291,7 +291,7 @@ const ProjectDetail = ({ project, onBack }) => {
         .project-item-title {
           font-size: 20px;
           font-weight: 600;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 24px;
         }
 
@@ -310,7 +310,7 @@ const ProjectDetail = ({ project, onBack }) => {
         .section-heading {
           font-size: 32px;
           font-weight: 600;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-top: 64px;
           margin-bottom: 32px;
           letter-spacing: -0.01em;
@@ -319,7 +319,7 @@ const ProjectDetail = ({ project, onBack }) => {
         .section-subheading {
           font-size: 24px;
           font-weight: 500;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-top: 48px;
           margin-bottom: 24px;
           letter-spacing: -0.01em;
@@ -333,7 +333,7 @@ const ProjectDetail = ({ project, onBack }) => {
           list-style-type: disc;
           padding-left: 24px;
           margin-bottom: 32px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           font-size: 18px;
           line-height: 1.7;
         }
@@ -348,13 +348,13 @@ const ProjectDetail = ({ project, onBack }) => {
           overflow-x: auto;
           margin: 48px 0;
           border-radius: 12px;
-          border: 1px solid #333;
+          border: 1px solid var(--border-default);
         }
 
         .section-table {
           width: 100%;
           border-collapse: collapse;
-          color: #9ca3af;
+          color: var(--text-secondary);
           font-size: 16px;
           min-width: 600px;
         }
@@ -363,12 +363,12 @@ const ProjectDetail = ({ project, onBack }) => {
         .section-table td {
           padding: 16px;
           text-align: left;
-          border-bottom: 1px solid #333;
+          border-bottom: 1px solid var(--border-default);
         }
 
         .section-table th {
-          background-color: #1a1a1a;
-          color: #ffffff;
+          background-color: var(--bg-secondary);
+          color: var(--text-primary);
           font-weight: 600;
           font-size: 14px;
           text-transform: uppercase;
@@ -392,7 +392,7 @@ const ProjectDetail = ({ project, onBack }) => {
         .image-caption {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-muted);
           margin-top: 12px;
           text-align: center;
         }

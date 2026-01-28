@@ -7,7 +7,7 @@ export const portfolioData = {
     profile: {
         name: "Sumit Kumar",
         title: "Product Designer",
-        bio: "currently designing at Spreetail and building Taiyari AI. Working remotely in Bangalore, India and building prodicts.",
+        bio: "currently designing at Spreetail and building Taiyari AI Working remotely in Bangalore, India and building prodicts.",
         avatar: "/images/sumit.png",
         isOnline: true,
         company: { name: "Spreetail", color: "#3b82f6", logo: "/images/Logo/spreetail.avif" },
@@ -107,7 +107,7 @@ export const portfolioData = {
             "Hey, I’m Sumit a Product designer obsessed with crafting digital experiences that actually matter. My journey kicked off in the world of visual art, but I quickly got hooked on building products that solve real problems.",
             "Right now, you’ll find me at Vibe, blending code and design to help businesses build products their users love. I’ve done everything from designing end-to-end products to taking my own ideas through the YC application grind.",
             "When I’m not deep in design, I’m experimenting with my own B2B SaaS projects (some live, some resting in my ever-growing side project graveyard 🥀). Always building, always learning.",
-            "Check out my latest project: <a href='https://taiyaryai.com' target='_blank' rel='noopener noreferrer' style='color: #ffffff; text-decoration: underline;'>Taiyari AI</a>"
+            "Check out my latest project: <a href='https://taiyaryai.com' target='_blank' rel='noopener noreferrer'>Taiyari AI</a>"
         ]
     },
     hobby: {
@@ -125,7 +125,7 @@ export const portfolioData = {
     },
     currentlyPlaying: {
         title: "90s Night: Hindi",
-        artist: "Melodious songs from 90s to soothe your heart and soul",
+        artist: "Melodious songs from 90",
         artwork: "https://lh3.googleusercontent.com/tTY3keD6v1y_IThrZ369FkHilmEPDZE1tS6175yO1rhDkruQ5muwvAPlCafkkjarCo_T-DM1aSq1LA=w544-h544-l90-rj",
         link: "https://music.youtube.com/playlist?list=RDCLAK5uy_lbXtmLX1HAR8xjLUzI0NPfwMbj2qqMXKY&playnext=1&si=XqBlpOn5jXYAgEpR"
     }

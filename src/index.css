@@ -1,5 +1,5 @@
 :root {
-  /* Primary Colors */
+  /* Primary Colors (Dark Mode Default) */
   --bg-primary: #1a1a1a;
   --bg-secondary: #161616;
   --bg-tertiary: #252525;
@@ -29,11 +29,46 @@
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-full: 9999px;
-  
+
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   --font-admin: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme="light"] {
+  /* Primary Colors (Light Mode) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  /* Zinc 100 */
+  --bg-tertiary: #e4e4e7;
+  /* Zinc 200 */
+
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #52525b;
+  /* Zinc 600 */
+  --text-muted: #a1a1aa;
+  /* Zinc 400 */
+
+  /* Accent Colors (Strict Black & White) */
+  --accent-purple: #000000;
+  --accent-green: #000000;
+  --accent-blue: #000000;
+
+  /* Status Colors (Adjusted for Light Mode) */
+  --status-published: #059669;
+  /* Emerald 600 */
+  --status-draft: #d97706;
+  /* Amber 600 */
+  --status-error: #dc2626;
+  /* Red 600 */
+
+  /* Border Colors */
+  --border-default: #e4e4e7;
+  /* Zinc 200 */
+  --border-hover: #d4d4d8;
+  /* Zinc 300 */
 }
 
 * {
@@ -56,7 +91,8 @@ button {
   transition: all 0.2s ease;
 }
 
-input, textarea {
+input,
+textarea {
   font-family: inherit;
 }
 
@@ -78,6 +114,7 @@ input, textarea {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
 /* Shared Page Structure */
 .page-container {
   font-family: var(--font-primary);

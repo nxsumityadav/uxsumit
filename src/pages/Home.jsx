@@ -175,7 +175,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           right: 2px;
           width: 14px;
           height: 14px;
-          background-color: #22c55e;
+          background-color: var(--status-published);
           border-radius: 50%;
           border: 2px solid #1a1a1a;
         }
@@ -183,7 +183,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .name {
           font-size: 24px;
           font-weight: 600;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 4px;
           letter-spacing: -0.02em;
         }
@@ -192,21 +192,21 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           font-family: 'IBM Plex Mono', monospace;
           font-size: 16px;
           font-weight: 400;
-          color: #9ca3af;
+          color: var(--text-secondary);
           margin-bottom: 24px;
         }
 
         .bio {
           font-size: 18px;
           font-weight: 400;
-          color: #6b7280;
+          color: var(--text-muted);
           line-height: 1.6;
           margin-bottom: 32px;
           max-width: 600px;
         }
 
         .bio .company {
-          color: #ffffff;
+          color: var(--text-primary);
           font-weight: 400;
           text-decoration: none;
         }
@@ -217,7 +217,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           justify-content: center;
           width: 24px;
           height: 24px;
-          background-color: #9333ea;
+          background-color: var(--accent-purple);
           border-radius: 4px;
           vertical-align: middle;
           margin-left: 2px;
@@ -245,8 +245,8 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .btn-primary {
-          background-color: #ffffff;
-          color: #1a1a1a;
+          background-color: var(--text-primary);
+          color: var(--bg-primary);
           border-radius: 100px;
           padding: 12px 32px;
           font-weight: 500;
@@ -258,15 +258,15 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .btn-secondary {
           background-color: transparent;
-          color: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: var(--text-primary);
+          border: 1px solid var(--border-default);
           border-radius: 100px;
           padding: 12px 32px;
           font-weight: 500;
         }
 
         .btn-secondary:hover {
-          background-color: rgba(255, 255, 255, 0.05);
+          background-color: var(--bg-secondary);
           border-color: rgba(255, 255, 255, 0.4);
         }
 
@@ -276,7 +276,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           max-width: 900px;
           margin-bottom: 100px;
           overflow: hidden;
-          background-color: #1a1a1a;
+          background-color: var(--bg-primary);
           padding: 32px 0;
           position: relative;
         }
@@ -285,7 +285,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           text-align: center;
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-muted);
           margin-bottom: 40px;
           text-transform: uppercase;
           letter-spacing: 0.05em;
@@ -337,12 +337,12 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .fade-left {
           left: 0;
-          background: linear-gradient(to right, #1a1a1a, transparent);
+          background: linear-gradient(to right, var(--bg-primary), transparent);
         }
 
         .fade-right {
           right: 0;
-          background: linear-gradient(to left, #1a1a1a, transparent);
+          background: linear-gradient(to left, var(--bg-primary), transparent);
         }
 
         /* Work Section */
@@ -368,8 +368,8 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .tab-chip {
           padding: 12px 24px;
           border-radius: 100px;
-          background-color: rgba(255, 255, 255, 0.05);
-          color: #9ca3af;
+          background-color: var(--bg-secondary);
+          color: var(--text-secondary);
           border: none;
           font-size: 15px;
           font-weight: 500;
@@ -378,26 +378,26 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .tab-chip:hover {
-          background-color: rgba(255, 255, 255, 0.1);
-          color: #ffffff;
+          background-color: var(--bg-tertiary);
+          color: var(--text-primary);
         }
 
         .tab-chip.active {
-          background-color: #ffffff;
-          color: #1a1a1a;
+          background-color: var(--text-primary);
+          color: var(--bg-primary);
         }
 
         .work-label {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-muted);
           margin-bottom: 16px;
           letter-spacing: 0.05em;
         }
 
         .work-description {
           font-size: 20px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           margin-bottom: 60px;
           max-width: 800px;
           line-height: 1.5;
@@ -405,7 +405,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .tab-description {
           font-size: 20px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           margin-bottom: 40px;
           max-width: 800px;
           line-height: 1.5;
@@ -426,7 +426,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .project-thumbnail {
           width: 100%;
           aspect-ratio: 16/10;
-          background-color: #262626;
+          background-color: var(--bg-tertiary);
           border-radius: 20px;
           overflow: hidden;
           margin-bottom: 24px;
@@ -454,7 +454,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .project-title {
           font-size: 20px;
           font-weight: 500;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 0;
           letter-spacing: -0.01em;
           flex: 1;
@@ -464,7 +464,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           display: flex;
           align-items: center;
           gap: 6px;
-          color: #6b7280;
+          color: var(--text-muted);
           font-size: 15px;
           font-family: 'IBM Plex Mono', monospace;
           flex-shrink: 0;
@@ -475,7 +475,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           display: flex;
           align-items: center;
           gap: 6px;
-          color: #6b7280;
+          color: var(--text-muted);
           font-size: 14px;
         }
 
@@ -496,14 +496,14 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .experience-period {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
-            color: #6b7280;
+            color: var(--text-muted);
             padding-top: 6px;
         }
 
         .experience-title {
             font-size: 18px;
             font-weight: 500;
-            color: #ffffff;
+            color: var(--text-primary);
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -521,7 +521,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .experience-description {
             font-size: 16px;
-            color: #9ca3af;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
@@ -540,7 +540,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
             position: relative;
             width: 100%;
             aspect-ratio: 4/3;
-            background-color: #262626;
+            background-color: var(--bg-tertiary);
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
@@ -621,7 +621,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .about-text {
           font-size: 18px;
-          color: #9ca3af;
+          color: var(--text-secondary);
           line-height: 1.7;
         }
 
@@ -630,7 +630,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .about-text a {
-          color: #ffffff;
+          color: var(--text-primary);
           text-decoration: underline;
         }
 
@@ -644,13 +644,13 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .section-label {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-muted);
           margin-bottom: 24px;
         }
 
         .hobby-description {
           font-size: 24px;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 60px;
           max-width: 600px;
           line-height: 1.4;
@@ -695,7 +695,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           gap: 8px;
           background: none;
           border: none;
-          color: #ffffff;
+          color: var(--text-primary);
           font-size: 18px;
           cursor: pointer;
         }
@@ -703,7 +703,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .camera-info {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
-          color: #6b7280;
+          color: var(--text-muted);
         }
 
         /* Contact Section */
@@ -717,7 +717,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .music-player {
-          background-color: #262626;
+          background-color: var(--bg-tertiary);
           padding: 24px;
           border-radius: 20px;
           display: flex;
@@ -741,19 +741,19 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .music-title {
           font-size: 16px;
           font-weight: 500;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 4px;
         }
 
         .music-artist {
           font-size: 14px;
-          color: #9ca3af;
+          color: var(--text-secondary);
         }
 
         .music-link {
           font-family: 'IBM Plex Mono', monospace;
           font-size: 12px;
-          color: #6b7280;
+          color: var(--text-muted);
           text-decoration: none;
           margin-top: auto;
         }
@@ -769,15 +769,15 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           justify-content: space-between;
           align-items: center;
           padding: 20px;
-          background-color: rgba(255, 255, 255, 0.05);
+          background-color: var(--bg-secondary);
           border-radius: 16px;
           text-decoration: none;
-          color: #ffffff;
+          color: var(--text-primary);
           transition: all 0.2s;
         }
 
         .contact-row:hover {
-          background-color: rgba(255, 255, 255, 0.08);
+          background-color: var(--bg-tertiary);
           transform: translateY(-2px);
         }
 
@@ -791,7 +791,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           display: flex;
           align-items: center;
           gap: 12px;
-          color: #6b7280;
+          color: var(--text-muted);
         }
 
         /* Footer */
@@ -819,7 +819,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .footer-hobby-description {
           font-size: 20px;
-          color: #ffffff;
+          color: var(--text-primary);
           line-height: 1.5;
           margin-bottom: 40px;
           max-width: 700px;
@@ -884,7 +884,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           gap: 8px;
           background: none;
           border: none;
-          color: #9ca3af;
+          color: var(--text-secondary);
           font-size: 16px;
           cursor: pointer;
           padding: 0;
@@ -892,7 +892,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .footer-see-all:hover {
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .footer-camera-info {
@@ -902,14 +902,14 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .footer-music-card {
-          background-color: rgba(255, 255, 255, 0.05);
+          background-color: var(--bg-secondary);
           border-radius: 12px;
           padding: 16px 20px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           margin: 0;
-          border: 1px solid rgba(255,255,255,0.05);
+          border: 1px solid var(--border-default);
           width: 100%;
         }
 
@@ -935,7 +935,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .music-card-title {
           font-size: 16px;
           font-weight: 500;
-          color: #ffffff;
+          color: var(--text-primary);
           margin-bottom: 2px;
         }
 
@@ -952,7 +952,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .music-card-link:hover {
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .footer-social-links {
@@ -968,7 +968,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           justify-content: space-between;
           align-items: center;
           text-decoration: none;
-          color: #ffffff;
+          color: var(--text-primary);
           padding: 4px 0;
           transition: opacity 0.2s;
         }
@@ -982,11 +982,11 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           align-items: center;
           gap: 16px;
           font-size: 18px;
-          color: #9ca3af;
+          color: var(--text-secondary);
         }
 
         .footer-social-left span {
-          color: #9ca3af;
+          color: var(--text-secondary);
         }
 
         .footer-social-right {
@@ -995,7 +995,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           gap: 12px;
           font-family: 'IBM Plex Mono', monospace;
           font-size: 16px;
-          color: #9ca3af;
+          color: var(--text-secondary);
         }
 
         .footer-signature-wrap {
@@ -1008,13 +1008,14 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .footer-signature-img-large {
           height: 240px;
-          filter: brightness(0) invert(1);
           opacity: 1;
         }
 
+
+
         .footer-owner-name {
           font-size: 16px;
-          color: #6b7280;
+          color: var(--text-muted);
           font-weight: 400;
         }
 
@@ -1025,13 +1026,47 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           padding-top: 40px;
         }
 
+        .footer-theme-toggle {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: var(--bg-tertiary);
+          padding: 4px;
+          border-radius: 100px;
+          border: 1px solid var(--border-default);
+        }
+
+        .theme-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          border: none;
+          background: transparent;
+          color: var(--text-muted);
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .theme-btn:hover {
+          color: var(--text-primary);
+          background: var(--bg-secondary);
+        }
+
+        .theme-btn.active {
+          color: var(--bg-primary);
+          background: var(--text-primary);
+        }
+
         .footer-meta-info {
           display: flex;
           align-items: center;
           gap: 8px;
           font-family: 'IBM Plex Mono', monospace;
           font-size: 12px;
-          color: #6b7280;
+          color: var(--text-muted);
           letter-spacing: 0.05em;
         }
         
@@ -1114,6 +1149,25 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
             .footer-stacked-photo:first-child {
               margin-left: 0;
+            }
+            
+            .footer-bottom-bar {
+              flex-wrap: nowrap;
+              align-items: center;
+            }
+
+            /* Location - Keep */
+
+            /* Weather - Hide */
+            .footer-bottom-bar > :nth-child(3) {
+              display: none;
+            }
+
+            /* Toggle - Reset/Align */
+            .footer-theme-toggle {
+              order: unset;
+              width: auto;
+              justify-content: flex-end;
             }
         }
         

@@ -56,7 +56,7 @@ const Capture = ({ photos, onBack }) => {
           gap: 8px;
           background: none;
           border: none;
-          color: #6b7280;
+          color: var(--text-muted);
           font-family: 'IBM Plex Mono', monospace;
           font-size: 13px;
           letter-spacing: 0.05em;
@@ -66,7 +66,7 @@ const Capture = ({ photos, onBack }) => {
         }
 
         .back-button-details:hover {
-          color: #ffffff;
+          color: var(--text-primary);
         }
 
         .bento-grid {
@@ -83,15 +83,15 @@ const Capture = ({ photos, onBack }) => {
         .bento-item {
           border-radius: 20px;
           overflow: hidden;
-          background: #1a1a1a;
+          background: var(--bg-primary);
           position: relative;
           transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          border: 1px solid var(--border-default);
         }
 
         .bento-item:hover {
           transform: translateY(-8px);
-          border-color: rgba(255, 255, 255, 0.1);
+          border-color: var(--border-hover);
           z-index: 10;
         }
 
@@ -143,6 +143,7 @@ const Capture = ({ photos, onBack }) => {
           font-weight: 500;
           letter-spacing: 0.05em;
           text-transform: uppercase;
+          color: #ffffff;
         }
 
         @media (max-width: 768px) {
