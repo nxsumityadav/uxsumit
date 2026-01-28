@@ -29,13 +29,13 @@ const ProfileHeader = ({ profile, socialLinks }) => {
             <motion.div
                 className="avatar-container"
                 variants={item}
-                style={{ marginBottom: '16px', position: 'relative', display: 'inline-block' }}
+                style={{ width: '56px', height: '56px', marginBottom: '16px', position: 'relative', display: 'inline-block' }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
                 <motion.div
-                    style={{ width: '64px', height: '64px', borderRadius: '16px', overflow: 'hidden' }}
-                    initial={{ rotate: -3 }}
-                    whileHover={{ rotate: 0, scale: 1.05 }}
+                    style={{ width: '56px', height: '56px', borderRadius: '16px', overflow: 'hidden' }}
+                    initial={{ rotate: 0 }}
+                    whileHover={{ scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                     <img
@@ -45,7 +45,22 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                 </motion.div>
-                {profile?.isOnline && <div className="status-indicator" style={{ position: 'absolute', bottom: -2, right: -2, border: '2px solid #000' }}></div>}
+                {profile?.isOnline && (
+                    <div
+                        className="status-indicator"
+                        style={{
+                            position: 'absolute',
+                            bottom: -4,
+                            right: -4,
+                            width: '12px',
+                            height: '12px',
+                            backgroundColor: '#22c55e',
+                            borderRadius: '50%',
+                            border: '2px solid #1a1a1a',
+                            boxSizing: 'content-box'
+                        }}
+                    ></div>
+                )}
             </motion.div>
 
             <motion.h1
@@ -88,17 +103,6 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                                             <path d="M12 8v8" />
                                         </svg>
                                     )}
-                                </span>
-                            </React.Fragment>
-                        );
-                    } else if (part === 'Taiyary AI' || part === 'Taiyari AI') {
-                        return (
-                            <React.Fragment key={i}>
-                                <HoverPreview imageSrc="/images/taiyaryai-web.png" href="https://taiyaryai.com">
-                                    <span className="company">Taiyary</span>
-                                </HoverPreview>
-                                <span className="company-icon" style={{ overflow: 'hidden', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '4px', verticalAlign: 'middle', margin: '0 6px' }}>
-                                    <img src="/images/Logo/taiyary.svg" alt="Taiyary" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </span>
                             </React.Fragment>
                         );

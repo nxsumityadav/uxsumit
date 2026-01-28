@@ -157,8 +157,8 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .avatar-container {
           position: relative;
-          width: 80px;
-          height: 80px;
+          width: 56px;
+          height: 56px;
           margin-bottom: 20px;
         }
 
