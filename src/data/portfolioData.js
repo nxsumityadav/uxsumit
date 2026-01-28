@@ -7,7 +7,7 @@ export const portfolioData = {
     profile: {
         name: "Sumit Kumar",
         title: "Product Designer",
-        bio: "currently designing at Spreetail and building Taiyari AI. Currently at Vibe crafting digital experiences.",
+        bio: "currently designing at Spreetail and building Taiyari AI. Working remotely in Bangalore, India and building prodicts.",
         avatar: "/images/sumit.png",
         isOnline: true,
         company: { name: "Spreetail", color: "#3b82f6", logo: "/images/Logo/spreetail.avif" },

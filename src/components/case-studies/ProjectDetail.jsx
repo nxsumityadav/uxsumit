@@ -3,6 +3,18 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Clock } from 'lucide-react';
 
 const ProjectDetail = ({ project, onBack }) => {
+  const formatText = (text) => {
+    if (typeof text !== 'string') return text;
+    // Split by **text**
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index} style={{ color: '#ffffff', fontWeight: 600 }}>{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="page-container">
       <motion.div
@@ -57,10 +69,10 @@ const ProjectDetail = ({ project, onBack }) => {
                       <div key={index} className="section-text">
                         {Array.isArray(section.content) ? (
                           section.content.map((p, pIndex) => (
-                            <p key={pIndex} className="project-paragraph">{p}</p>
+                            <p key={pIndex} className="project-paragraph">{formatText(p)}</p>
                           ))
                         ) : (
-                          <p className="project-paragraph">{section.content}</p>
+                          <p className="project-paragraph">{formatText(section.content)}</p>
                         )}
                       </div>
                     );
@@ -104,6 +116,13 @@ const ProjectDetail = ({ project, onBack }) => {
                         <img src={section.src} alt={section.alt || ''} />
                         {section.caption && <p className="image-caption">{section.caption}</p>}
                       </div>
+                    );
+
+                  case 'note':
+                    return (
+                      <blockquote key={index} className="project-note">
+                        {section.content}
+                      </blockquote>
                     );
 
                   default:

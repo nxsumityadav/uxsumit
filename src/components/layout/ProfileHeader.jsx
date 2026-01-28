@@ -42,7 +42,7 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                         src={profile?.avatar}
                         alt="Profile"
                         className="avatar"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                     />
                 </motion.div>
                 {profile?.isOnline && (
@@ -112,8 +112,8 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                                 <HoverPreview imageSrc="/images/taiyaryai-web.png" href="https://taiyaryai.com">
                                     <span className="company">Taiyary</span>
                                 </HoverPreview>
-                                <span className="company-icon" style={{ overflow: 'hidden', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '4px', verticalAlign: 'middle', margin: '0 6px' }}>
-                                    <img src="/images/Logo/taiyary.svg" alt="Taiyary" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <span className="company-icon" style={{ overflow: 'hidden', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '4px', verticalAlign: 'middle', margin: '0 6px', backgroundColor: 'transparent' }}>
+                                    <img src="/images/taiyary_dist.svg" alt="Taiyary" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </span>
                             </React.Fragment>
                         );
