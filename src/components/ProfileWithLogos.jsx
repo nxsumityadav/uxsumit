@@ -212,10 +212,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           }
 
           .page-container {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #1a1a1a;
-            min-height: 100vh;
-            padding: 40px 20px 80px;
+            width: 100%;
           }
 
           .project-detail {
@@ -414,7 +411,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                     image="/images/spreetail-web.png"
                     href="https://www.spreetail.com"
                     icon={
-                      <span className="company-icon" style={{ backgroundColor: profile?.company?.color || '#3b82f6', overflow: 'hidden' }}>
+                      <span className="company-icon" style={{ overflow: 'hidden' }}>
                         {profile?.company?.logo ? (
                           <img src={profile.company.logo} alt="Spreetail" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         ) : (
@@ -438,7 +435,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                     image="/images/taiyaryai-web.png"
                     href="https://taiyaryai.com"
                     icon={
-                      <span className="company-icon" style={{ backgroundColor: '#ffffff', overflow: 'hidden', border: '1px solid #333' }}>
+                      <span className="company-icon" style={{ overflow: 'hidden', border: '1px solid #333' }}>
                         <img src="/images/taiyary.svg" alt="Taiyari" style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '2px' }} />
                       </span>
                     }
@@ -755,20 +752,9 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
 
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
 
         .page-container {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-          background-color: #1a1a1a;
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 60px 20px;
+          width: 100%;
         }
 
         .profile-card {
@@ -923,9 +909,9 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
         .logos-section {
           width: 100%;
           max-width: 900px;
-          margin: 64px auto 64px;
+          margin: 32px auto 48px;
           text-align: center;
-          padding: 0 20px;
+          padding: 0;
         }
 
         .logos-heading {
@@ -966,7 +952,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
           height: 40px;
           width: auto;
           border-radius: 4px;
-          opacity: 1;
+          opacity: 0.8;
           filter: none;
           transition: transform 0.3s ease;
         }

@@ -3,79 +3,71 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Clock } from 'lucide-react';
 
 const ProjectDetail = ({ project, onBack }) => {
-    return (
-        <div className="page-container">
-            <motion.div
-                className="project-detail"
-                initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-                <button className="back-button" onClick={onBack}>
-                    <ArrowUpRight style={{ transform: 'rotate(-135deg)' }} />
-                    BACK
-                </button>
+  return (
+    <div className="page-container">
+      <motion.div
+        className="project-detail"
+        initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <button className="back-button" onClick={onBack}>
+          <ArrowUpRight style={{ transform: 'rotate(-135deg)' }} />
+          BACK
+        </button>
 
-                <div className="project-header">
-                    <p className="project-date">{project.date}</p>
-                    <div className="project-stats">
-                        <span className="word-count">
-                            <Clock size={16} />
-                            {project.wordCount} words
-                        </span>
-                        <span className="read-time">
-                            <Clock size={16} />
-                            {project.readTime}
-                        </span>
-                    </div>
+        <div className="project-header">
+          <p className="project-date">{project.date}</p>
+          <div className="project-stats">
+            <span className="word-count">
+              <Clock size={16} />
+              {project.wordCount} words
+            </span>
+            <span className="read-time">
+              <Clock size={16} />
+              {project.readTime}
+            </span>
+          </div>
+        </div>
+
+        <h1 className="project-detail-title">{project.title}</h1>
+
+        <div className="project-content">
+          {project.content?.intro?.map((paragraph, index) => (
+            <p key={index} className="project-paragraph">{paragraph}</p>
+          ))}
+
+          {project.content?.projectsTitle && (
+            <h2 className="project-section-title">{project.content.projectsTitle}</h2>
+          )}
+
+          {project.content?.projects?.length > 0 && (
+            <>
+              <blockquote className="project-note">
+                <em>Attaching a single screenshot for context,</em> <strong>Email me,</strong> <em>or</em> <strong>schedule a call</strong> <em>for a detailed walkthrough.</em>
+              </blockquote>
+
+              {project.content.projects.map((proj, index) => (
+                <div key={index} className="project-item">
+                  <h3 className="project-item-title">
+                    {proj.name} {proj.description && `(${proj.description})`}
+                  </h3>
+                  <div className="project-item-image">
+                    <img src={proj.image} alt={proj.name} />
+                  </div>
                 </div>
+              ))}
+            </>
+          )}
+        </div>
+      </motion.div>
 
-                <h1 className="project-detail-title">{project.title}</h1>
-
-                <div className="project-content">
-                    {project.content?.intro?.map((paragraph, index) => (
-                        <p key={index} className="project-paragraph">{paragraph}</p>
-                    ))}
-
-                    {project.content?.projectsTitle && (
-                        <h2 className="project-section-title">{project.content.projectsTitle}</h2>
-                    )}
-
-                    {project.content?.projects?.length > 0 && (
-                        <>
-                            <blockquote className="project-note">
-                                <em>Attaching a single screenshot for context,</em> <strong>Email me,</strong> <em>or</em> <strong>schedule a call</strong> <em>for a detailed walkthrough.</em>
-                            </blockquote>
-
-                            {project.content.projects.map((proj, index) => (
-                                <div key={index} className="project-item">
-                                    <h3 className="project-item-title">
-                                        {proj.name} {proj.description && `(${proj.description})`}
-                                    </h3>
-                                    <div className="project-item-image">
-                                        <img src={proj.image} alt={proj.name} />
-                                    </div>
-                                </div>
-                            ))}
-                        </>
-                    )}
-                </div>
-            </motion.div>
-
-            <style>{`
+      <style>{`
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
 
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
 
         .page-container {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-          background-color: #1a1a1a;
-          min-height: 100vh;
-          padding: 40px 20px 80px;
+          width: 100%;
         }
 
         .project-detail {
@@ -237,8 +229,8 @@ const ProjectDetail = ({ project, onBack }) => {
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default ProjectDetail;

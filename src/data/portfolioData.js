@@ -91,7 +91,7 @@ export const portfolioData = {
         { id: "s13", title: "Portfolio 2024", image: "/images/shots/portfolio.png", published: true },
         { id: "s14", title: "Saas Platform", image: "/images/shots/saas-2.webp", published: true },
         { id: "s15", title: "Security App", image: "/images/shots/secure.avif", published: true },
-        { id: "s16", title: "Poster Design", image: "/images/shots/poster.png", published: true },
+        { id: "s16", title: "Poster Design", image: "/images/shots/Poster.png", published: true },
         { id: "s17", title: "Hustler X Icons", image: "/images/shots/hustler_x_icons.png", published: true },
         { id: "s18", title: "HustlerX Platform", image: "/images/shots/hustlerx.png", published: true },
         { id: "s19", title: "HustlerX Logo", image: "/images/shots/logo_hustlerx.png", published: true },
@@ -112,7 +112,7 @@ export const portfolioData = {
     },
     hobby: {
         label: "WHEN I AM NOT WORKING",
-        description: "I love taking photos, playing cricket and badminton, binging Modern Family, and generously feeding the algorithm my data for \"better\" ads.",
+        description: "I love capturing moments through my lens, building side products, deep conversations with family, farming at home, and learning the art of feeding cows 🐄. Also, generously feeding the algorithm my data for better ads.",
         photos: [
             { id: "h1", image: "/images/Capture/cyber.jpg", rotation: -6, title: "Cyber" },
             { id: "h2", image: "/images/Capture/delhi_bus_stop.jpg", rotation: 4, title: "Delhi Bus Stop" },

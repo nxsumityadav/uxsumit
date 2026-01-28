@@ -14,134 +14,140 @@ import ShotsSection from '../components/sections/ShotsSection';
 import ExperiencesSection from '../components/sections/ExperiencesSection';
 import AboutSection from '../components/sections/AboutSection';
 import HobbySection from '../components/sections/HobbySection';
-import ContactSection from '../components/sections/ContactSection';
 
 // Case Study Component
 import ProjectDetail from '../components/case-studies/ProjectDetail';
 
 export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) {
-    if (!data) return null;
-    const { workProjects = [], experiences = [], shots = [], hobby = {}, profile = {}, trustedCompanies = {}, socialLinks = {}, currentlyPlaying = {} } = data;
-    const logos = trustedCompanies?.logos || [];
+  if (!data) return null;
+  const { workProjects = [], experiences = [], shots = [], hobby = {}, profile = {}, trustedCompanies = {}, socialLinks = {}, currentlyPlaying = {} } = data;
+  const logos = trustedCompanies?.logos || [];
 
-    const [activeTab, setActiveTab] = useState('work');
-    const [selectedProject, setSelectedProject] = useState(() => {
-        if (initialSlug) {
-            return workProjects.find(p => p.slug === initialSlug) || null;
-        }
-        return null;
-    });
-
-    useEffect(() => {
-        if (initialSlug) {
-            const project = workProjects.find(p => p.slug === initialSlug);
-            if (project) setSelectedProject(project);
-        } else {
-            setSelectedProject(null);
-        }
-    }, [initialSlug, workProjects]);
-
-    const tabs = [
-        { id: 'work', label: 'Case Studies' },
-        { id: 'shots', label: 'Shots' },
-        { id: 'experiences', label: 'Experiences' },
-        { id: 'about', label: 'About' }
-    ];
-
-    const descriptions = {
-        work: "Below are some selected case studies (as short-stories), full walk-throughs on calls.",
-        experiences: "A quick tour of my professional life, designing user-centered experiences across products, platforms, and the occasional all-nighter.",
-        shots: "Quick design explorations and visual experiments.",
-        about: "A little more about me, my background, and what drives my design philosophy."
-    };
-
-    // Case Study View
-    if (selectedProject) {
-        return (
-            <ProjectDetail
-                project={selectedProject}
-                onBack={() => onNavigate('portfolio')}
-            />
-        );
+  const [activeTab, setActiveTab] = useState('work');
+  const [selectedProject, setSelectedProject] = useState(() => {
+    if (initialSlug) {
+      return workProjects.find(p => p.slug === initialSlug) || null;
     }
+    return null;
+  });
 
-    // Main Home View
+  useEffect(() => {
+    if (initialSlug) {
+      const project = workProjects.find(p => p.slug === initialSlug);
+      if (project) setSelectedProject(project);
+    } else {
+      setSelectedProject(null);
+    }
+  }, [initialSlug, workProjects]);
+
+  const tabs = [
+    { id: 'work', label: 'Case Studies' },
+    { id: 'shots', label: 'Shots' },
+    { id: 'experiences', label: 'Experiences' },
+    { id: 'about', label: 'About' }
+  ];
+
+  const descriptions = {
+    work: "Curated case studies reconstructed as visual stories. Full walk-throughs available on request.",
+    experiences: "A journey through my professional life—crafting user-centered products, complex platforms, and the occasional pivot.",
+    shots: "Design artifacts, visual experiments, and rapid explorations from my creative lab.",
+    about: "A deep dive into my background, my journey into design, and the principles that guide my work."
+  };
+
+  // Case Study View
+  if (selectedProject) {
     return (
-        <div className="page-container">
-            {/* Profile Header */}
-            <ProfileHeader profile={profile} socialLinks={socialLinks} />
+      <ProjectDetail
+        project={selectedProject}
+        onBack={() => onNavigate('portfolio')}
+      />
+    );
+  }
 
-            {/* Logos Carousel */}
-            <LogosCarousel heading={trustedCompanies?.heading} logos={logos} />
+  // Main Home View
+  return (
+    <div className="page-container">
+      {/* Profile Header */}
+      <ProfileHeader profile={profile} socialLinks={socialLinks} />
 
-            {/* Main Content Tabs */}
-            <section className="work-section">
-                <div className="tabs-header">
-                    <div className="tabs-container" style={{ marginBottom: '20px' }}>
-                        {tabs.map((tab) => (
-                            <button
-                                key={tab.id}
-                                className={`tab-chip ${activeTab === tab.id ? 'active' : ''}`}
-                                onClick={() => setActiveTab(tab.id)}
-                            >
-                                {tab.label}
-                            </button>
-                        ))}
-                    </div>
-                </div>
+      {/* Logos Carousel */}
+      <LogosCarousel heading={trustedCompanies?.heading} logos={logos} />
 
-                <p className="work-description">
-                    {descriptions[activeTab]}
-                </p>
+      {/* Main Content Tabs */}
+      <section className="work-section">
+        <div className="tabs-header">
+          <div className="tabs-container" style={{ marginBottom: '20px' }}>
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`tab-chip ${activeTab === tab.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
-                {/* Tab Content Rendered Conditionally */}
-                {activeTab === 'work' && (
-                    <WorkSection
-                        projects={workProjects}
-                        onNavigate={onNavigate}
-                    />
-                )}
+        <div className="tab-content-container">
+          {activeTab === 'work' ? (
+            <motion.div
+              key="work"
+              initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -10, filter: 'blur(5px)' }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="work-content-wrapper"
+            >
+              <p className="work-description">
+                {descriptions[activeTab]}
+              </p>
+              <WorkSection
+                projects={workProjects}
+                onNavigate={onNavigate}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, y: -10, filter: 'blur(5px)' }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <p className="tab-description">
+                {descriptions[activeTab]}
+              </p>
+              {activeTab === 'experiences' && (
+                <ExperiencesSection experiences={experiences} />
+              )}
+              {activeTab === 'shots' && (
+                <ShotsSection shots={shots} />
+              )}
+              {activeTab === 'about' && (
+                <AboutSection aboutData={data.about} profileImage={profile?.avatar} />
+              )}
+            </motion.div>
+          )}
+        </div>
+      </section>
 
-                {activeTab === 'experiences' && (
-                    <ExperiencesSection experiences={experiences} />
-                )}
+      {/* Footer */}
+      <Footer
+        profile={profile}
+        socialLinks={socialLinks}
+        hobby={hobby}
+        currentlyPlaying={currentlyPlaying}
+        onSeeAllPhotos={onSeeAllPhotos}
+      />
 
-                {activeTab === 'shots' && (
-                    <ShotsSection shots={shots} />
-                )}
-
-                {activeTab === 'about' && (
-                    <AboutSection aboutData={data.about} profileImage={profile?.avatar} />
-                )}
-            </section>
-
-            {/* Hobby Section */}
-            <HobbySection hobby={hobby} onSeeAllPhotos={onSeeAllPhotos} />
-
-            {/* Contact & Music */}
-            <ContactSection socialLinks={socialLinks} currentlyPlaying={currentlyPlaying} />
-
-            {/* Footer */}
-            <Footer profile={profile} />
-
-            {/* Global Page Styles */}
-            <style>{`
+      {/* Global Page Styles */}
+      <style>{`
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
 
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
 
         .page-container {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-          background-color: #1a1a1a;
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 60px 20px;
+          width: 100%;
         }
 
         .profile-card {
@@ -165,13 +171,13 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .status-indicator {
           position: absolute;
-          bottom: -4px;
-          right: -4px;
-          width: 20px;
-          height: 20px;
+          bottom: 2px;
+          right: 2px;
+          width: 14px;
+          height: 14px;
           background-color: #22c55e;
           border-radius: 50%;
-          border: 3px solid #1a1a1a;
+          border: 2px solid #1a1a1a;
         }
 
         .name {
@@ -193,14 +199,16 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .bio {
           font-size: 18px;
           font-weight: 400;
-          color: #9ca3af;
+          color: #6b7280;
           line-height: 1.6;
           margin-bottom: 32px;
+          max-width: 600px;
         }
 
         .bio .company {
           color: #ffffff;
-          font-weight: 500;
+          font-weight: 400;
+          text-decoration: none;
         }
 
         .company-icon {
@@ -224,7 +232,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .buttons {
           display: flex;
           gap: 12px;
-          margin-bottom: 80px;
+          margin-bottom: 64px;
         }
 
         .btn {
@@ -239,6 +247,9 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .btn-primary {
           background-color: #ffffff;
           color: #1a1a1a;
+          border-radius: 100px;
+          padding: 12px 32px;
+          font-weight: 500;
         }
 
         .btn-primary:hover {
@@ -246,23 +257,27 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .btn-secondary {
-          background-color: rgba(255, 255, 255, 0.1);
+          background-color: transparent;
           color: #ffffff;
-          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 100px;
+          padding: 12px 32px;
+          font-weight: 500;
         }
 
         .btn-secondary:hover {
-          background-color: rgba(255, 255, 255, 0.15);
+          background-color: rgba(255, 255, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.4);
         }
 
         /* Logos Section */
         .logos-section {
-          width: 100vw;
-          margin-left: calc(-50vw + 50%);
-          margin-bottom: 120px;
+          width: 100%;
+          max-width: 900px;
+          margin-bottom: 100px;
           overflow: hidden;
           background-color: #1a1a1a;
-          padding: 40px 0;
+          padding: 32px 0;
           position: relative;
         }
 
@@ -291,16 +306,17 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
 
         .logo-item {
           flex: 0 0 auto;
-          height: 40px;
+          height: 48px;
           display: flex;
           align-items: center;
           justify-content: center;
-          filter: grayscale(100%) opacity(0.5);
-          transition: filter 0.3s ease;
+          opacity: 0.8;
+          transition: all 0.4s ease;
         }
 
-        .carousel-track:hover .logo-item {
+        .logo-item:hover {
           filter: grayscale(0%) opacity(1);
+          transform: scale(1.1);
         }
 
         .logo-image {
@@ -314,7 +330,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           position: absolute;
           top: 0;
           bottom: 0;
-          width: 200px;
+          width: 100px;
           z-index: 2;
           pointer-events: none;
         }
@@ -333,7 +349,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         .work-section {
           max-width: 900px;
           width: 100%;
-          margin-bottom: 120px;
+          margin-bottom: 100px;
         }
 
         .tabs-header {
@@ -350,12 +366,13 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .tab-chip {
-          padding: 8px 16px;
+          padding: 12px 24px;
           border-radius: 100px;
           background-color: rgba(255, 255, 255, 0.05);
           color: #9ca3af;
           border: none;
-          font-size: 14px;
+          font-size: 15px;
+          font-weight: 500;
           cursor: pointer;
           transition: all 0.2s;
         }
@@ -370,49 +387,88 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           color: #1a1a1a;
         }
 
-        .work-description {
-          font-size: 16px;
+        .work-label {
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 13px;
           color: #6b7280;
+          margin-bottom: 16px;
+          letter-spacing: 0.05em;
+        }
+
+        .work-description {
+          font-size: 20px;
+          color: #9ca3af;
+          margin-bottom: 60px;
+          max-width: 800px;
+          line-height: 1.5;
+        }
+
+        .tab-description {
+          font-size: 20px;
+          color: #9ca3af;
           margin-bottom: 40px;
-          max-width: 500px;
+          max-width: 800px;
+          line-height: 1.5;
         }
 
         /* Projects Grid */
         .projects-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-          gap: 32px;
+          display: flex;
+          flex-direction: column;
+          gap: 60px;
         }
 
         .project-card {
           cursor: pointer;
+          width: 100%;
         }
 
         .project-thumbnail {
           width: 100%;
-          height: 260px;
+          aspect-ratio: 16/10;
           background-color: #262626;
-          border-radius: 16px;
+          border-radius: 20px;
           overflow: hidden;
-          margin-bottom: 16px;
+          margin-bottom: 24px;
         }
 
         .thumbnail-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.3s ease;
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .project-card:hover .thumbnail-image {
-          transform: scale(1.05);
+          transform: scale(1.02);
+        }
+
+        .project-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 16px;
+          width: 100%;
         }
 
         .project-title {
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 500;
           color: #ffffff;
-          margin-bottom: 8px;
+          margin-bottom: 0;
+          letter-spacing: -0.01em;
+          flex: 1;
+        }
+
+        .project-read-time {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          color: #6b7280;
+          font-size: 15px;
+          font-family: 'IBM Plex Mono', monospace;
+          flex-shrink: 0;
+          padding-top: 4px;
         }
 
         .project-meta {
@@ -541,12 +597,25 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         .about-image {
-          border-radius: 20px;
-          overflow: hidden;
+          width: 280px;
+          height: 360px;
+          border-radius: 16px;
+        }
+
+        .about-image-wrapper {
+          width: 100%;
+          height: 100%;
+          background: white;
+          padding: 8px;
+          border-radius: 16px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .about-photo {
           width: 100%;
+          height: 100% !important;
+          object-fit: cover;
+          border-radius: 10px;
           display: block;
         }
 
@@ -700,7 +769,7 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
           justify-content: space-between;
           align-items: center;
           padding: 20px;
-          background-color: rgba(255, 255, 255, 0.03);
+          background-color: rgba(255, 255, 255, 0.05);
           border-radius: 16px;
           text-decoration: none;
           color: #ffffff;
@@ -726,35 +795,244 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
         }
 
         /* Footer */
-        .site-footer {
+        .footer-container {
           max-width: 900px;
           width: 100%;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          padding-top: 60px;
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+          padding: 0 0 60px;
+          margin-top: 0;
+        }
+
+        .footer-hobby-section {
+          margin-bottom: 20px;
+        }
+
+        .footer-section-label {
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 13px;
+          color: #616161;
+          margin-bottom: 20px;
+          letter-spacing: 0.05em;
+        }
+
+        .footer-hobby-description {
+          font-size: 20px;
+          color: #ffffff;
+          line-height: 1.5;
+          margin-bottom: 40px;
+          max-width: 700px;
+        }
+
+        .footer-photo-grid {
+          display: flex;
+          margin: 60px 0;
+          height: 400px;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+
+        .footer-stacked-photo {
+          width: 280px;
+          height: 360px;
+          background: white;
+          border-radius: 12px;
+          padding: 8px;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+          flex-shrink: 0;
+          position: relative;
+          margin-left: -80px;
+          transition: transform 0.3s ease, z-index 0s;
+        }
+
+        .footer-stacked-photo:first-child {
+          margin-left: 0;
+        }
+
+        .footer-stacked-photo:nth-child(even) {
+          transform: rotate(4deg);
+        }
+
+        .footer-stacked-photo:nth-child(odd) {
+          transform: rotate(-4deg);
+        }
+
+        .footer-stacked-photo:hover {
+          transform: rotate(0deg) scale(1.1) translateY(-10px);
+          z-index: 50;
+        }
+
+        .footer-stacked-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+
+        .footer-photo-meta {
           display: flex;
           justify-content: space-between;
-          align-items: flex-end;
-          padding-bottom: 40px;
+          align-items: center;
+          margin-top: 20px;
         }
 
-        .footer-signature-img {
-          height: 60px;
-          opacity: 0.8;
-        }
-
-        .footer-bottom {
+        .footer-see-all {
           display: flex;
-          gap: 24px;
+          align-items: center;
+          gap: 8px;
+          background: none;
+          border: none;
+          color: #9ca3af;
+          font-size: 16px;
+          cursor: pointer;
+          padding: 0;
+          transition: color 0.2s;
         }
 
-        .footer-location,
-        .footer-weather {
+        .footer-see-all:hover {
+          color: #ffffff;
+        }
+
+        .footer-camera-info {
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          color: #404040;
+        }
+
+        .footer-music-card {
+          background-color: rgba(255, 255, 255, 0.05);
+          border-radius: 12px;
+          padding: 16px 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 0;
+          border: 1px solid rgba(255,255,255,0.05);
+          width: 100%;
+        }
+
+        .music-card-left {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .music-card-artwork {
+          width: 48px;
+          height: 48px;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+        .music-card-artwork img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .music-card-title {
+          font-size: 16px;
+          font-weight: 500;
+          color: #ffffff;
+          margin-bottom: 2px;
+        }
+
+        .music-card-artist {
+          font-size: 14px;
+          color: #888888;
+        }
+
+        .music-card-link {
+          color: #888888;
+          text-decoration: none;
+          font-size: 13px;
+          transition: color 0.2s;
+        }
+
+        .music-card-link:hover {
+          color: #ffffff;
+        }
+
+        .footer-social-links {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+          padding-top: 0;
+        }
+
+        .footer-social-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          text-decoration: none;
+          color: #ffffff;
+          padding: 4px 0;
+          transition: opacity 0.2s;
+        }
+
+        .footer-social-row:hover {
+          opacity: 0.7;
+        }
+
+        .footer-social-left {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          font-size: 18px;
+          color: #9ca3af;
+        }
+
+        .footer-social-left span {
+          color: #9ca3af;
+        }
+
+        .footer-social-right {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 16px;
+          color: #9ca3af;
+        }
+
+        .footer-signature-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          margin: 40px 0 20px;
+        }
+
+        .footer-signature-img-large {
+          height: 240px;
+          filter: brightness(0) invert(1);
+          opacity: 1;
+        }
+
+        .footer-owner-name {
+          font-size: 16px;
+          color: #6b7280;
+          font-weight: 400;
+        }
+
+        .footer-bottom-bar {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          padding-top: 40px;
+        }
+
+        .footer-meta-info {
           display: flex;
           align-items: center;
           gap: 8px;
           font-family: 'IBM Plex Mono', monospace;
           font-size: 12px;
           color: #6b7280;
+          letter-spacing: 0.05em;
         }
         
         @media (max-width: 768px) {
@@ -782,6 +1060,61 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
             .logo-item {
               filter: grayscale(0%) opacity(1);
             }
+
+            .tabs-container {
+              flex-wrap: nowrap;
+              overflow-x: auto;
+              padding-bottom: 8px;
+              margin-left: -20px;
+              margin-right: -20px;
+              padding-left: 20px;
+              padding-right: 20px;
+              width: calc(100% + 40px);
+              scrollbar-width: none;
+            }
+
+            .project-info {
+              align-items: center;
+            }
+
+            .project-title {
+              font-size: 18px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            .project-read-time {
+              font-size: 13px;
+            }
+
+            .tabs-container::-webkit-scrollbar {
+              display: none;
+            }
+
+            .tab-chip {
+              white-space: nowrap;
+              flex-shrink: 0;
+            }
+
+            .footer-stacked-photo:nth-child(n+3) {
+              display: none;
+            }
+
+            .footer-photo-grid {
+              height: 300px;
+              margin: 40px 0;
+            }
+
+            .footer-stacked-photo {
+              width: 200px;
+              height: 260px;
+              margin-left: -40px;
+            }
+
+            .footer-stacked-photo:first-child {
+              margin-left: 0;
+            }
         }
         
         @media (max-width: 480px) {
@@ -790,6 +1123,6 @@ export default function Home({ data, onSeeAllPhotos, initialSlug, onNavigate }) 
             }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };

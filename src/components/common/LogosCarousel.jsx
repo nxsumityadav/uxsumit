@@ -1,45 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const LogosCarousel = ({ heading = "Trusted by these companies", logos = [] }) => {
-    const scrollRef = useRef(null);
-    const [isHovered, setIsHovered] = useState(false);
-
-    useEffect(() => {
-        const scrollContainer = scrollRef.current;
-        if (!scrollContainer) return;
-
-        let animationId;
-        let scrollPosition = 0;
-        const speed = 0.5;
-
-        const scroll = () => {
-            if (!isHovered) {
-                scrollPosition += speed;
-                if (scrollPosition >= scrollContainer.scrollWidth / 2) {
-                    scrollPosition = 0;
-                }
-                scrollContainer.scrollLeft = scrollPosition;
-            }
-            animationId = requestAnimationFrame(scroll);
-        };
-
-        animationId = requestAnimationFrame(scroll);
-
-        return () => cancelAnimationFrame(animationId);
-    }, [isHovered, logos]);
-
     // Duplicate logos for seamless loop
-    const duplicatedLogos = [...logos, ...logos];
+    const duplicatedLogos = [...logos, ...logos, ...logos];
 
     return (
         <section className="logos-section">
             <h2 className="logos-heading">{heading}</h2>
             <div className="carousel-container">
-                <div
+                <motion.div
                     className="carousel-track"
-                    ref={scrollRef}
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
+                    animate={{
+                        x: [0, -1000],
+                    }}
+                    transition={{
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 20,
+                            ease: "linear",
+                        },
+                    }}
+                    style={{ display: 'flex', gap: '60px', width: 'max-content' }}
                 >
                     {duplicatedLogos.map((logo, index) => (
                         <div key={`${logo.id}-${index}`} className="logo-item">
@@ -50,7 +33,7 @@ const LogosCarousel = ({ heading = "Trusted by these companies", logos = [] }) =
                             />
                         </div>
                     ))}
-                </div>
+                </motion.div>
                 <div className="fade-left"></div>
                 <div className="fade-right"></div>
             </div>

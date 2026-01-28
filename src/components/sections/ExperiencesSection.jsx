@@ -2,15 +2,35 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const ExperiencesSection = ({ experiences }) => {
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const item = {
+        hidden: { opacity: 0, x: -20, filter: 'blur(10px)' },
+        show: { opacity: 1, x: 0, filter: 'blur(0px)' }
+    };
+
     return (
         <motion.div
             className="experiences-timeline"
-            initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            variants={container}
+            initial="hidden"
+            animate="show"
         >
             {experiences.map((exp) => (
-                <div key={exp.id} className="experience-row">
+                <motion.div
+                    key={exp.id}
+                    className="experience-row"
+                    variants={item}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                >
                     <div className="experience-period">
                         {exp.period}
                     </div>
@@ -30,7 +50,7 @@ const ExperiencesSection = ({ experiences }) => {
                         </h3>
                         <p className="experience-description">{exp.description}</p>
                     </div>
-                </div>
+                </motion.div>
             ))}
         </motion.div>
     );

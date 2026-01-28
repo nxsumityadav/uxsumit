@@ -3,19 +3,35 @@ import { motion } from 'framer-motion';
 import { Clock } from 'lucide-react';
 
 const WorkSection = ({ projects, onNavigate }) => {
+    const container = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15
+            }
+        }
+    };
+
+    const item = {
+        hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
+        show: { opacity: 1, y: 0, filter: 'blur(0px)' }
+    };
+
     return (
         <motion.div
             className="projects-grid"
-            initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            variants={container}
+            initial="hidden"
+            animate="show"
         >
             {projects.map((project) => (
                 <motion.div
                     key={project.id}
                     className="project-card"
+                    variants={item}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => onNavigate('work', project.slug)}
-                    whileHover={{ y: -8, scale: 1.02, zIndex: 50, transition: { duration: 0.3 } }}
                 >
                     <div className="project-thumbnail">
                         <img
@@ -26,10 +42,12 @@ const WorkSection = ({ projects, onNavigate }) => {
                     </div>
                     <div className="project-info">
                         <p className="project-title">{project.title}</p>
-                        <div className="project-meta">
-                            <Clock size={18} />
-                            <span>{project.readTime}</span>
-                        </div>
+                        {project.readTime && (
+                            <div className="project-read-time">
+                                <Clock size={16} />
+                                <span>{project.readTime}</span>
+                            </div>
+                        )}
                     </div>
                 </motion.div>
             ))}

@@ -3,44 +3,45 @@ import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Capture = ({ photos, onBack }) => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    return (
-        <div className="page-container">
-            <div className="capture-header">
-                <button className="back-button-details" onClick={onBack}>
-                    <ArrowUpRight size={20} style={{ transform: 'rotate(-135deg)' }} />
-                    BACK
-                </button>
+  return (
+    <div className="page-container">
+      <div className="capture-header">
+        <button className="back-button-details" onClick={onBack}>
+          <ArrowUpRight size={20} style={{ transform: 'rotate(-135deg)' }} />
+          BACK
+        </button>
+      </div>
+
+      <motion.div
+        className="bento-grid"
+        initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {photos.map((photo, index) => (
+          <motion.div
+            key={photo.id}
+            className={`bento-item ${index % 5 === 0 ? 'large' : index % 3 === 0 ? 'tall' : 'standard'}`}
+            whileHover={{ y: -8, scale: 1.02, zIndex: 50, transition: { duration: 0.3 } }}
+          >
+            <div className="photo-wrapper">
+              <img src={photo.image} alt={photo.title} loading="lazy" />
+              <div className="photo-overlay">
+                <span className="photo-label">{photo.title}</span>
+              </div>
             </div>
+          </motion.div>
+        ))}
+      </motion.div>
 
-            <motion.div
-                className="bento-grid"
-                initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)', scale: 1 }}
-                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-                {photos.map((photo, index) => (
-                    <motion.div
-                        key={photo.id}
-                        className={`bento-item ${index % 5 === 0 ? 'large' : index % 3 === 0 ? 'tall' : 'standard'}`}
-                        whileHover={{ y: -8, scale: 1.02, zIndex: 50, transition: { duration: 0.3 } }}
-                    >
-                        <div className="photo-wrapper">
-                            <img src={photo.image} alt={photo.title} loading="lazy" />
-                            <div className="photo-overlay">
-                                <span className="photo-label">{photo.title}</span>
-                            </div>
-                        </div>
-                    </motion.div>
-                ))}
-            </motion.div>
-
-            <style>{`
+      <style>{`
         .capture-header {
-          max-width: 1200px;
+          max-width: 900px;
+          width: 100%;
           margin: 0 auto 60px;
           text-align: center;
           position: relative;
@@ -69,10 +70,11 @@ const Capture = ({ photos, onBack }) => {
         }
 
         .bento-grid {
-          max-width: 1200px;
+          max-width: 900px;
+          width: 100%;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
           grid-auto-rows: 240px;
           gap: 20px;
           grid-auto-flow: dense;
@@ -90,7 +92,6 @@ const Capture = ({ photos, onBack }) => {
         .bento-item:hover {
           transform: translateY(-8px);
           border-color: rgba(255, 255, 255, 0.1);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
           z-index: 10;
         }
 
@@ -162,8 +163,8 @@ const Capture = ({ photos, onBack }) => {
           }
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Capture;
