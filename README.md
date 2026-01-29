@@ -58,11 +58,43 @@ npm run build
 
 The output will be in the `dist` directory.
 
+## ⚡ Performance Optimization
+
+This project includes automated tools to ensure high performance.
+
+### Image Optimization
+We use `sharp` to convert large media assets to WebP format, significantly reducing bundle size (e.g., from ~140MB to ~5MB).
+
+**To optimize new images:**
+1. Place high-res images in `public/images/` (or subfolders).
+2. Run the optimization script:
+   ```bash
+   node scripts/optimize-images.js
+   ```
+3. Update your code to reference the new `.webp` files.
+4. (Optional) Archive the originals:
+   ```bash
+   node scripts/archive-originals.js
+   ```
+
+### ☁️ Deployment (Netlify)
+
+This project is configured for Netlify.
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
+- **Routing**: A `public/_redirects` file is included to handle Client-Side Routing (SPA), preventing 404 errors on refresh.
+
 ## 📂 Project Structure
 
 ```
 uxsumit/
 ├── public/                 # Static assets (images, icons)
+│   ├── _redirects          # Netlify routing configuration
+│   ├── images/             # Optimized images (WebP)
+│   └── images/_archive/    # Original heavy images (PNG/JPG) - not deployed
+├── scripts/                # Build & Maintenance scripts
+│   ├── optimize-images.js  # Converts PNG/JPG to WebP using sharp
+│   └── archive-originals.js # Moves processed originals to archive
 ├── src/
 │   ├── components/         # Reusable UI components
 │   │   ├── case-studies/   # Case study rendering logic

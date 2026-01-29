@@ -90,7 +90,7 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                     if (part === profile?.company?.name) {
                         return (
                             <React.Fragment key={i}>
-                                <HoverPreview imageSrc="/images/spreetail-web.png" href="https://www.spreetail.com">
+                                <HoverPreview imageSrc="/images/spreetail-web.webp" href="https://www.spreetail.com">
                                     <span className="company">{part}</span>
                                 </HoverPreview>
                                 <span className="company-icon" style={{ overflow: 'hidden', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '4px', verticalAlign: 'middle', margin: '0 6px' }}>
@@ -109,7 +109,7 @@ const ProfileHeader = ({ profile, socialLinks }) => {
                     } else if (part === 'Taiyary AI' || part === 'Taiyari AI') {
                         return (
                             <React.Fragment key={i}>
-                                <HoverPreview imageSrc="/images/taiyaryai-web.png" href="https://taiyaryai.com">
+                                <HoverPreview imageSrc="/images/taiyaryai-web.webp" href="https://taiyaryai.com">
                                     <span className="company">Taiyary</span>
                                 </HoverPreview>
                                 <span className="company-icon" style={{ overflow: 'hidden', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', borderRadius: '4px', verticalAlign: 'middle', margin: '0 6px', backgroundColor: 'transparent' }}>

@@ -2,7 +2,7 @@ export const jiraaf = {
     id: 4,
     slug: "p1O0k9m8n7b",
     title: "Jiraaf: Increasing Daily Active Users by 18%",
-    image: "/images/Projects/jiraaf-hero.png",
+    image: "/images/Projects/jiraaf-hero.webp",
     readTime: "4 m",
     wordCount: 600,
     date: "1 JAN 2023",
@@ -14,8 +14,8 @@ export const jiraaf = {
         ],
         projectsTitle: "Impact Highlights:",
         projects: [
-            { name: "Queue Management", description: "50% faster checkout", image: "/images/Projects/jiraaf-hero.png" },
-            { name: "Gamification", description: "boosted engagement", image: "/images/Projects/jiraaf-hero.png" }
+            { name: "Queue Management", description: "50% faster checkout", image: "/images/Projects/jiraaf-hero.webp" },
+            { name: "Gamification", description: "boosted engagement", image: "/images/Projects/jiraaf-hero.webp" }
         ]
     }
 };

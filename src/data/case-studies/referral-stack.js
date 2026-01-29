@@ -2,7 +2,7 @@ export const referralStack = {
     id: 3,
     slug: "referral-stack-build-launch-grow",
     title: "Build. Launch. Grow. Go live instantly and cut onboarding time from 30 minutes to under 10",
-    image: "https://framerusercontent.com/images/V5Y2a0usU0gsfbJkNSQ7zUJV8E.png",
+    image: "/.netlify/images?url=https://framerusercontent.com/images/V5Y2a0usU0gsfbJkNSQ7zUJV8E.webp",
     readTime: "6 m",
     wordCount: 850,
     date: "17 NOV 2025",
@@ -11,7 +11,7 @@ export const referralStack = {
         sections: [
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/V5Y2a0usU0gsfbJkNSQ7zUJV8E.png",
+                src: "https://framerusercontent.com/images/V5Y2a0usU0gsfbJkNSQ7zUJV8E.webp",
                 alt: "Referral Stack Hero"
             },
             {
@@ -31,12 +31,12 @@ export const referralStack = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/l15F7EOTOOZhRMBAiwZBurwR5U.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/l15F7EOTOOZhRMBAiwZBurwR5U.webp",
                 alt: "Competitive Analysis 1"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/UmsMz33NShgnlqAdUmDIPNPVPjQ.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/UmsMz33NShgnlqAdUmDIPNPVPjQ.webp",
                 alt: "Competitive Analysis 2"
             },
             {
@@ -45,12 +45,12 @@ export const referralStack = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/fOe5AHMRj5vUfdLXEed6Xcwdlo.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/fOe5AHMRj5vUfdLXEed6Xcwdlo.webp",
                 alt: "Design System 1"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/JxtxQYKKtc0yZurg8hluApzacs.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/JxtxQYKKtc0yZurg8hluApzacs.webp",
                 alt: "Design System 2"
             },
             {
@@ -59,27 +59,27 @@ export const referralStack = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/G0OUuE8Kl6RlsQgg75Bd9iR0co.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/G0OUuE8Kl6RlsQgg75Bd9iR0co.webp",
                 alt: "Prototype 1"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/KWVHmbXfrWC8H1trwQj0FTU9mEI.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/KWVHmbXfrWC8H1trwQj0FTU9mEI.webp",
                 alt: "Prototype 2"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/sOSI3YRO5DcdAb1fCTCLaBgwG0.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/sOSI3YRO5DcdAb1fCTCLaBgwG0.webp",
                 alt: "Prototype 3"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/sOSI3YRO5DcdAb1fCTCLaBgwG0.png",
+                src: "https://framerusercontent.com/images/sOSI3YRO5DcdAb1fCTCLaBgwG0.webp",
                 alt: "Prototype 4"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/J6W9U64BttEUZ8r961Fq2gXySz8.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/J6W9U64BttEUZ8r961Fq2gXySz8.webp",
                 alt: "Prototype 5"
             },
             {

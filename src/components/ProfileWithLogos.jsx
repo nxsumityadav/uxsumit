@@ -408,7 +408,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                   <HoverReveal
                     key={i}
                     text="Spreetail"
-                    image="/images/spreetail-web.png"
+                    image="/images/spreetail-web.webp"
                     href="https://www.spreetail.com"
                     icon={
                       <span className="company-icon" style={{ overflow: 'hidden' }}>
@@ -432,7 +432,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
                   <HoverReveal
                     key={i}
                     text="Taiyari AI"
-                    image="/images/taiyaryai-web.png"
+                    image="/images/taiyaryai-web.webp"
                     href="https://taiyaryai.com"
                     icon={
                       <span className="company-icon" style={{ overflow: 'hidden', border: '1px solid #333' }}>
@@ -726,7 +726,7 @@ export default function ProfileWithLogos({ data, onSeeAllPhotos, initialSlug, on
       <footer className="site-footer">
         <div className="footer-signature">
           <motion.img
-            src="/images/sign2.png"
+            src="/images/sign2.webp"
             alt="Signature"
             className="footer-signature-img"
             initial={{ opacity: 0, y: 20, filter: 'blur(5px)', scale: 0.95 }}

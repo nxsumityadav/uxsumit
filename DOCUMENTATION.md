@@ -77,9 +77,43 @@ The `ProjectDetail` component supports a variety of section types for rich story
 
 ### 3. Updates to Other Sections
 
-- **Experience**: Add new objects to the `experiences` array. Ensure the `logo` path points to a valid image in `public/images/`.
-- **Shots**: Add new items to `shots`. Supports `.mp4`, `.gif`, and images.
 - **Hobby**: Add photos to `hobby.photos`. Ensure `rotation` values are varied for a natural "stack" look.
+
+---
+
+## ⚡ Media Optimization Workflow
+
+To maintain high performance, we strictly use optimized **WebP** images for all static assets.
+
+### 1. The Problem
+High-fidelity design portfolios often suffer from large asset sizes (20MB+ PNGs). This kills load time and UX.
+
+### 2. The Solution
+We implemented a two-step node script workflow to automate optimization:
+
+#### A. Optimization Script (`scripts/optimize-images.js`)
+- Scans `public/images` recursively.
+- Detects `.png`, `.jpg`, `.jpeg`.
+- Converts them to `.webp` with 80% quality (visually lossless).
+- Resizes extremely large images (max width 1920px).
+- **Usage**: `node scripts/optimize-images.js`
+
+#### B. Archival Script (`scripts/archive-originals.js`)
+- After optimization, this script checks if a `.webp` version exists.
+- If verified, it moves the original heavy file to `public/images/_archive`.
+- This keeps the production build light while preserving original source files for future edits.
+- **Usage**: `node scripts/archive-originals.js`
+
+### 3. Usage in Code
+ALWAYS reference `.webp` files in your React components and data files.
+
+```javascript
+// ✅ CORRECT
+image: "/images/Projects/cover.webp"
+
+// ❌ INCORRECT (File will not be found in production if archived)
+image: "/images/Projects/cover.png"
+```
 
 ---
 

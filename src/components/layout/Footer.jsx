@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Sun, Moon, Monitor, Mail, Linkedin, ArrowUpRight, Dribbble } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
-const Footer = ({ profile, socialLinks, hobby, currentlyPlaying, onSeeAllPhotos, signatureImage = "/images/sign2.png" }) => {
+const Footer = ({ profile, socialLinks, hobby, currentlyPlaying, onSeeAllPhotos, signatureImage = "/images/sign2.webp" }) => {
     const { theme, setTheme, resolvedTheme } = useTheme();
     const personalPhotos = hobby?.photos || [];
 
@@ -127,7 +127,7 @@ const Footer = ({ profile, socialLinks, hobby, currentlyPlaying, onSeeAllPhotos,
             {/* Signature & Name Section */}
             <div className="footer-signature-wrap">
                 <motion.img
-                    src={resolvedTheme === 'light' ? '/images/sign light.png' : '/images/sign2.png'}
+                    src={resolvedTheme === 'light' ? '/images/sign light.webp' : '/images/sign2.webp'}
                     alt="Signature"
                     className="footer-signature-img-large"
                     initial={{ opacity: 0, y: 20, filter: 'blur(5px)' }}

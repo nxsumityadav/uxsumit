@@ -2,7 +2,7 @@ export const saasMetrics = {
     id: 2,
     slug: "building-saasmetrics-from-scratch",
     title: "Building SaaSMetrics From Scratch in 3 Months (0 to 1)",
-    image: "https://framerusercontent.com/images/15W9Kpj3a6XvvjEspc04YPpIT4.png?lossless=1&width=3840&height=2160",
+    image: "/.netlify/images?url=https://framerusercontent.com/images/15W9Kpj3a6XvvjEspc04YPpIT4.webp?lossless=1&width=3840&height=2160",
     readTime: "8 m",
     wordCount: 1200,
     date: "17 NOV 2025",
@@ -82,7 +82,7 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/BR0negkrGRn5qZNP6JQpOsthY.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/BR0negkrGRn5qZNP6JQpOsthY.webp",
                 alt: "Market Research Visuals"
             },
             {
@@ -106,7 +106,7 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/5lUAvOIi4wTOE0gGhgKqNKdaKA.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/5lUAvOIi4wTOE0gGhgKqNKdaKA.webp",
                 alt: "Market Insights"
             },
             {
@@ -115,7 +115,7 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/UXSseReTBjWmomkyGYDOqXI7BU.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/UXSseReTBjWmomkyGYDOqXI7BU.webp",
                 alt: "Design Process"
             },
             {
@@ -128,7 +128,7 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/W925rFGUswO0cCkrD8UbBfkwrc.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/W925rFGUswO0cCkrD8UbBfkwrc.webp",
                 alt: "User Insights"
             },
             {
@@ -149,7 +149,7 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/zuLpKh8ayMbGxQ0HKCmSlJL3Y.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/zuLpKh8ayMbGxQ0HKCmSlJL3Y.webp",
                 alt: "Customer Feedback"
             },
             {
@@ -158,12 +158,12 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/sbHAYAlV6PWzgjthDPKsCXtMs.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/sbHAYAlV6PWzgjthDPKsCXtMs.webp",
                 alt: "Wireframes 1"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/lZHdUY5q71alv9GfZAcG5to6eY.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/lZHdUY5q71alv9GfZAcG5to6eY.webp",
                 alt: "Wireframes 2"
             },
             {
@@ -176,7 +176,7 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/ey3E5dNtml1ATJhUrWcroYzOBBI.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/ey3E5dNtml1ATJhUrWcroYzOBBI.webp",
                 alt: "Solution Concept"
             },
             {
@@ -189,12 +189,12 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/OkQGELING0Z4VQd9Ph0hQhQOKE.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/OkQGELING0Z4VQd9Ph0hQhQOKE.webp",
                 alt: "Solution Iteration 1"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/2dtzeReBoL4y1pCDJoV7uwKLhg.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/2dtzeReBoL4y1pCDJoV7uwKLhg.webp",
                 alt: "Solution Iteration 2"
             },
             {
@@ -264,7 +264,7 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/15W9Kpj3a6XvvjEspc04YPpIT4.png",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/15W9Kpj3a6XvvjEspc04YPpIT4.webp",
                 alt: "Learning"
             },
             {
@@ -286,17 +286,17 @@ export const saasMetrics = {
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/zUdSDrQYFVbWmfw2abkDtcLhvBI.png?width=3840&height=2160",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/zUdSDrQYFVbWmfw2abkDtcLhvBI.webp?width=3840&height=2160",
                 alt: "Gallery 1"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/rkgXh4NAmtmyhBWL2nsjNW0gpw.png?width=3840&height=2160",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/rkgXh4NAmtmyhBWL2nsjNW0gpw.webp?width=3840&height=2160",
                 alt: "Gallery 2"
             },
             {
                 type: "image",
-                src: "https://framerusercontent.com/images/lhdlHfAGM2lmebtxv4lMTX2D2HQ.png?width=3840&height=2160",
+                src: "/.netlify/images?url=https://framerusercontent.com/images/lhdlHfAGM2lmebtxv4lMTX2D2HQ.webp?width=3840&height=2160",
                 alt: "Gallery 3"
             }
         ]
