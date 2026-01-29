@@ -27,7 +27,7 @@ function downloadImageWithCurl(url, filepath) {
 
 function processCaseStudies() {
     console.log('Starting external image download via CURL...');
-    const files = fs.readdirSync(SRC_DIR).filter(file => file.endsWith('.js'));
+    const files = fs.readdirSync(SRC_DIR).filter(file => file.endsWith('.json'));
 
     for (const file of files) {
         const filePath = path.join(SRC_DIR, file);
@@ -49,7 +49,7 @@ function processCaseStudies() {
                 const safeUrlName = path.basename(cleanUrl, ext).replace(/[^a-zA-Z0-9-]/g, '');
                 const filename = safeUrlName + ext;
 
-                const prefix = file.replace('.js', '');
+                const prefix = file.replace('.json', '');
                 const localFilename = `${prefix}-${filename}`;
                 const localPath = path.join(PUBLIC_PROJECTS_DIR, localFilename);
                 let publicPath = `/.netlify/images?url=/images/Projects/${localFilename}`;

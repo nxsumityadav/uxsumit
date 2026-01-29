@@ -1,6 +1,6 @@
-import { saasMetrics } from './case-studies/saas-metrics';
-import { referralStack } from './case-studies/referral-stack';
-import { jiraaf } from './case-studies/jiraaf';
+import saasMetrics from './case-studies/saas-metrics.json';
+import referralStack from './case-studies/referral-stack.json';
+import jiraaf from './case-studies/jiraaf.json';
 
 export const portfolioData = {
     version: "2.2",

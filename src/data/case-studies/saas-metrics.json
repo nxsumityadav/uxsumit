@@ -1,15 +1,15 @@
-export const saasMetrics = {
-    id: 2,
-    slug: "building-saasmetrics-from-scratch",
-    title: "Building SaaSMetrics From Scratch in 3 Months (0 to 1)",
-    image: "https://framerusercontent.com/images/15W9Kpj3a6XvvjEspc04YPpIT4.webp?lossless=1&width=3840&height=2160",
-    readTime: "8 m",
-    wordCount: 1200,
-    date: "17 NOV 2025",
-    published: true,
-    source_url: "https://nxsumityadav.framer.ai/portfolio/building-saasmetrics-from-scratch-in-3-months", // Added from JSON
-    content: {
-        sections: [
+{
+    "id": 2,
+    "slug": "building-saasmetrics-from-scratch",
+    "title": "Building SaaSMetrics From Scratch in 3 Months (0 to 1)",
+    "image": "/.netlify/images?url=https://framerusercontent.com/images/15W9Kpj3a6XvvjEspc04YPpIT4.webp?lossless=1&width=3840&height=2160",
+    "readTime": "8 m",
+    "wordCount": 1200,
+    "date": "17 NOV 2025",
+    "published": true,
+    "source_url": "https://nxsumityadav.framer.ai/portfolio/building-saasmetrics-from-scratch-in-3-months",
+    "content": {
+        "sections": [
             {
                 "title": "Background",
                 "content": [
@@ -18,12 +18,32 @@ export const saasMetrics = {
                 ],
                 "table": {
                     "title": "Implementation & Timeline:",
-                    "headers": ["Phase", "Date", "Status"],
+                    "headers": [
+                        "Phase",
+                        "Date",
+                        "Status"
+                    ],
                     "rows": [
-                        ["Leadership Approval", "08/12/2024", "✅ Done"],
-                        ["Design Completion", "26/1/2025", "✅ Done"],
-                        ["Prototype Testing", "23/2/2025", "✅ Done"],
-                        ["MVP Launch", "10/03/2025", "✅ Done"]
+                        [
+                            "Leadership Approval",
+                            "08/12/2024",
+                            "✅ Done"
+                        ],
+                        [
+                            "Design Completion",
+                            "26/1/2025",
+                            "✅ Done"
+                        ],
+                        [
+                            "Prototype Testing",
+                            "23/2/2025",
+                            "✅ Done"
+                        ],
+                        [
+                            "MVP Launch",
+                            "10/03/2025",
+                            "✅ Done"
+                        ]
                     ]
                 }
             },
@@ -57,7 +77,13 @@ export const saasMetrics = {
                     {
                         "title": "Competitive Analysis",
                         "table": {
-                            "headers": ["Product", "Core Focus", "Strengths", "Areas of Improvement", "Pricing / Positioning"],
+                            "headers": [
+                                "Product",
+                                "Core Focus",
+                                "Strengths",
+                                "Areas of Improvement",
+                                "Pricing / Positioning"
+                            ],
                             "rows": [
                                 [
                                     "SaaSMetrics",
@@ -174,7 +200,9 @@ export const saasMetrics = {
                 "content": [
                     "Imagine a SaaS founder named Priya. Every month, she spends hours pulling data from Stripe, spreadsheets, and analytics tools, trying to understand her company’s growth. She’s frustrated by scattered information, manual reporting, and the constant worry that she’s missing key insights. Priya dreams of a single platform that brings all her metrics together, helps her make faster decisions, and gives her team the clarity they need to grow."
                 ],
-                "image_references": ["Users Insights"],
+                "image_references": [
+                    "Users Insights"
+                ],
                 "lists": [
                     {
                         "title": "Jobs to be Done:",
@@ -201,7 +229,9 @@ export const saasMetrics = {
                     "For the final usability test, 50 participants put the platform through its paces. We hit a 95% task completion rate, confirming that most users could onboard, connect data, and generate reports without help. Edge cases like missing integration data, email reports ending up in spam, and dashboard slowdowns during heavy use were identified and addressed.",
                     "SaaSMetrics is now a platform shaped as much by its users as by its creators—focused, flexible, and built for the realities of running a SaaS business."
                 ],
-                "image_references": ["Some visuals:"],
+                "image_references": [
+                    "Some visuals:"
+                ],
                 "lists": [
                     {
                         "title": "Key Insights:",
@@ -260,4 +290,4 @@ export const saasMetrics = {
         ],
         "notes": "The extracted page content contains placeholder text for images (e.g., 'Users Insights', 'Some visuals:'), but no actual image URLs were found in the provided text. All textual content, tables, and lists have been structured above."
     }
-};
+}
