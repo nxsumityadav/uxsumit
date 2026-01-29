@@ -49,6 +49,118 @@ const ProjectDetail = ({ project, onBack }) => {
           {project.content?.sections ? (
             <div className="rich-content">
               {project.content.sections.map((section, index) => {
+                // Check if it's the new format (has title, no type, or explicit new structure)
+                if (!section.type && (section.title || section.content || section.subsections)) {
+                  return (
+                    <div key={index} className="new-section-block">
+                      {section.title && <h3 className="section-heading">{section.title}</h3>}
+
+                      {/* Content Paragraphs */}
+                      {section.content && Array.isArray(section.content) && section.content.map((p, idx) => (
+                        <p key={idx} className="project-paragraph">{formatText(p)}</p>
+                      ))}
+
+                      {/* Tables */}
+                      {section.table && (
+                        <div className="table-container">
+                          {section.table.title && <h4 className="section-subheading">{section.table.title}</h4>}
+                          <table className="section-table">
+                            <thead>
+                              <tr>
+                                {section.table.headers?.map((h, i) => <th key={i}>{h}</th>)}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {section.table.rows?.map((row, r) => (
+                                <tr key={r}>
+                                  {row.map((cell, c) => <td key={c}>{cell}</td>)}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+
+                      {/* Stats */}
+                      {section.stats && (
+                        <div className="section-stats-list">
+                          <ul className="section-list">
+                            {section.stats.map((stat, i) => <li key={i}><strong>{stat}</strong></li>)}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Lists - Simple Array */}
+                      {section.list && Array.isArray(section.list) && (
+                        <ul className="section-list">
+                          {section.list.map((item, i) => <li key={i}>{item}</li>)}
+                        </ul>
+                      )}
+
+                      {/* Lists - Named Arrays (e.g. key insights) */}
+                      {section.lists && section.lists.map((lst, lIdx) => (
+                        <div key={lIdx}>
+                          {lst.title && <h4 className="section-subheading">{lst.title}</h4>}
+                          <ul className="section-list">
+                            {lst.items?.map((item, i) => <li key={i}>{item}</li>)}
+                          </ul>
+                        </div>
+                      ))}
+
+                      {/* Subsections - Recursive-ish */}
+                      {section.subsections && section.subsections.map((sub, sIdx) => (
+                        <div key={sIdx} className="subsection">
+                          {sub.title && <h4 className="section-subheading">{sub.title}</h4>}
+                          {sub.list && (
+                            <ul className="section-list">
+                              {sub.list.map((item, i) => <li key={i}>{item}</li>)}
+                            </ul>
+                          )}
+                          {sub.table && (
+                            <div className="table-container">
+                              <table className="section-table">
+                                <thead>
+                                  <tr>
+                                    {sub.table.headers?.map((h, i) => <th key={i}>{h}</th>)}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {sub.table.rows?.map((row, r) => (
+                                    <tr key={r}>
+                                      {row.map((cell, c) => <td key={c}>{cell}</td>)}
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+
+                      {/* Note */}
+                      {section.note && (
+                        <blockquote className="project-note">{section.note}</blockquote>
+                      )}
+
+                      {/* Image References (Placeholders) */}
+                      {section.image_references && section.image_references.map((ref, i) => (
+                        <div key={i} className="image-placeholder" style={{
+                          background: 'var(--bg-secondary)',
+                          padding: '20px',
+                          textAlign: 'center',
+                          borderRadius: '12px',
+                          margin: '24px 0',
+                          border: '1px dashed var(--border-default)',
+                          color: 'var(--text-muted)'
+                        }}>
+                          [Image Reference: {ref}]
+                        </div>
+                      ))}
+                    </div>
+                  );
+                }
+
+                // Fallback to existing switch logic for old structure
                 switch (section.type) {
                   case 'heading':
                     return (
