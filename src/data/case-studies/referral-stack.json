@@ -1,110 +1,197 @@
 {
     "id": 3,
-    "slug": "referral-stack-build-launch-grow",
+    "slug": "referral-stack",
     "title": "Build. Launch. Grow. Go live instantly and cut onboarding time from 30 minutes to under 10",
-    "image": "/.netlify/images?url=https://framerusercontent.com/images/V5Y2a0usU0gsfbJkNSQ7zUJV8E.webp",
-    "readTime": "6 m",
-    "wordCount": 850,
-    "date": "17 NOV 2025",
+    "image": "/images/referral-stack/hero.png",
+    "readTime": "10 m",
+    "wordCount": 1500,
+    "date": "15 JAN 2025",
     "published": true,
+    "source_url": "https://nxsumityadav.framer.ai/portfolio/build-launch-grow-go-live-instantly-and-cut-onboarding-time-from-30-minutes-to-under-10",
     "content": {
         "sections": [
             {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/V5Y2a0usU0gsfbJkNSQ7zUJV8E.webp",
-                "alt": "Referral Stack Hero"
-            },
-            {
-                "type": "text",
+                "title": "Background",
                 "content": [
-                    "The design journey for Referral Stack began with a commitment to deeply understand the real challenges faced by SaaS teams, digital creators, and affiliate marketers in managing referral and affiliate programs. I initiated the process by conducting comprehensive stakeholder interviews, engaging with both business owners and end users across a spectrum of company sizes and industries. Through these conversations, I uncovered that over 80% of participants struggled with manual tracking and payout processes, while 65% expressed frustration with delayed or inaccurate payments—pain points that consistently hindered their ability to scale and trust their affiliate programs.",
-                    "To further ground our approach, I meticulously mapped user journeys for each primary persona: SaaS founders who needed to launch programs quickly, marketers who required granular analytics, and affiliates who prioritized transparent, timely payouts. By synthesizing these findings, I developed detailed personas and user stories that highlighted not only operational bottlenecks but also the emotional toll of unreliable tools—feelings of frustration, lack of control, and missed growth opportunities."
+                    "Referral Stack is a SaaS platform focused on making affiliate management effortless for SaaS startups, digital creators, marketers, and their partners.",
+                    "The product was designed and shipped in one month, with a robust design system supporting both dark and light modes to ensure team alignment and ease of use.",
+                    "My role spanned product management, research, competitive analysis, and end-to-end UX/UI design."
+                ],
+                "images": [
+                    "/images/referral-stack/referral-program-flow.png",
+                    "/images/referral-stack/partner-user-venn-diagram.png"
                 ]
             },
             {
-                "type": "note",
-                "content": "Below are FigJam screenshots illustrating the user flow."
+                "title": "Core problem",
+                "content": [
+                    "SaaS startups and digital creators struggle to manage affiliate and referral programs efficiently. Existing tools are either overly complex requiring custom integrations or lack seamless support for essential payment processors like PayPal and Stripe.",
+                    "This leads to: Time-consuming, error-prone manual tracking, difficulties in automating payouts, inefficient performance analytics, fragmented workflows, and lost revenue.",
+                    "The industry is growing rapidly (U.S. affiliate marketing spend is projected to reach $12B in 2025), but many businesses are held back by tools built for large enterprises."
+                ],
+                "images": [
+                    "/images/referral-stack/research-pain-points-chart.png",
+                    "/images/referral-stack/market-analysis-charts.png"
+                ],
+                "lists": [
+                    {
+                        "title": "Key Challenges:",
+                        "items": [
+                            "Time-consuming, error-prone manual tracking",
+                            "Difficulties in automating payouts",
+                            "Inefficient performance analytics",
+                            "Fragmented workflows across multiple platforms",
+                            "Frustration and lost revenue due to late or inaccurate payments and fraud"
+                        ]
+                    }
+                ]
             },
             {
-                "type": "text",
-                "content": "Next, I turned to the competitive landscape, conducting an in-depth benchmarking exercise against leading platforms such as PromoteKit, ReferralCandy, Tolt, and Rewardful. The analysis revealed several critical gaps: competitors often required 20–60 minutes for setup, lacked seamless PayPal integration, and offered only basic or manual fraud prevention. Most platforms also failed to provide a unified, modern interface or support for dark and light modes, which are increasingly expected by today’s users. These insights directly informed our product priorities, pushing us to differentiate Referral Stack with instant onboarding (under 10 minutes), robust PayPal and Stripe support, real-time automated fraud detection, and a flexible design system."
+                "title": "Research and Analysis",
+                "content": [
+                    "Primary Users: SaaS founders, digital creators, marketers, affiliate managers. Secondary Users: Affiliates/influencers, finance teams.",
+                    "Pain Points Identified: NOTE: Most users wanted a unified, easy-to-use dashboard and seamless payment integration.",
+                    "Market & Industry Data: Affiliate marketing is a major growth channel; 83% of consumers trust recommendations from friends/family (WSJ). Legal and compliance risks are rising due to fraud.",
+                    "Competitive Analysis: Benchmarked against PromoteKit, ReferralCandy, Tolt, and Rewardful. Key Gaps: Competitors lack seamless Multi-payment support, real-time fraud prevention, and flexible UI themes."
+                ],
+                "images": [
+                    "/images/referral-stack/research-documentation.png",
+                    "/images/referral-stack/referral-types-comparison.png"
+                ],
+                "table": {
+                    "title": "Competitive Analysis:",
+                    "headers": [
+                        "Platform",
+                        "Setup Time",
+                        "No-Code",
+                        "Multi-payment",
+                        "Fraud Prevention"
+                    ],
+                    "rows": [
+                        [
+                            "PromoteKit",
+                            "20-30 min",
+                            "Partial",
+                            "Stripe",
+                            "Basic"
+                        ],
+                        [
+                            "ReferralCandy",
+                            "30-60 min",
+                            "No",
+                            "PayPal & Stripe",
+                            "Some"
+                        ],
+                        [
+                            "Tolt",
+                            "15-25 min",
+                            "Yes",
+                            "Stripe",
+                            "Manual"
+                        ],
+                        [
+                            "Rewardful",
+                            "15-25 min",
+                            "Yes",
+                            "Stripe",
+                            "Manual"
+                        ],
+                        [
+                            "Referral Stack",
+                            "<10 min",
+                            "Yes",
+                            "PayPal, Stripe, Wise",
+                            "Automated, Real-Time"
+                        ]
+                    ]
+                }
             },
             {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/l15F7EOTOOZhRMBAiwZBurwR5U.webp",
-                "alt": "Competitive Analysis 1"
+                "title": "Design Process",
+                "content": [
+                    "Conducted comprehensive stakeholder interviews where 80% of participants struggled with manual tracking and 65% expressed frustration with delayed payments.",
+                    "Mapped user journeys for SaaS founders, marketers, and affiliates to identify operational bottlenecks and emotional pain points.",
+                    "Spearheaded the creation of a comprehensive design system in Figma, including reusable components, tokenized variables, and both dark and light modes.",
+                    "Iterative prototyping with 12 representative users highlighted the value of navigation clarity and real-time performance metrics.",
+                    "Optimized onboarding to be no-code and take less than 10 minutes, a significant improvement over the industry standard of 20-60 minutes."
+                ],
+                "images": [
+                    "/images/referral-stack/double-diamond-process.png",
+                    "/images/referral-stack/affiliate-portal-userflow.png",
+                    "/images/referral-stack/main-system-userflow.png",
+                    "/images/referral-stack/design-tokens-colors.png"
+                ]
             },
             {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/UmsMz33NShgnlqAdUmDIPNPVPjQ.webp",
-                "alt": "Competitive Analysis 2"
+                "title": "Solutions",
+                "content": [
+                    "Instant, no-code integration with PayPal and Stripe for automated payouts.",
+                    "Real-time, actionable analytics and fraud detection.",
+                    "Unified, user-friendly dashboard for both businesses and affiliates.",
+                    "Robust design system supporting dark/light modes and branded affiliate portals."
+                ],
+                "images": [
+                    "/images/referral-stack/dashboard-ui-overview.png",
+                    "/images/referral-stack/dashboard-analytics-full.png",
+                    "/images/referral-stack/campaign-settings-modal.png",
+                    "/images/referral-stack/integration-setup-page.png",
+                    "/images/referral-stack/marketplace-campaigns.png"
+                ],
+                "lists": [
+                    {
+                        "title": "Key Features:",
+                        "items": [
+                            "Instant, no-code integration with PayPal and Stripe for automated payouts.",
+                            "Real-time, actionable analytics and fraud detection.",
+                            "A unified, user-friendly dashboard for both businesses and affiliates.",
+                            "A robust design system supporting dark/light modes, ensuring a consistent experience and rapid scaling.",
+                            "Customizable commission plans and branded affiliate portals.",
+                            "24/7 support and clear onboarding flows."
+                        ]
+                    }
+                ]
             },
             {
-                "type": "text",
-                "content": "With clear objectives in place, I spearheaded the creation of a comprehensive design system in Figma. This system included reusable components, a carefully curated color palette, accessible typography, and tokenized design variables to ensure scalability and consistency. Both dark and light modes were meticulously crafted to accommodate user preferences and accessibility needs. Every aspect of the design system was thoroughly documented, enabling seamless collaboration and alignment across engineering, product, and marketing teams. This approach significantly reduced design-developer friction, accelerating our build cycles and ensuring pixel-perfect implementation."
+                "title": "Business Outcome",
+                "content": [
+                    "Onboarding time reduced from 30+ minutes to under 10 minutes.",
+                    "Early adopters reported up to 30% sales growth after switching.",
+                    "High user satisfaction reported from 134 beta testers regarding ease of use and automation."
+                ],
+                "images": [
+                    "/images/referral-stack/landing-page-hero.png",
+                    "/images/referral-stack/social-proof-testimonials.png",
+                    "/images/referral-stack/value-proposition.png",
+                    "/images/referral-stack/features-coupon-tracking.png"
+                ],
+                "lists": [
+                    {
+                        "title": "Results:",
+                        "items": [
+                            "Early adopters reported up to 30% sales growth after switching to Referral Stack.",
+                            "Unlimited affiliates, automated workflows, and seamless payment support enable effortless scaling.",
+                            "Positive feedback highlights ease of use, automation, and the modern, accessible interface."
+                        ]
+                    }
+                ]
             },
             {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/fOe5AHMRj5vUfdLXEed6Xcwdlo.webp",
-                "alt": "Design System 1"
-            },
-            {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/JxtxQYKKtc0yZurg8hluApzacs.webp",
-                "alt": "Design System 2"
-            },
-            {
-                "type": "text",
-                "content": "Prototyping was an iterative, data-driven process. I developed interactive prototypes for core flows—onboarding, dashboard analytics, affiliate portals, and payout management—and conducted usability testing with 12 representative users from our target segments."
-            },
-            {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/G0OUuE8Kl6RlsQgg75Bd9iR0co.webp",
-                "alt": "Prototype 1"
-            },
-            {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/KWVHmbXfrWC8H1trwQj0FTU9mEI.webp",
-                "alt": "Prototype 2"
-            },
-            {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/sOSI3YRO5DcdAb1fCTCLaBgwG0.webp",
-                "alt": "Prototype 3"
-            },
-            {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/sOSI3YRO5DcdAb1fCTCLaBgwG0.webp",
-                "alt": "Prototype 4"
-            },
-            {
-                "type": "image",
-                "src": "/.netlify/images?url=https://framerusercontent.com/images/J6W9U64BttEUZ8r961Fq2gXySz8.webp",
-                "alt": "Prototype 5"
-            },
-            {
-                "type": "heading",
-                "content": "The feedback was illuminating:"
-            },
-            {
-                "type": "text",
-                "content": "Users consistently valued clarity in navigation, the ability to see real-time performance metrics at a glance, and the simplicity of configuring commission structures. Based on these insights, I refined the user flows, reduced unnecessary steps, and surfaced key actions and data points to minimize cognitive load."
-            },
-            {
-                "type": "text",
-                "content": "When it came to implementation, the focus was on delivering a truly unified and intuitive experience. Referral Stack’s onboarding was designed to be no-code and frictionless, allowing businesses to launch affiliate programs in less than ten minutes—a dramatic improvement over competitors. The platform enabled fully customizable commission structures, supported branded affiliate portals, and allowed for seamless management of multiple programs. Real-time fraud detection and automated payouts via Stripe and PayPal were integrated at the core, with every workflow optimized for both desktop and mobile use."
-            },
-            {
-                "type": "text",
-                "content": "Throughout the project, cross-functional collaboration was key. I regularly shared the evolving design system and prototypes with the broader team, facilitating rapid feedback and iteration. Detailed documentation and design specs ensured that engineering and QA could execute efficiently, while regular check-ins with stakeholders kept everyone aligned on goals and progress."
-            },
-            {
-                "type": "text",
-                "content": "The result was a product that not only addressed the acute pain points identified in research but also set a new standard for usability and scalability in affiliate management. Early users reported being able to launch programs 3–5x faster than before - beta rollout test, with a 30% reduction in support queries related to onboarding and payouts. The modern, accessible interface and robust automation features drove higher affiliate engagement and satisfaction, positioning Referral Stack as a trusted solution in a fast-growing $12 billion industry."
-            },
-            {
-                "type": "note",
-                "content": "Note: User testing and insights are based on feedback from our beta users. The product has not yet been released to the public; we are still actively testing with our beta and waitlist users."
+                "title": "Learning and next steps",
+                "content": [
+                    "Expanding integrations with more payment processors and CRMs.",
+                    "Development of enhanced analytics and predictive insights.",
+                    "Requested features: Shopify integration, Marketplace functionality, and a built-in messaging system."
+                ],
+                "images": [
+                    "/images/referral-stack/onboarding-signup.png",
+                    "/images/referral-stack/empty-payouts-state.png"
+                ],
+                "list": [
+                    "Shopify integration",
+                    "Marketplace functionality",
+                    "A centralized dashboard for managing multi-thread affiliate enrollments",
+                    "Built-in messaging system"
+                ]
             }
         ]
     }

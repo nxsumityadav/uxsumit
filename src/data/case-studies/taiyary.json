@@ -1,0 +1,133 @@
+{
+    "id": 6,
+    "slug": "taiyary",
+    "title": "Increased daily active users by 18%",
+    "image": "/images/taiyary/hero.png",
+    "readTime": "12 m",
+    "wordCount": 1800,
+    "date": "20 JAN 2025",
+    "published": true,
+    "source_url": "https://nxsumityadav.framer.ai/portfolio/increased-daily-active-users-by-18",
+    "content": {
+        "sections": [
+            {
+                "title": "Background",
+                "content": [
+                    "Kamal Bhai's Kitchen is a beloved food vendor at the Jiraaf office, serving over 300 employees daily. Kamal Bhai, the owner and chef, is renowned for his commitment to quality, offering both vegetarian and non-vegetarian meals made from organic ingredients. The kitchen's popularity stems from its delicious, varied menu and Kamal's personal attention to each meal. However, as the office grew, so did the operational challenges. The lunch rush, which peaks between 12–2 PM, saw Kamal Bhai managing 100–150 highly customized orders every day, leading to significant inefficiencies and dissatisfaction among employees."
+                ],
+                "images": [
+                    "/images/taiyary/three-phones-floating.webp"
+                ]
+            },
+            {
+                "title": "Core problem",
+                "content": [
+                    "Despite high demand, the lunch process was fraught with inefficiencies: Kamal Bhai managed 100–150 orders in just a two-hour window (12–2 PM), with frequent customizations. Employees faced long queues, unpredictable wait times, and occasional confusion over their order status. The manual process increased the risk of errors, delayed deliveries, and left little room for operational scalability. The overarching challenge was to streamline the ordering and delivery process for both Kamal and the employees, reducing friction and improving the overall lunchtime experience."
+                ],
+                "lists": [
+                    {
+                        "title": "Key Issues:",
+                        "items": [
+                            "Kamal Bhai managed 100–150 orders in just a two-hour window (12–2 PM), with frequent customizations.",
+                            "Employees faced long queues, unpredictable wait times, and occasional confusion over their order status.",
+                            "The manual process increased the risk of errors, delayed deliveries, and left little room for operational scalability."
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Research and Analysis",
+                "content": [
+                    "Qualitative Research: Conducted in-depth interviews with Kamal, the mess Munim, and a sample group of 20 employees across various departments. Distributed a digital survey (n=73 responses) to understand pain points, desired features, and lunch habits. Benchmarked similar solutions in office cafeterias and food delivery apps."
+                ],
+                "images": [
+                    "/images/taiyary/whatsapp-user-feedback.webp"
+                ],
+                "stats": [
+                    "Order Customization: 68% of employees requested customizations at least twice a week.",
+                    "Wait Times: Average perceived wait time was 14 minutes, with 54% reporting frustration over long queues.",
+                    "Dietary Preferences: 41% preferred vegetarian meals, 59% non-vegetarian, with a strong desire for clear segregation.",
+                    "Order Tracking: 72% wanted real-time updates on order status.",
+                    "Expense Management: 63% expressed interest in an integrated meal expense tracker.",
+                    "Engagement: Employees indicated higher app usage if incentives or gamification were implemented."
+                ],
+                "lists": [
+                    {
+                        "title": "Pain Points Mapped:",
+                        "items": [
+                            "Kamal's difficulty in differentiating and prioritizing custom vs. regular orders.",
+                            "Employees' lack of transparency regarding order status.",
+                            "Limited options for meal delivery/pickup.",
+                            "Manual payment and reimbursement processes were cumbersome."
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Design Process",
+                "content": [
+                    "Mapped the journey for both employees and Kamal Bhai, highlighting emotional touchpoints such as anticipation, frustration, and satisfaction. Experience Mapping: Identified key moments of friction—order placement, queueing, order pickup/delivery, and payment—across the current journey.",
+                    "Ideation Workshops: Collaborated with stakeholders to brainstorm solutions. Prioritized features that directly addressed the most critical pain points.",
+                    "Wireframing & Prototyping: Developed medium-fidelity wireframes for three critical app screens: Employee Order Customization & Tracking, Kamal's Order Management Dashboard, Jiraaf Meal Expense Tracker. Used Tailwind UI Figma components for consistency and rapid iteration.",
+                    "User Flow Definition: Designed parallel user flows for employees (browse, customize, order, track, pay) and Kamal (view orders, manage menu, update status). Incorporated feedback from a senior designer to clarify button hierarchies, notification handling, and layout ergonomics.",
+                    "Usability Testing: Conducted 1:1 usability tests with 8 employees and Kamal, iterating on pain points such as notification visibility, card sizes, and search bar placement. After feedback, improved visual hierarchy, made the future card smaller, and optimized the search bar position for faster access."
+                ],
+                "images": [
+                    "/images/taiyary/user-journey-flowchart.webp",
+                    "/images/taiyary/user-journey-expanded.webp"
+                ]
+            },
+            {
+                "title": "Solutions",
+                "content": [
+                    "Web App Features: Custom Order CTA, Real-Time Order Tracking, Dietary Segregation, Flexible Delivery Options. Kamal's Dashboard: Real-time view of all orders (custom & regular), with prioritization filters and order status management. Gamification & Incentives: Points system and 5% discount for late deliveries to drive engagement and retention. Integrated Payments: Seamless payment gateway and 'Jiraaf' for meal expense tracking and easy reimbursement."
+                ],
+                "images": [
+                    "/images/taiyary/employee-menu-annotated.webp",
+                    "/images/taiyary/kamla-orders-annotated.webp",
+                    "/images/taiyary/kamla-dashboard-annotated.webp",
+                    "/images/taiyary/dual-app-mockup.png"
+                ],
+                "lists": [
+                    {
+                        "title": "Key Features:",
+                        "items": [
+                            "Custom Order CTA: Employees can easily browse, customize, and place orders from a dynamic menu.",
+                            "Real-Time Order Tracking: Push notifications and in-app updates inform employees of order status.",
+                            "Dietary Segregation: Separate sections for veg and non-veg, respecting cultural and dietary needs.",
+                            "Flexible Delivery Options: Desk/table delivery or pickup, with time slot selection.",
+                            "Kamal's Dashboard: Real-time view of all orders (custom & regular), with prioritization filters and order status management.",
+                            "Gamification & Incentives: Points system and 5% discount for late deliveries to drive engagement and retention.",
+                            "Integrated Payments: Seamless payment gateway and 'Jiraaf' for meal expense tracking and easy reimbursement."
+                        ]
+                    },
+                    {
+                        "title": "Data-Driven Improvements:",
+                        "items": [
+                            "Reduced average order wait time from 14 to 7 minutes.",
+                            "Increased order accuracy by 23%.",
+                            "Enhanced user retention and engagement metrics via gamification and rewards."
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Business Outcome",
+                "content": [
+                    "Kamal can now efficiently process up to 150 orders in two hours, with the dashboard improving preparation and resource planning. 78% of pilot users noticed a significant improvement in their lunchtime experience, and queue lengths and wait times dropped by over 50%. The 'Jiraaf' feature made expense reporting and reimbursement 30% more efficient. Gamification and incentives increased daily active users by 18% during the first month of pilot testing."
+                ],
+                "images": [
+                    "/images/taiyary/employee-app-mockup.png",
+                    "/images/taiyary/dashboard-mockup.png",
+                    "/images/taiyary/orders-list-mockup.png"
+                ]
+            },
+            {
+                "title": "Learning and next steps",
+                "content": [
+                    "Key learnings include the importance of data-driven design, continuous feedback, clear user flow separation, and incentive-driven engagement for better adoption. Next steps are to expand the pilot, add advanced analytics, explore group and AI-powered meal recommendations, and refine the UI based on feedback."
+                ]
+            }
+        ]
+    }
+}

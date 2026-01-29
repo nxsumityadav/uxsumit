@@ -142,6 +142,21 @@ const ProjectDetail = ({ project, onBack }) => {
                         <blockquote className="project-note">{section.note}</blockquote>
                       )}
 
+                      {/* Images */}
+                      {section.images && section.images.map((imgSrc, i) => (
+                        <div key={i} className="section-image">
+                          <picture>
+                            <source srcSet={imgSrc.replace(/\.(png|jpg|jpeg|PNG|JPG|JPEG)$/, '.webp')} type="image/webp" />
+                            <img
+                              src={imgSrc}
+                              alt={section.title || 'Project image'}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </picture>
+                        </div>
+                      ))}
+
                       {/* Image References (Placeholders) */}
                       {section.image_references && section.image_references.map((ref, i) => (
                         <div key={i} className="image-placeholder" style={{
@@ -225,7 +240,15 @@ const ProjectDetail = ({ project, onBack }) => {
                   case 'image':
                     return (
                       <div key={index} className="section-image">
-                        <img src={section.src} alt={section.alt || ''} />
+                        <picture>
+                          <source srcSet={section.src.replace(/\.(png|jpg|jpeg|PNG|JPG|JPEG)$/, '.webp')} type="image/webp" />
+                          <img
+                            src={section.src}
+                            alt={section.alt || ''}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
                         {section.caption && <p className="image-caption">{section.caption}</p>}
                       </div>
                     );
@@ -265,7 +288,15 @@ const ProjectDetail = ({ project, onBack }) => {
                         {proj.name} {proj.description && `(${proj.description})`}
                       </h3>
                       <div className="project-item-image">
-                        <img src={proj.image} alt={proj.name} />
+                        <picture>
+                          <source srcSet={proj.image.replace(/\.(png|jpg|jpeg|PNG|JPG|JPEG)$/, '.webp')} type="image/webp" />
+                          <img
+                            src={proj.image}
+                            alt={proj.name}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
                       </div>
                     </div>
                   ))}
@@ -277,7 +308,7 @@ const ProjectDetail = ({ project, onBack }) => {
       </motion.div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+        /* Font import moved to index.html for performance */
 
 
         .page-container {

@@ -1,0 +1,27 @@
+{
+    "id": 4,
+    "slug": "ledger-design-system",
+    "title": "Ledger Design System",
+    "image": "/images/ledger-design-system/hero.png",
+    "readTime": "5 m",
+    "wordCount": 300,
+    "date": "10 DEC 2024",
+    "published": true,
+    "source_url": "https://nxsumityadav.framer.ai/portfolio/ledger-design-system",
+    "nda_protected": true,
+    "content": {
+        "sections": [
+            {
+                "title": "Request access to this case study",
+                "content": [
+                    "This project is protected under a Non-Disclosure Agreement (NDA).",
+                    "To request access or learn more about this case study, please contact me at wrk.sumit@gmail.com."
+                ],
+                "images": [
+                    "/images/ledger-design-system/library-setup-guide.png",
+                    "/images/ledger-design-system/foundations-overview.png"
+                ]
+            }
+        ]
+    }
+}

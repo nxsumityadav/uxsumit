@@ -2,7 +2,7 @@
     "id": 2,
     "slug": "building-saasmetrics-from-scratch",
     "title": "Building SaaSMetrics From Scratch in 3 Months (0 to 1)",
-    "image": "/.netlify/images?url=https://framerusercontent.com/images/15W9Kpj3a6XvvjEspc04YPpIT4.webp?lossless=1&width=3840&height=2160",
+    "image": "/images/saasmetrics/dashboard-overview.png",
     "readTime": "8 m",
     "wordCount": 1200,
     "date": "17 NOV 2025",
@@ -200,8 +200,9 @@
                 "content": [
                     "Imagine a SaaS founder named Priya. Every month, she spends hours pulling data from Stripe, spreadsheets, and analytics tools, trying to understand her company’s growth. She’s frustrated by scattered information, manual reporting, and the constant worry that she’s missing key insights. Priya dreams of a single platform that brings all her metrics together, helps her make faster decisions, and gives her team the clarity they need to grow."
                 ],
-                "image_references": [
-                    "Users Insights"
+                "images": [
+                    "/images/saasmetrics/user-flow-diagram.png",
+                    "/images/saasmetrics/wireframe-layout.png"
                 ],
                 "lists": [
                     {
@@ -229,8 +230,11 @@
                     "For the final usability test, 50 participants put the platform through its paces. We hit a 95% task completion rate, confirming that most users could onboard, connect data, and generate reports without help. Edge cases like missing integration data, email reports ending up in spam, and dashboard slowdowns during heavy use were identified and addressed.",
                     "SaaSMetrics is now a platform shaped as much by its users as by its creators—focused, flexible, and built for the realities of running a SaaS business."
                 ],
-                "image_references": [
-                    "Some visuals:"
+                "images": [
+                    "/images/saasmetrics/analytics-dashboard.png",
+                    "/images/saasmetrics/full-dashboard.png",
+                    "/images/saasmetrics/metrics-display.png",
+                    "/images/saasmetrics/dashboard-component.png"
                 ],
                 "lists": [
                     {
@@ -287,7 +291,6 @@
                     "Iterate on product design and workflows based on user feedback before public launch."
                 ]
             }
-        ],
-        "notes": "The extracted page content contains placeholder text for images (e.g., 'Users Insights', 'Some visuals:'), but no actual image URLs were found in the provided text. All textual content, tables, and lists have been structured above."
+        ]
     }
 }
